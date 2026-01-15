@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1 Meal Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c5f2d;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-button {
+            padding: 10px 20px;
+            background-color: #2c5f2d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: #1f4420;
+        }
+        
+        .nav-button.active {
+            background-color: #1f4420;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .meal-day {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .meal-header {
+            background-color: #e8f5e9;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .meal-header:hover {
+            background-color: #c8e6c9;
+        }
+        
+        .meal-header h2 {
+            color: #2c5f2d;
+            font-size: 1.3em;
+        }
+        
+        .meal-meta {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .expand-icon {
+            font-size: 1.5em;
+            color: #2c5f2d;
+            transition: transform 0.3s;
+        }
+        
+        .meal-day.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .meal-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .meal-day.expanded .meal-content {
+            display: block;
+        }
+        
+        .meal-content h3 {
+            color: #2c5f2d;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .meal-content h3:first-child {
+            margin-top: 0;
+        }
+        
+        .meal-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .meal-content li {
+            margin-bottom: 5px;
+        }
+        
+        .meal-content ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .meal-content ol li {
+            margin-bottom: 10px;
+        }
+        
+        .baby-note {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-left: 4px solid #ff9800;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .baby-note strong {
+            color: #e65100;
+        }
+        
+        .storage-tip {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #2196f3;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .storage-tip strong {
+            color: #1565c0;
+        }
+        
+        .grocery-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .grocery-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .grocery-section h3 {
+            color: #2c5f2d;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #2c5f2d;
+            padding-bottom: 8px;
+        }
+        
+        .grocery-section ul {
+            list-style: none;
+        }
+        
+        .grocery-section li {
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .grocery-section li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #2c5f2d;
+            font-size: 1.2em;
+        }
+        
+        @media print {
+            .nav-buttons {
+                display: none;
+            }
+            
+            .page {
+                display: block !important;
+            }
+            
+            .meal-content {
+                display: block !important;
+            }
+            
+            .expand-icon {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week 1 Meal Plan</h1>
+        <p class="subtitle">Vegetarian dinners with leftovers for lunch | 4-5 servings per meal</p>
+        
+        <div class="nav-buttons">
+            <button class="nav-button active" onclick="showPage('meals')">Meal Plan</button>
+            <button class="nav-button" onclick="showPage('grocery')">Grocery List</button>
+        </div>
+        
+        <!-- MEAL PLAN PAGE -->
+        <div id="meals" class="page active">
+            
+            <!-- MONDAY -->
+            <div class="meal-day">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Monday: Sheet Pan Roasted Vegetable Fajitas</h2>
+                        <div class="meal-meta">Serves 4-5 | Time: 35 minutes</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Roasted bell peppers, onions, and zucchini with cumin and smoked paprika, served with warm tortillas, black beans, cheese, and all the fixings.</p>
+                    
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>3 bell peppers (mixed colors), sliced into strips</li>
+                        <li>1 large onion, sliced into strips</li>
+                        <li>1 medium zucchini, sliced into half-moons</li>
+                        <li>2 tablespoons olive oil</li>
+                        <li>1½ teaspoons cumin</li>
+                        <li>1½ teaspoons smoked paprika</li>
+                        <li>¾ teaspoon chili powder</li>
+                        <li>¾ teaspoon garlic powder</li>
+                        <li>Salt and pepper to taste</li>
+                        <li>2 cans (15 oz each) black beans, drained and rinsed</li>
+                        <li>8-10 flour tortillas</li>
+                        <li>1½ cups shredded cheese (Mexican blend or cheddar)</li>
+                        <li>Optional toppings: salsa, avocado, sour cream, cilantro, lime wedges</li>
+                    </ul>
+                    
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>Preheat oven to 425°F. Line one or two large baking sheets with parchment paper.</li>
+                        <li>In a large bowl, toss the sliced peppers, onions, and zucchini with olive oil, cumin, smoked paprika, chili powder, garlic powder, salt, and pepper.</li>
+                        <li>Spread vegetables evenly across the baking sheet(s). Roast for 25-30 minutes, stirring halfway through, until vegetables are tender and slightly charred.</li>
+                        <li>While vegetables roast, warm black beans in a pot on the stove with a pinch of cumin and salt.</li>
+                        <li>Warm tortillas in the oven (wrapped in foil) for the last 5 minutes of cooking, or individually in a dry skillet.</li>
+                        <li>Serve family-style: let everyone build their own fajitas with roasted vegetables, black beans, cheese, and toppings.</li>
+                    </ol>
+                    
+                    <div class="baby-note">
+                        <strong>For baby:</strong> Set aside a portion of roasted vegetables and black beans before adding heavy seasoning. Chop vegetables into small, manageable pieces. Mash beans slightly. Offer small strips of soft tortilla.
+                    </div>
+                    
+                    <div class="storage-tip">
+                        <strong>Storage tip:</strong> Store roasted vegetables, beans, and toppings separately. Reheat vegetables in a skillet for best texture.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TUESDAY -->
+            <div class="meal-day">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Tuesday: Creamy Coconut Red Lentil Curry</h2>
+                        <div class="meal-meta">Serves 4-5 | Time: 30 minutes</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Red lentils simmered with coconut milk, tomatoes, ginger, garlic, and garam masala. Served over rice with naan or flatbread.</p>
+                    
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>1½ tablespoons olive oil or coconut oil</li>
+                        <li>1 medium onion, diced</li>
+                        <li>3 cloves garlic, minced</li>
+                        <li>1½ tablespoons fresh ginger, minced</li>
+                        <li>1½ tablespoons garam masala</li>
+                        <li>¾ teaspoon cumin</li>
+                        <li>¾ teaspoon turmeric</li>
+                        <li>¼ teaspoon cayenne pepper (optional, or to taste)</li>
+                        <li>1½ cups red lentils, rinsed</li>
+                        <li>1 can (14.5 oz) diced tomatoes</li>
+                        <li>1 can (13.5 oz) coconut milk</li>
+                        <li>2 cups vegetable broth</li>
+                        <li>1½ teaspoons salt (or to taste)</li>
+                        <li>1½ cups spinach, roughly chopped</li>
+                        <li>Juice of ½ lemon</li>
+                        <li>Rice for serving (2 cups uncooked)</li>
+                        <li>Naan or flatbread for serving</li>
+                    </ul>
+                    
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>Start cooking rice according to package directions (2 cups uncooked rice).</li>
+                        <li>Heat oil in a large pot or Dutch oven over medium heat. Add onion and cook for 5 minutes until softened.</li>
+                        <li>Add garlic and ginger, cook for 1 minute until fragrant.</li>
+                        <li>Add garam masala, cumin, turmeric, and cayenne. Stir for 30 seconds.</li>
+                        <li>Add red lentils, diced tomatoes (with juice), coconut milk, and vegetable broth. Stir well.</li>
+                        <li>Bring to a boil, then reduce heat and simmer uncovered for 20-25 minutes, stirring occasionally, until lentils are completely soft and broken down.</li>
+                        <li>Stir in spinach and cook until wilted, about 2 minutes.</li>
+                        <li>Add salt and lemon juice to taste.</li>
+                        <li>Serve over rice with naan on the side.</li>
+                    </ol>
+                    
+                    <div class="baby-note">
+                        <strong>For baby:</strong> Before adding cayenne, remove a portion of the curry. The lentils should be very soft and easily mashed. Serve with rice and torn pieces of soft naan. You can thin with a bit of extra coconut milk if needed.
+                    </div>
+                    
+                    <div class="storage-tip">
+                        <strong>Storage tip:</strong> This curry actually improves overnight. Store curry and rice separately. Add a splash of water or broth when reheating as it thickens.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- WEDNESDAY -->
+            <div class="meal-day">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Wednesday: One-Pot Pasta Primavera</h2>
+                        <div class="meal-meta">Serves 4-5 | Time: 25 minutes</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Pasta cooked directly in vegetable broth with cherry tomatoes, asparagus, peas, and spinach, finished with parmesan and lemon.</p>
+                    
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>12 oz pasta (penne, fusilli, or rotini)</li>
+                        <li>3 cups vegetable broth</li>
+                        <li>1½ cups water</li>
+                        <li>2 cloves garlic, minced</li>
+                        <li>1½ cups cherry tomatoes, halved</li>
+                        <li>¾ lb asparagus, trimmed and cut into 1-inch pieces</li>
+                        <li>1½ cups frozen peas</li>
+                        <li>2 cups fresh spinach</li>
+                        <li>¾ cup grated parmesan cheese, plus more for serving</li>
+                        <li>Zest and juice of 1 lemon</li>
+                        <li>2 tablespoons olive oil</li>
+                        <li>Salt and pepper to taste</li>
+                        <li>Red pepper flakes (optional)</li>
+                        <li>Fresh basil (optional)</li>
+                    </ul>
+                    
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>In a large, deep skillet or wide pot, combine pasta, vegetable broth, water, and garlic. Bring to a boil over high heat.</li>
+                        <li>Add cherry tomatoes and asparagus. Reduce heat to medium-high and cook, stirring frequently, for 10-12 minutes until pasta is nearly al dente and most liquid is absorbed.</li>
+                        <li>Add frozen peas and spinach. Stir until spinach is wilted and peas are heated through, about 2-3 minutes.</li>
+                        <li>Remove from heat. Stir in parmesan cheese, lemon zest, lemon juice, and olive oil. The residual heat will create a light, creamy sauce.</li>
+                        <li>Season with salt and pepper to taste. If too dry, add a splash of pasta cooking water or broth.</li>
+                        <li>Serve with additional parmesan and fresh basil if desired.</li>
+                    </ol>
+                    
+                    <div class="baby-note">
+                        <strong>For baby:</strong> This is naturally baby-friendly! Set aside a portion before adding lemon juice and heavy seasoning. Cut pasta into small pieces, ensure vegetables are soft. The peas and cut asparagus tips are great for self-feeding practice.
+                    </div>
+                    
+                    <div class="storage-tip">
+                        <strong>Storage tip:</strong> This pasta can dry out, so store with a bit of extra liquid (broth or olive oil). Reheat gently with a splash of water.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- THURSDAY -->
+            <div class="meal-day">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Thursday: Black Bean & Sweet Potato Quesadillas</h2>
+                        <div class="meal-meta">Serves 4-5 | Time: 30 minutes</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Roasted sweet potato cubes mashed with black beans and cheese, folded into quesadillas and pan-fried until crispy. Serve with salsa and avocado.</p>
+                    
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>2 large sweet potatoes, peeled and cubed (about ½-inch pieces)</li>
+                        <li>1½ tablespoons olive oil</li>
+                        <li>¾ teaspoon cumin</li>
+                        <li>¾ teaspoon smoked paprika</li>
+                        <li>Salt and pepper</li>
+                        <li>1 can (15 oz) black beans, drained and rinsed</li>
+                        <li>2 cups shredded cheese (Mexican blend, cheddar, or monterey jack)</li>
+                        <li>8-10 flour tortillas (8-inch)</li>
+                        <li>Oil or butter for cooking</li>
+                        <li>Toppings: salsa, sour cream or Greek yogurt, avocado, cilantro</li>
+                    </ul>
+                    
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>Preheat oven to 425°F. Spread sweet potato cubes on a large baking sheet. Toss with olive oil, cumin, smoked paprika, salt, and pepper.</li>
+                        <li>Roast for 20-25 minutes, stirring halfway through, until tender and starting to brown.</li>
+                        <li>While sweet potatoes roast, roughly mash black beans in a bowl (leave some texture).</li>
+                        <li>When sweet potatoes are done, mash them roughly with a fork or potato masher. Mix with the mashed black beans.</li>
+                        <li>Heat a large skillet or griddle over medium heat. Lightly brush with oil or butter.</li>
+                        <li>For each quesadilla: place a tortilla in the pan, spread about ⅓ cup of the bean-sweet potato mixture on half, sprinkle with cheese, fold in half. Cook 2-3 minutes per side until golden and cheese is melted.</li>
+                        <li>Repeat with remaining tortillas. You can keep finished quesadillas warm in a 200°F oven.</li>
+                        <li>Cut into wedges and serve with toppings.</li>
+                    </ol>
+                    
+                    <div class="baby-note">
+                        <strong>For baby:</strong> The bean and sweet potato filling is perfect on its own - no tortilla needed. Offer a small portion with some mashed avocado. If baby is doing well with finger foods, you can offer small pieces of quesadilla cut appropriately.
+                    </div>
+                    
+                    <div class="storage-tip">
+                        <strong>Storage tip:</strong> Store filling and quesadillas separately if possible. Quesadillas reheat well in a skillet or oven (better than microwave for crispness).
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FRIDAY -->
+            <div class="meal-day">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Friday: Mediterranean Chickpea Bowls</h2>
+                        <div class="meal-meta">Serves 4-5 | Time: 35 minutes</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Roasted chickpeas with za'atar, cucumber-tomato salad, hummus, couscous, and a lemon-tahini dressing.</p>
+                    
+                    <h3>Ingredients</h3>
+                    <h4>For the chickpeas:</h4>
+                    <ul>
+                        <li>2 cans (15 oz each) chickpeas, drained, rinsed, and patted dry</li>
+                        <li>2 tablespoons olive oil</li>
+                        <li>1½ tablespoons za'atar (or 2 teaspoons dried oregano + 1 teaspoon sesame seeds)</li>
+                        <li>¾ teaspoon cumin</li>
+                        <li>¼ teaspoon paprika</li>
+                        <li>Salt and pepper</li>
+                    </ul>
+                    
+                    <h4>For the bowls:</h4>
+                    <ul>
+                        <li>1½ cups couscous</li>
+                        <li>2 cups boiling water or vegetable broth</li>
+                        <li>1½ tablespoons olive oil</li>
+                        <li>Salt</li>
+                        <li>1 cup hummus (store-bought or homemade)</li>
+                        <li>1 large cucumber, diced</li>
+                        <li>2 cups cherry tomatoes, halved</li>
+                        <li>¼ red onion, finely diced</li>
+                        <li>3 tablespoons fresh parsley or cilantro, chopped</li>
+                        <li>1½ tablespoons lemon juice</li>
+                        <li>1½ tablespoons olive oil</li>
+                        <li>Salt and pepper</li>
+                    </ul>
+                    
+                    <h4>For the lemon-tahini dressing:</h4>
+                    <ul>
+                        <li>⅓ cup tahini</li>
+                        <li>3 tablespoons lemon juice</li>
+                        <li>1 clove garlic, minced</li>
+                        <li>4-5 tablespoons water (to thin)</li>
+                        <li>Salt to taste</li>
+                    </ul>
+                    
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>Preheat oven to 400°F.</li>
+                        <li><strong>Make the chickpeas:</strong> Spread dried chickpeas on a baking sheet. Toss with olive oil, za'atar, cumin, paprika, salt, and pepper. Roast for 25-30 minutes, shaking the pan halfway through, until golden and slightly crispy.</li>
+                        <li><strong>Make the couscous:</strong> While chickpeas roast, place couscous in a large bowl. Add salt and olive oil. Pour boiling water or broth over couscous, stir, cover with a plate or plastic wrap, and let sit for 5 minutes. Fluff with a fork.</li>
+                        <li><strong>Make the cucumber-tomato salad:</strong> In a bowl, combine cucumbers, tomatoes, red onion, and parsley. Dress with lemon juice, olive oil, salt, and pepper.</li>
+                        <li><strong>Make the tahini dressing:</strong> Whisk together tahini, lemon juice, and garlic. Add water one tablespoon at a time until you reach a pourable consistency. Season with salt.</li>
+                        <li><strong>Assemble bowls:</strong> For each serving, add a base of couscous, top with roasted chickpeas, cucumber-tomato salad, a dollop of hummus, and drizzle with tahini dressing.</li>
+                    </ol>
+                    
+                    <div class="baby-note">
+                        <strong>For baby:</strong> Set aside chickpeas before adding heavy seasoning (or mash some of the roasted ones). Serve with couscous, small cucumber pieces (peeled and deseeded), and a small amount of hummus. The tahini dressing can be thinned and offered in small amounts.
+                    </div>
+                    
+                    <div class="storage-tip">
+                        <strong>Storage tip:</strong> Store all components separately. Chickpeas lose their crispness but are still delicious. Everything keeps well for 3-4 days.
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- GROCERY LIST PAGE -->
+        <div id="grocery" class="page">
+            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Complete Shopping List - Week 1</h2>
+            
+            <div class="grocery-list">
+                <div class="grocery-section">
+                    <h3>Produce</h3>
+                    <ul>
+                        <li>Bell peppers, mixed colors (3)</li>
+                        <li>Onions, yellow or white (2 large)</li>
+                        <li>Red onion (1 small, or ¼ of a large one)</li>
+                        <li>Zucchini (1 medium)</li>
+                        <li>Sweet potatoes (2 large)</li>
+                        <li>Cherry tomatoes (3½ cups total - about 2 pints)</li>
+                        <li>Cucumber (1 large)</li>
+                        <li>Asparagus (¾ lb)</li>
+                        <li>Spinach, fresh (3½ cups total - 1-2 bags)</li>
+                        <li>Garlic (1 head)</li>
+                        <li>Fresh ginger (1 knob)</li>
+                        <li>Lemons (3-4)</li>
+                        <li>Avocados (1-2, optional)</li>
+                        <li>Fresh cilantro or parsley (1-2 bunches)</li>
+                        <li>Fresh basil (optional)</li>
+                    </ul>
+                </div>
+                
+                <div class="grocery-section">
+                    <h3>Pantry/Dry Goods</h3>
+                    <ul>
+                        <li>Red lentils (1½ cups)</li>
+                        <li>Black beans, canned (3 cans, 15 oz each)</li>
+                        <li>Chickpeas, canned (2 cans, 15 oz each)</li>
+                        <li>Pasta - penne, fusilli, or rotini (12 oz)</li>
+                        <li>Couscous (1½ cups)</li>
+                        <li>Rice (2 cups uncooked)</li>
+                        <li>Flour tortillas, 8-inch (16-20 total)</li>
+                        <li>Naan or flatbread (1 package)</li>
+                        <li>Coconut milk, full-fat (1 can, 13.5 oz)</li>
+                        <li>Diced tomatoes (1 can, 14.5 oz)</li>
+                        <li>Hummus (1 cup/8 oz)</li>
+                        <li>Tahini (⅓ cup)</li>
+                        <li>Vegetable broth (5-6 cups total)</li>
+                    </ul>
+                </div>
+                
+                <div class="grocery-section">
+                    <h3>Frozen</h3>
+                    <ul>
+                        <li>Peas (1½ cups)</li>
+                    </ul>
+                </div>
+                
+                <div class="grocery-section">
+                    <h3>Dairy/Refrigerated</h3>
+                    <ul>
+                        <li>Shredded cheese - Mexican blend or cheddar (3½ cups total)</li>
+                        <li>Parmesan cheese (¾ cup grated)</li>
+                        <li>Sour cream or Greek yogurt (1 container, optional)</li>
+                    </ul>
+                </div>
+                
+                <div class="grocery-section">
+                    <h3>Spices/Seasonings to Check</h3>
+                    <ul>
+                        <li>Cumin (ground)</li>
+                        <li>Smoked paprika</li>
+                        <li>Chili powder</li>
+                        <li>Garlic powder</li>
+                        <li>Garam masala</li>
+                        <li>Turmeric</li>
+                        <li>Cayenne pepper (optional)</li>
+                        <li>Za'atar (or dried oregano + sesame seeds)</li>
+                        <li>Paprika (regular)</li>
+                        <li>Red pepper flakes (optional)</li>
+                        <li>Salt and black pepper</li>
+                        <li>Olive oil</li>
+                        <li>Vegetable broth/bouillon</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        function toggleMeal(header) {
+            const mealDay = header.parentElement;
+            mealDay.classList.toggle('expanded');
+        }
+        
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
