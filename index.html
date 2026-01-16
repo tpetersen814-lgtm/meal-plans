@@ -136,6 +136,13 @@
             margin-top: 0;
         }
         
+        .meal-content h4 {
+            color: #2c5f2d;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        
         .meal-content ul {
             margin-left: 20px;
             margin-bottom: 15px;
@@ -178,6 +185,24 @@
             color: #1565c0;
         }
         
+        .cooking-mode-button {
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .cooking-mode-button:hover {
+            background-color: #45a049;
+        }
+        
         .grocery-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -217,6 +242,148 @@
             font-size: 1.2em;
         }
         
+        /* Cooking Mode Styles */
+        .cooking-mode-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        .cooking-mode-overlay.active {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cooking-mode-header {
+            background-color: #2c5f2d;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cooking-mode-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .close-cooking-mode {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        
+        .cooking-mode-progress {
+            background-color: #e8f5e9;
+            padding: 10px 20px;
+            text-align: center;
+            color: #2c5f2d;
+            font-weight: bold;
+        }
+        
+        .cooking-mode-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .cooking-step {
+            display: none;
+        }
+        
+        .cooking-step.active {
+            display: block;
+        }
+        
+        .step-ingredients {
+            background-color: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .step-ingredients h3 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .step-ingredients ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-ingredients li {
+            padding: 8px 0;
+            font-size: 1.1em;
+            border-bottom: 1px solid #ffe0b2;
+        }
+        
+        .step-ingredients li:last-child {
+            border-bottom: none;
+        }
+        
+        .step-instruction {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .cooking-mode-navigation {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-top: 1px solid #ddd;
+        }
+        
+        .cooking-nav-button {
+            flex: 1;
+            padding: 15px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .cooking-nav-button.prev {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+        
+        .cooking-nav-button.prev:hover:not(:disabled) {
+            background-color: #d0d0d0;
+        }
+        
+        .cooking-nav-button.next {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        .cooking-nav-button.next:hover:not(:disabled) {
+            background-color: #45a049;
+        }
+        
+        .cooking-nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
         @media print {
             .nav-buttons {
                 display: none;
@@ -231,6 +398,10 @@
             }
             
             .expand-icon {
+                display: none;
+            }
+            
+            .cooking-mode-button {
                 display: none;
             }
         }
@@ -250,7 +421,7 @@
         <div id="meals" class="page active">
             
             <!-- MONDAY -->
-            <div class="meal-day">
+            <div class="meal-day" data-meal="monday">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
                         <h2>Monday: Sheet Pan Roasted Vegetable Fajitas</h2>
@@ -295,11 +466,13 @@
                     <div class="storage-tip">
                         <strong>Storage tip:</strong> Store roasted vegetables, beans, and toppings separately. Reheat vegetables in a skillet for best texture.
                     </div>
+                    
+                    <button class="cooking-mode-button" onclick="startCookingMode('monday')">Start Cooking Mode</button>
                 </div>
             </div>
             
             <!-- TUESDAY -->
-            <div class="meal-day">
+            <div class="meal-day" data-meal="tuesday">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
                         <h2>Tuesday: Creamy Coconut Red Lentil Curry</h2>
@@ -351,11 +524,13 @@
                     <div class="storage-tip">
                         <strong>Storage tip:</strong> This curry actually improves overnight. Store curry and rice separately. Add a splash of water or broth when reheating as it thickens.
                     </div>
+                    
+                    <button class="cooking-mode-button" onclick="startCookingMode('tuesday')">Start Cooking Mode</button>
                 </div>
             </div>
             
             <!-- WEDNESDAY -->
-            <div class="meal-day">
+            <div class="meal-day" data-meal="wednesday">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
                         <h2>Wednesday: One-Pot Pasta Primavera</h2>
@@ -401,11 +576,13 @@
                     <div class="storage-tip">
                         <strong>Storage tip:</strong> This pasta can dry out, so store with a bit of extra liquid (broth or olive oil). Reheat gently with a splash of water.
                     </div>
+                    
+                    <button class="cooking-mode-button" onclick="startCookingMode('wednesday')">Start Cooking Mode</button>
                 </div>
             </div>
             
             <!-- THURSDAY -->
-            <div class="meal-day">
+            <div class="meal-day" data-meal="thursday">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
                         <h2>Thursday: Black Bean & Sweet Potato Quesadillas</h2>
@@ -449,11 +626,13 @@
                     <div class="storage-tip">
                         <strong>Storage tip:</strong> Store filling and quesadillas separately if possible. Quesadillas reheat well in a skillet or oven (better than microwave for crispness).
                     </div>
+                    
+                    <button class="cooking-mode-button" onclick="startCookingMode('thursday')">Start Cooking Mode</button>
                 </div>
             </div>
             
             <!-- FRIDAY -->
-            <div class="meal-day">
+            <div class="meal-day" data-meal="friday">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
                         <h2>Friday: Mediterranean Chickpea Bowls</h2>
@@ -503,11 +682,11 @@
                     <h3>Instructions</h3>
                     <ol>
                         <li>Preheat oven to 400°F.</li>
-                        <li><strong>Make the chickpeas:</strong> Spread dried chickpeas on a baking sheet. Toss with olive oil, za'atar, cumin, paprika, salt, and pepper. Roast for 25-30 minutes, shaking the pan halfway through, until golden and slightly crispy.</li>
-                        <li><strong>Make the couscous:</strong> While chickpeas roast, place couscous in a large bowl. Add salt and olive oil. Pour boiling water or broth over couscous, stir, cover with a plate or plastic wrap, and let sit for 5 minutes. Fluff with a fork.</li>
-                        <li><strong>Make the cucumber-tomato salad:</strong> In a bowl, combine cucumbers, tomatoes, red onion, and parsley. Dress with lemon juice, olive oil, salt, and pepper.</li>
-                        <li><strong>Make the tahini dressing:</strong> Whisk together tahini, lemon juice, and garlic. Add water one tablespoon at a time until you reach a pourable consistency. Season with salt.</li>
-                        <li><strong>Assemble bowls:</strong> For each serving, add a base of couscous, top with roasted chickpeas, cucumber-tomato salad, a dollop of hummus, and drizzle with tahini dressing.</li>
+                        <li>Spread dried chickpeas on a baking sheet. Toss with olive oil, za'atar, cumin, paprika, salt, and pepper. Roast for 25-30 minutes, shaking the pan halfway through, until golden and slightly crispy.</li>
+                        <li>While chickpeas roast, place couscous in a large bowl. Add salt and olive oil. Pour boiling water or broth over couscous, stir, cover with a plate or plastic wrap, and let sit for 5 minutes. Fluff with a fork.</li>
+                        <li>In a bowl, combine cucumbers, tomatoes, red onion, and parsley. Dress with lemon juice, olive oil, salt, and pepper.</li>
+                        <li>Whisk together tahini, lemon juice, and garlic. Add water one tablespoon at a time until you reach a pourable consistency. Season with salt.</li>
+                        <li>For each serving, add a base of couscous, top with roasted chickpeas, cucumber-tomato salad, a dollop of hummus, and drizzle with tahini dressing.</li>
                     </ol>
                     
                     <div class="baby-note">
@@ -517,6 +696,8 @@
                     <div class="storage-tip">
                         <strong>Storage tip:</strong> Store all components separately. Chickpeas lose their crispness but are still delicious. Everything keeps well for 3-4 days.
                     </div>
+                    
+                    <button class="cooking-mode-button" onclick="startCookingMode('friday')">Start Cooking Mode</button>
                 </div>
             </div>
             
@@ -606,27 +787,417 @@
         
     </div>
     
+    <!-- COOKING MODE OVERLAY -->
+    <div class="cooking-mode-overlay" id="cookingModeOverlay">
+        <div class="cooking-mode-header">
+            <div class="cooking-mode-title" id="cookingModeTitle">Cooking Mode</div>
+            <button class="close-cooking-mode" onclick="exitCookingMode()">✕</button>
+        </div>
+        <div class="cooking-mode-progress" id="cookingModeProgress">Step 1 of 6</div>
+        <div class="cooking-mode-content" id="cookingModeContent">
+            <!-- Steps will be inserted here -->
+        </div>
+        <div class="cooking-mode-navigation">
+            <button class="cooking-nav-button prev" id="prevStepBtn" onclick="prevStep()">← Previous</button>
+            <button class="cooking-nav-button next" id="nextStepBtn" onclick="nextStep()">Next →</button>
+        </div>
+    </div>
+    
     <script>
+        const recipes = {
+            monday: {
+                title: "Sheet Pan Roasted Vegetable Fajitas",
+                steps: [
+                    {
+                        ingredients: ["Parchment paper"],
+                        instruction: "Preheat oven to 425°F. Line one or two large baking sheets with parchment paper."
+                    },
+                    {
+                        ingredients: [
+                            "3 bell peppers, sliced",
+                            "1 large onion, sliced",
+                            "1 medium zucchini, sliced",
+                            "2 tablespoons olive oil",
+                            "1½ teaspoons cumin",
+                            "1½ teaspoons smoked paprika",
+                            "¾ teaspoon chili powder",
+                            "¾ teaspoon garlic powder",
+                            "Salt and pepper"
+                        ],
+                        instruction: "In a large bowl, toss the sliced peppers, onions, and zucchini with olive oil, cumin, smoked paprika, chili powder, garlic powder, salt, and pepper."
+                    },
+                    {
+                        ingredients: ["Tossed vegetables"],
+                        instruction: "Spread vegetables evenly across the baking sheet(s). Roast for 25-30 minutes, stirring halfway through, until vegetables are tender and slightly charred."
+                    },
+                    {
+                        ingredients: [
+                            "2 cans black beans",
+                            "Pinch of cumin",
+                            "Salt"
+                        ],
+                        instruction: "While vegetables roast, warm black beans in a pot on the stove with a pinch of cumin and salt."
+                    },
+                    {
+                        ingredients: ["8-10 flour tortillas"],
+                        instruction: "Warm tortillas in the oven (wrapped in foil) for the last 5 minutes of cooking, or individually in a dry skillet."
+                    },
+                    {
+                        ingredients: [
+                            "Roasted vegetables",
+                            "Black beans",
+                            "1½ cups shredded cheese",
+                            "Optional: salsa, avocado, sour cream, cilantro, lime"
+                        ],
+                        instruction: "Serve family-style: let everyone build their own fajitas with roasted vegetables, black beans, cheese, and toppings."
+                    }
+                ]
+            },
+            tuesday: {
+                title: "Creamy Coconut Red Lentil Curry",
+                steps: [
+                    {
+                        ingredients: ["2 cups uncooked rice"],
+                        instruction: "Start cooking rice according to package directions (2 cups uncooked rice)."
+                    },
+                    {
+                        ingredients: [
+                            "1½ tablespoons oil",
+                            "1 medium onion, diced"
+                        ],
+                        instruction: "Heat oil in a large pot or Dutch oven over medium heat. Add onion and cook for 5 minutes until softened."
+                    },
+                    {
+                        ingredients: [
+                            "3 cloves garlic, minced",
+                            "1½ tablespoons fresh ginger, minced"
+                        ],
+                        instruction: "Add garlic and ginger, cook for 1 minute until fragrant."
+                    },
+                    {
+                        ingredients: [
+                            "1½ tablespoons garam masala",
+                            "¾ teaspoon cumin",
+                            "¾ teaspoon turmeric",
+                            "¼ teaspoon cayenne pepper (optional)"
+                        ],
+                        instruction: "Add garam masala, cumin, turmeric, and cayenne. Stir for 30 seconds."
+                    },
+                    {
+                        ingredients: [
+                            "1½ cups red lentils, rinsed",
+                            "1 can (14.5 oz) diced tomatoes",
+                            "1 can (13.5 oz) coconut milk",
+                            "2 cups vegetable broth"
+                        ],
+                        instruction: "Add red lentils, diced tomatoes (with juice), coconut milk, and vegetable broth. Stir well. Bring to a boil, then reduce heat and simmer uncovered for 20-25 minutes, stirring occasionally, until lentils are completely soft and broken down."
+                    },
+                    {
+                        ingredients: [
+                            "1½ cups spinach, chopped",
+                            "1½ teaspoons salt",
+                            "Juice of ½ lemon"
+                        ],
+                        instruction: "Stir in spinach and cook until wilted, about 2 minutes. Add salt and lemon juice to taste."
+                    },
+                    {
+                        ingredients: [
+                            "Cooked rice",
+                            "Naan or flatbread"
+                        ],
+                        instruction: "Serve over rice with naan on the side."
+                    }
+                ]
+            },
+            wednesday: {
+                title: "One-Pot Pasta Primavera",
+                steps: [
+                    {
+                        ingredients: [
+                            "12 oz pasta",
+                            "3 cups vegetable broth",
+                            "1½ cups water",
+                            "2 cloves garlic, minced"
+                        ],
+                        instruction: "In a large, deep skillet or wide pot, combine pasta, vegetable broth, water, and garlic. Bring to a boil over high heat."
+                    },
+                    {
+                        ingredients: [
+                            "1½ cups cherry tomatoes, halved",
+                            "¾ lb asparagus, cut into 1-inch pieces"
+                        ],
+                        instruction: "Add cherry tomatoes and asparagus. Reduce heat to medium-high and cook, stirring frequently, for 10-12 minutes until pasta is nearly al dente and most liquid is absorbed."
+                    },
+                    {
+                        ingredients: [
+                            "1½ cups frozen peas",
+                            "2 cups fresh spinach"
+                        ],
+                        instruction: "Add frozen peas and spinach. Stir until spinach is wilted and peas are heated through, about 2-3 minutes."
+                    },
+                    {
+                        ingredients: [
+                            "¾ cup grated parmesan cheese",
+                            "Zest and juice of 1 lemon",
+                            "2 tablespoons olive oil",
+                            "Salt and pepper"
+                        ],
+                        instruction: "Remove from heat. Stir in parmesan cheese, lemon zest, lemon juice, and olive oil. The residual heat will create a light, creamy sauce. Season with salt and pepper to taste. If too dry, add a splash of water or broth."
+                    },
+                    {
+                        ingredients: [
+                            "Additional parmesan",
+                            "Fresh basil (optional)"
+                        ],
+                        instruction: "Serve with additional parmesan and fresh basil if desired."
+                    }
+                ]
+            },
+            thursday: {
+                title: "Black Bean & Sweet Potato Quesadillas",
+                steps: [
+                    {
+                        ingredients: [
+                            "2 large sweet potatoes, cubed",
+                            "1½ tablespoons olive oil",
+                            "¾ teaspoon cumin",
+                            "¾ teaspoon smoked paprika",
+                            "Salt and pepper"
+                        ],
+                        instruction: "Preheat oven to 425°F. Spread sweet potato cubes on a large baking sheet. Toss with olive oil, cumin, smoked paprika, salt, and pepper."
+                    },
+                    {
+                        ingredients: ["Tossed sweet potatoes"],
+                        instruction: "Roast for 20-25 minutes, stirring halfway through, until tender and starting to brown."
+                    },
+                    {
+                        ingredients: ["1 can (15 oz) black beans"],
+                        instruction: "While sweet potatoes roast, roughly mash black beans in a bowl (leave some texture)."
+                    },
+                    {
+                        ingredients: [
+                            "Roasted sweet potatoes",
+                            "Mashed black beans"
+                        ],
+                        instruction: "When sweet potatoes are done, mash them roughly with a fork or potato masher. Mix with the mashed black beans."
+                    },
+                    {
+                        ingredients: [
+                            "8-10 flour tortillas",
+                            "2 cups shredded cheese",
+                            "Bean-sweet potato mixture",
+                            "Oil or butter"
+                        ],
+                        instruction: "Heat a large skillet or griddle over medium heat. Lightly brush with oil or butter. For each quesadilla: place a tortilla in the pan, spread about ⅓ cup of the bean-sweet potato mixture on half, sprinkle with cheese, fold in half. Cook 2-3 minutes per side until golden and cheese is melted."
+                    },
+                    {
+                        ingredients: ["Cooked quesadillas"],
+                        instruction: "Repeat with remaining tortillas. You can keep finished quesadillas warm in a 200°F oven."
+                    },
+                    {
+                        ingredients: [
+                            "Quesadillas",
+                            "Salsa, sour cream, avocado, cilantro"
+                        ],
+                        instruction: "Cut into wedges and serve with toppings."
+                    }
+                ]
+            },
+            friday: {
+                title: "Mediterranean Chickpea Bowls",
+                steps: [
+                    {
+                        ingredients: [],
+                        instruction: "Preheat oven to 400°F."
+                    },
+                    {
+                        ingredients: [
+                            "2 cans chickpeas, dried",
+                            "2 tablespoons olive oil",
+                            "1½ tablespoons za'atar",
+                            "¾ teaspoon cumin",
+                            "¼ teaspoon paprika",
+                            "Salt and pepper"
+                        ],
+                        instruction: "Spread dried chickpeas on a baking sheet. Toss with olive oil, za'atar, cumin, paprika, salt, and pepper. Roast for 25-30 minutes, shaking the pan halfway through, until golden and slightly crispy."
+                    },
+                    {
+                        ingredients: [
+                            "1½ cups couscous",
+                            "2 cups boiling water or broth",
+                            "1½ tablespoons olive oil",
+                            "Salt"
+                        ],
+                        instruction: "While chickpeas roast, place couscous in a large bowl. Add salt and olive oil. Pour boiling water or broth over couscous, stir, cover with a plate or plastic wrap, and let sit for 5 minutes. Fluff with a fork."
+                    },
+                    {
+                        ingredients: [
+                            "1 large cucumber, diced",
+                            "2 cups cherry tomatoes, halved",
+                            "¼ red onion, diced",
+                            "3 tablespoons parsley, chopped",
+                            "1½ tablespoons lemon juice",
+                            "1½ tablespoons olive oil",
+                            "Salt and pepper"
+                        ],
+                        instruction: "In a bowl, combine cucumbers, tomatoes, red onion, and parsley. Dress with lemon juice, olive oil, salt, and pepper."
+                    },
+                    {
+                        ingredients: [
+                            "⅓ cup tahini",
+                            "3 tablespoons lemon juice",
+                            "1 clove garlic, minced",
+                            "4-5 tablespoons water",
+                            "Salt"
+                        ],
+                        instruction: "Whisk together tahini, lemon juice, and garlic. Add water one tablespoon at a time until you reach a pourable consistency. Season with salt."
+                    },
+                    {
+                        ingredients: [
+                            "Couscous",
+                            "Roasted chickpeas",
+                            "Cucumber-tomato salad",
+                            "1 cup hummus",
+                            "Tahini dressing"
+                        ],
+                        instruction: "For each serving, add a base of couscous, top with roasted chickpeas, cucumber-tomato salad, a dollop of hummus, and drizzle with tahini dressing."
+                    }
+                ]
+            }
+        };
+        
+        let currentRecipe = null;
+        let currentStepIndex = 0;
+        
+        function startCookingMode(mealId) {
+            currentRecipe = recipes[mealId];
+            currentStepIndex = 0;
+            
+            const overlay = document.getElementById('cookingModeOverlay');
+            overlay.classList.add('active');
+            
+            document.getElementById('cookingModeTitle').textContent = currentRecipe.title;
+            
+            renderStep();
+            
+            // Prevent scrolling on body
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function exitCookingMode() {
+            const overlay = document.getElementById('cookingModeOverlay');
+            overlay.classList.remove('active');
+            currentRecipe = null;
+            currentStepIndex = 0;
+            
+            // Re-enable scrolling
+            document.body.style.overflow = 'auto';
+        }
+        
+        function renderStep() {
+            if (!currentRecipe) return;
+            
+            const step = currentRecipe.steps[currentStepIndex];
+            const totalSteps = currentRecipe.steps.length;
+            
+            // Update progress
+            document.getElementById('cookingModeProgress').textContent = 
+                `Step ${currentStepIndex + 1} of ${totalSteps}`;
+            
+            // Build step HTML
+            let stepHTML = '<div class="cooking-step active">';
+            
+            if (step.ingredients.length > 0) {
+                stepHTML += '<div class="step-ingredients">';
+                stepHTML += '<h3>Ingredients for this step:</h3>';
+                stepHTML += '<ul>';
+                step.ingredients.forEach(ingredient => {
+                    stepHTML += `<li>${ingredient}</li>`;
+                });
+                stepHTML += '</ul>';
+                stepHTML += '</div>';
+            }
+            
+            stepHTML += `<div class="step-instruction">${step.instruction}</div>`;
+            stepHTML += '</div>';
+            
+            document.getElementById('cookingModeContent').innerHTML = stepHTML;
+            
+            // Update buttons
+            document.getElementById('prevStepBtn').disabled = currentStepIndex === 0;
+            
+            const nextBtn = document.getElementById('nextStepBtn');
+            if (currentStepIndex === totalSteps - 1) {
+                nextBtn.textContent = 'Done ✓';
+            } else {
+                nextBtn.textContent = 'Next →';
+            }
+        }
+        
+        function nextStep() {
+            if (!currentRecipe) return;
+            
+            if (currentStepIndex < currentRecipe.steps.length - 1) {
+                currentStepIndex++;
+                renderStep();
+            } else {
+                exitCookingMode();
+            }
+        }
+        
+        function prevStep() {
+            if (!currentRecipe) return;
+            
+            if (currentStepIndex > 0) {
+                currentStepIndex--;
+                renderStep();
+            }
+        }
+        
+        // Add swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.getElementById('cookingModeContent').addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.getElementById('cookingModeContent').addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swiped left - next step
+                    nextStep();
+                } else {
+                    // Swiped right - previous step
+                    prevStep();
+                }
+            }
+        }
+        
         function toggleMeal(header) {
             const mealDay = header.parentElement;
             mealDay.classList.toggle('expanded');
         }
         
         function showPage(pageId) {
-            // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             
-            // Remove active class from all buttons
             document.querySelectorAll('.nav-button').forEach(button => {
                 button.classList.remove('active');
             });
             
-            // Show selected page
             document.getElementById(pageId).classList.add('active');
             
-            // Add active class to clicked button
             event.target.classList.add('active');
         }
     </script>
