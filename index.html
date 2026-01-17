@@ -235,11 +235,59 @@
         }
         
         .grocery-section li:before {
-            content: "☐";
-            position: absolute;
-            left: 0;
-            color: #2c5f2d;
-            font-size: 1.2em;
+            content: "";
+        }
+        
+        .grocery-section input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .grocery-section li.checked {
+            text-decoration: line-through;
+            color: #999;
+        }
+        
+        .add-item-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .add-item-input {
+            width: calc(100% - 80px);
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        
+        .add-item-button {
+            padding: 8px 15px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-left: 5px;
+        }
+        
+        .add-item-button:hover {
+            background-color: #45a049;
+        }
+        
+        .delete-item {
+            color: #f44336;
+            cursor: pointer;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        
+        .delete-item:hover {
+            color: #d32f2f;
         }
         
         /* Cooking Mode Styles */
@@ -420,62 +468,11 @@
         <!-- MEAL PLAN PAGE -->
         <div id="meals" class="page active">
             
-            <!-- MONDAY -->
-            <div class="meal-day" data-meal="monday">
+            <!-- MEAL 1 -->
+            <div class="meal-day" data-meal="meal1">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Monday: Sheet Pan Roasted Vegetable Fajitas</h2>
-                        <div class="meal-meta">Serves 4-5 | Time: 35 minutes</div>
-                    </div>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="meal-content">
-                    <p>Roasted bell peppers, onions, and zucchini with cumin and smoked paprika, served with warm tortillas, black beans, cheese, and all the fixings.</p>
-                    
-                    <h3>Ingredients</h3>
-                    <ul>
-                        <li>3 bell peppers (mixed colors), sliced into strips</li>
-                        <li>1 large onion, sliced into strips</li>
-                        <li>1 medium zucchini, sliced into half-moons</li>
-                        <li>2 tablespoons olive oil</li>
-                        <li>1½ teaspoons cumin</li>
-                        <li>1½ teaspoons smoked paprika</li>
-                        <li>¾ teaspoon chili powder</li>
-                        <li>¾ teaspoon garlic powder</li>
-                        <li>Salt and pepper to taste</li>
-                        <li>2 cans (15 oz each) black beans, drained and rinsed</li>
-                        <li>8-10 flour tortillas</li>
-                        <li>1½ cups shredded cheese (Mexican blend or cheddar)</li>
-                        <li>Optional toppings: salsa, avocado, sour cream, cilantro, lime wedges</li>
-                    </ul>
-                    
-                    <h3>Instructions</h3>
-                    <ol>
-                        <li>Preheat oven to 425°F. Line one or two large baking sheets with parchment paper.</li>
-                        <li>In a large bowl, toss the sliced peppers, onions, and zucchini with olive oil, cumin, smoked paprika, chili powder, garlic powder, salt, and pepper.</li>
-                        <li>Spread vegetables evenly across the baking sheet(s). Roast for 25-30 minutes, stirring halfway through, until vegetables are tender and slightly charred.</li>
-                        <li>While vegetables roast, warm black beans in a pot on the stove with a pinch of cumin and salt.</li>
-                        <li>Warm tortillas in the oven (wrapped in foil) for the last 5 minutes of cooking, or individually in a dry skillet.</li>
-                        <li>Serve family-style: let everyone build their own fajitas with roasted vegetables, black beans, cheese, and toppings.</li>
-                    </ol>
-                    
-                    <div class="baby-note">
-                        <strong>For baby:</strong> Set aside a portion of roasted vegetables and black beans before adding heavy seasoning. Chop vegetables into small, manageable pieces. Mash beans slightly. Offer small strips of soft tortilla.
-                    </div>
-                    
-                    <div class="storage-tip">
-                        <strong>Storage tip:</strong> Store roasted vegetables, beans, and toppings separately. Reheat vegetables in a skillet for best texture.
-                    </div>
-                    
-                    <button class="cooking-mode-button" onclick="startCookingMode('monday')">Start Cooking Mode</button>
-                </div>
-            </div>
-            
-            <!-- TUESDAY -->
-            <div class="meal-day" data-meal="tuesday">
-                <div class="meal-header" onclick="toggleMeal(this)">
-                    <div>
-                        <h2>Tuesday: Creamy Coconut Red Lentil Curry</h2>
+                        <h2>Meal 1: Creamy Coconut Red Lentil Curry</h2>
                         <div class="meal-meta">Serves 4-5 | Time: 30 minutes</div>
                     </div>
                     <span class="expand-icon">▼</span>
@@ -525,117 +522,86 @@
                         <strong>Storage tip:</strong> This curry actually improves overnight. Store curry and rice separately. Add a splash of water or broth when reheating as it thickens.
                     </div>
                     
-                    <button class="cooking-mode-button" onclick="startCookingMode('tuesday')">Start Cooking Mode</button>
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal1')">Start Cooking Mode</button>
                 </div>
             </div>
             
-            <!-- WEDNESDAY -->
-            <div class="meal-day" data-meal="wednesday">
+            <!-- MEAL 2 -->
+            <div class="meal-day" data-meal="meal2">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Wednesday: One-Pot Pasta Primavera</h2>
-                        <div class="meal-meta">Serves 4-5 | Time: 25 minutes</div>
-                    </div>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="meal-content">
-                    <p>Pasta cooked directly in vegetable broth with cherry tomatoes, asparagus, peas, and spinach, finished with parmesan and lemon.</p>
-                    
-                    <h3>Ingredients</h3>
-                    <ul>
-                        <li>12 oz pasta (penne, fusilli, or rotini)</li>
-                        <li>3 cups vegetable broth</li>
-                        <li>1½ cups water</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>1½ cups cherry tomatoes, halved</li>
-                        <li>¾ lb asparagus, trimmed and cut into 1-inch pieces</li>
-                        <li>1½ cups frozen peas</li>
-                        <li>2 cups fresh spinach</li>
-                        <li>¾ cup grated parmesan cheese, plus more for serving</li>
-                        <li>Zest and juice of 1 lemon</li>
-                        <li>2 tablespoons olive oil</li>
-                        <li>Salt and pepper to taste</li>
-                        <li>Red pepper flakes (optional)</li>
-                        <li>Fresh basil (optional)</li>
-                    </ul>
-                    
-                    <h3>Instructions</h3>
-                    <ol>
-                        <li>In a large, deep skillet or wide pot, combine pasta, vegetable broth, water, and garlic. Bring to a boil over high heat.</li>
-                        <li>Add cherry tomatoes and asparagus. Reduce heat to medium-high and cook, stirring frequently, for 10-12 minutes until pasta is nearly al dente and most liquid is absorbed.</li>
-                        <li>Add frozen peas and spinach. Stir until spinach is wilted and peas are heated through, about 2-3 minutes.</li>
-                        <li>Remove from heat. Stir in parmesan cheese, lemon zest, lemon juice, and olive oil. The residual heat will create a light, creamy sauce.</li>
-                        <li>Season with salt and pepper to taste. If too dry, add a splash of pasta cooking water or broth.</li>
-                        <li>Serve with additional parmesan and fresh basil if desired.</li>
-                    </ol>
-                    
-                    <div class="baby-note">
-                        <strong>For baby:</strong> This is naturally baby-friendly! Set aside a portion before adding lemon juice and heavy seasoning. Cut pasta into small pieces, ensure vegetables are soft. The peas and cut asparagus tips are great for self-feeding practice.
-                    </div>
-                    
-                    <div class="storage-tip">
-                        <strong>Storage tip:</strong> This pasta can dry out, so store with a bit of extra liquid (broth or olive oil). Reheat gently with a splash of water.
-                    </div>
-                    
-                    <button class="cooking-mode-button" onclick="startCookingMode('wednesday')">Start Cooking Mode</button>
-                </div>
-            </div>
-            
-            <!-- THURSDAY -->
-            <div class="meal-day" data-meal="thursday">
-                <div class="meal-header" onclick="toggleMeal(this)">
-                    <div>
-                        <h2>Thursday: Black Bean & Sweet Potato Quesadillas</h2>
+                        <h2>Meal 2: Ginger Garlic Stir-Fried Noodles with Vegetables</h2>
                         <div class="meal-meta">Serves 4-5 | Time: 30 minutes</div>
                     </div>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="meal-content">
-                    <p>Roasted sweet potato cubes mashed with black beans and cheese, folded into quesadillas and pan-fried until crispy. Serve with salsa and avocado.</p>
+                    <p>Chewy rice noodles tossed with crispy vegetables in a savory ginger-garlic sauce, topped with crushed peanuts and fresh herbs.</p>
                     
                     <h3>Ingredients</h3>
+                    <h4>For the noodles and vegetables:</h4>
                     <ul>
-                        <li>2 large sweet potatoes, peeled and cubed (about ½-inch pieces)</li>
-                        <li>1½ tablespoons olive oil</li>
-                        <li>¾ teaspoon cumin</li>
-                        <li>¾ teaspoon smoked paprika</li>
-                        <li>Salt and pepper</li>
-                        <li>1 can (15 oz) black beans, drained and rinsed</li>
-                        <li>2 cups shredded cheese (Mexican blend, cheddar, or monterey jack)</li>
-                        <li>8-10 flour tortillas (8-inch)</li>
-                        <li>Oil or butter for cooking</li>
-                        <li>Toppings: salsa, sour cream or Greek yogurt, avocado, cilantro</li>
+                        <li>12 oz rice noodles (pad thai style) or lo mein noodles</li>
+                        <li>2 tablespoons vegetable oil, divided</li>
+                        <li>1 block (14 oz) firm tofu, pressed and cubed</li>
+                        <li>1 red bell pepper, sliced into strips</li>
+                        <li>1 cup snap peas or snow peas</li>
+                        <li>2 medium carrots, julienned or shredded</li>
+                        <li>1 cup broccoli florets, cut small</li>
+                        <li>3 green onions, cut into 1-inch pieces</li>
+                        <li>2 cups baby bok choy or napa cabbage, chopped</li>
+                    </ul>
+                    
+                    <h4>For the sauce:</h4>
+                    <ul>
+                        <li>3 tablespoons soy sauce</li>
+                        <li>1½ tablespoons rice vinegar</li>
+                        <li>1 tablespoon sesame oil</li>
+                        <li>1 tablespoon maple syrup or brown sugar</li>
+                        <li>2 tablespoons fresh ginger, minced</li>
+                        <li>4 cloves garlic, minced</li>
+                        <li>1 teaspoon cornstarch</li>
+                        <li>2 tablespoons water</li>
+                        <li>1 teaspoon chili garlic sauce or sriracha (optional)</li>
+                    </ul>
+                    
+                    <h4>For garnish:</h4>
+                    <ul>
+                        <li>¼ cup crushed peanuts or cashews</li>
+                        <li>Fresh cilantro or Thai basil</li>
+                        <li>Lime wedges</li>
+                        <li>Sesame seeds</li>
                     </ul>
                     
                     <h3>Instructions</h3>
                     <ol>
-                        <li>Preheat oven to 425°F. Spread sweet potato cubes on a large baking sheet. Toss with olive oil, cumin, smoked paprika, salt, and pepper.</li>
-                        <li>Roast for 20-25 minutes, stirring halfway through, until tender and starting to brown.</li>
-                        <li>While sweet potatoes roast, roughly mash black beans in a bowl (leave some texture).</li>
-                        <li>When sweet potatoes are done, mash them roughly with a fork or potato masher. Mix with the mashed black beans.</li>
-                        <li>Heat a large skillet or griddle over medium heat. Lightly brush with oil or butter.</li>
-                        <li>For each quesadilla: place a tortilla in the pan, spread about ⅓ cup of the bean-sweet potato mixture on half, sprinkle with cheese, fold in half. Cook 2-3 minutes per side until golden and cheese is melted.</li>
-                        <li>Repeat with remaining tortillas. You can keep finished quesadillas warm in a 200°F oven.</li>
-                        <li>Cut into wedges and serve with toppings.</li>
+                        <li>Cook rice noodles according to package directions. Drain, rinse with cold water, and set aside.</li>
+                        <li>In a small bowl, whisk together soy sauce, rice vinegar, sesame oil, maple syrup, ginger, garlic, cornstarch, water, and chili sauce if using. Set aside.</li>
+                        <li>Heat 1 tablespoon vegetable oil in a large wok or deep skillet over high heat. Add tofu cubes and cook, stirring occasionally, for 5-7 minutes until golden and crispy on most sides. Remove and set aside.</li>
+                        <li>Add remaining 1 tablespoon oil to the wok. Add bell pepper, snap peas, carrots, and broccoli. Stir-fry for 3-4 minutes until vegetables are tender-crisp and bright.</li>
+                        <li>Add green onions and bok choy, stir-fry for 1-2 minutes until bok choy wilts.</li>
+                        <li>Return tofu to the wok. Add cooked noodles and pour the sauce over everything. Toss everything together for 2-3 minutes until noodles are heated through and coated in sauce.</li>
+                        <li>Remove from heat. Taste and adjust seasoning with more soy sauce if needed.</li>
+                        <li>Serve in bowls topped with crushed peanuts, fresh herbs, lime wedges, and sesame seeds.</li>
                     </ol>
                     
                     <div class="baby-note">
-                        <strong>For baby:</strong> The bean and sweet potato filling is perfect on its own - no tortilla needed. Offer a small portion with some mashed avocado. If baby is doing well with finger foods, you can offer small pieces of quesadilla cut appropriately.
+                        <strong>For baby:</strong> Set aside plain cooked noodles and soft-cooked vegetables (broccoli, carrots, bok choy) before adding sauce. Cut tofu and noodles into small pieces. You can add a tiny bit of the sauce for flavor or serve plain. Skip the peanuts for choking safety.
                     </div>
                     
                     <div class="storage-tip">
-                        <strong>Storage tip:</strong> Store filling and quesadillas separately if possible. Quesadillas reheat well in a skillet or oven (better than microwave for crispness).
+                        <strong>Storage tip:</strong> Store in airtight container for up to 4 days. Noodles may absorb sauce and become less saucy - add a splash of soy sauce and sesame oil when reheating. Reheat in a skillet for best texture.
                     </div>
                     
-                    <button class="cooking-mode-button" onclick="startCookingMode('thursday')">Start Cooking Mode</button>
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal2')">Start Cooking Mode</button>
                 </div>
             </div>
             
-            <!-- FRIDAY -->
-            <div class="meal-day" data-meal="friday">
+            <!-- MEAL 3 -->
+            <div class="meal-day" data-meal="meal3">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Friday: Mediterranean Chickpea Bowls</h2>
+                        <h2>Meal 3: Mediterranean Chickpea Bowls</h2>
                         <div class="meal-meta">Serves 4-5 | Time: 35 minutes</div>
                     </div>
                     <span class="expand-icon">▼</span>
@@ -697,7 +663,7 @@
                         <strong>Storage tip:</strong> Store all components separately. Chickpeas lose their crispness but are still delicious. Everything keeps well for 3-4 days.
                     </div>
                     
-                    <button class="cooking-mode-button" onclick="startCookingMode('friday')">Start Cooking Mode</button>
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
                 </div>
             </div>
             
@@ -710,77 +676,88 @@
             <div class="grocery-list">
                 <div class="grocery-section">
                     <h3>Produce</h3>
-                    <ul>
-                        <li>Bell peppers, mixed colors (3)</li>
-                        <li>Onions, yellow or white (2 large)</li>
-                        <li>Red onion (1 small, or ¼ of a large one)</li>
-                        <li>Zucchini (1 medium)</li>
-                        <li>Sweet potatoes (2 large)</li>
-                        <li>Cherry tomatoes (3½ cups total - about 2 pints)</li>
-                        <li>Cucumber (1 large)</li>
-                        <li>Asparagus (¾ lb)</li>
-                        <li>Spinach, fresh (3½ cups total - 1-2 bags)</li>
-                        <li>Garlic (1 head)</li>
-                        <li>Fresh ginger (1 knob)</li>
-                        <li>Lemons (3-4)</li>
-                        <li>Avocados (1-2, optional)</li>
-                        <li>Fresh cilantro or parsley (1-2 bunches)</li>
-                        <li>Fresh basil (optional)</li>
+                    <ul id="produce-list">
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Onions, yellow or white (1 medium)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Red onion (½ small)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Red bell pepper (1)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Carrots (2 medium)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Broccoli (1 cup florets)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Snap peas or snow peas (1 cup)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Baby bok choy or napa cabbage (2 cups)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Green onions (3)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Cherry tomatoes (2 cups - about 1 pint)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Cucumber (1 large)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Spinach, fresh (1½ cups - small bag)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Garlic (2 heads - you'll need 8 cloves total)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Fresh ginger (1 large knob)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Lemons (2-3)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Limes (for garnish)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Fresh cilantro or parsley (1-2 bunches)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Thai basil or regular basil (optional)</span></li>
                     </ul>
+                    <div class="add-item-section">
+                        <input type="text" class="add-item-input" id="produce-input" placeholder="Add item...">
+                        <button class="add-item-button" onclick="addItem('produce-list', 'produce-input')">Add</button>
+                    </div>
                 </div>
                 
                 <div class="grocery-section">
                     <h3>Pantry/Dry Goods</h3>
-                    <ul>
-                        <li>Red lentils (1½ cups)</li>
-                        <li>Black beans, canned (3 cans, 15 oz each)</li>
-                        <li>Chickpeas, canned (2 cans, 15 oz each)</li>
-                        <li>Pasta - penne, fusilli, or rotini (12 oz)</li>
-                        <li>Couscous (1½ cups)</li>
-                        <li>Rice (2 cups uncooked)</li>
-                        <li>Flour tortillas, 8-inch (16-20 total)</li>
-                        <li>Naan or flatbread (1 package)</li>
-                        <li>Coconut milk, full-fat (1 can, 13.5 oz)</li>
-                        <li>Diced tomatoes (1 can, 14.5 oz)</li>
-                        <li>Hummus (1 cup/8 oz)</li>
-                        <li>Tahini (⅓ cup)</li>
-                        <li>Vegetable broth (5-6 cups total)</li>
+                    <ul id="pantry-list">
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Red lentils (1½ cups)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Chickpeas, canned (2 cans, 15 oz each)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Rice noodles or lo mein noodles (12 oz)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Couscous (1½ cups)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Rice (2 cups uncooked)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Naan or flatbread (1 package)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Coconut milk, full-fat (1 can, 13.5 oz)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Diced tomatoes (1 can, 14.5 oz)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Hummus (1 cup/8 oz)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Tahini (⅓ cup)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Vegetable broth (4 cups total)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Soy sauce</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Rice vinegar</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Sesame oil</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Maple syrup or brown sugar</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Cornstarch</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Crushed peanuts or cashews (¼ cup)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Sesame seeds</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Chili garlic sauce or sriracha (optional)</span></li>
                     </ul>
+                    <div class="add-item-section">
+                        <input type="text" class="add-item-input" id="pantry-input" placeholder="Add item...">
+                        <button class="add-item-button" onclick="addItem('pantry-list', 'pantry-input')">Add</button>
+                    </div>
                 </div>
                 
                 <div class="grocery-section">
-                    <h3>Frozen</h3>
-                    <ul>
-                        <li>Peas (1½ cups)</li>
+                    <h3>Refrigerated/Protein</h3>
+                    <ul id="refrigerated-list">
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Firm tofu (1 block, 14 oz)</span></li>
                     </ul>
-                </div>
-                
-                <div class="grocery-section">
-                    <h3>Dairy/Refrigerated</h3>
-                    <ul>
-                        <li>Shredded cheese - Mexican blend or cheddar (3½ cups total)</li>
-                        <li>Parmesan cheese (¾ cup grated)</li>
-                        <li>Sour cream or Greek yogurt (1 container, optional)</li>
-                    </ul>
+                    <div class="add-item-section">
+                        <input type="text" class="add-item-input" id="refrigerated-input" placeholder="Add item...">
+                        <button class="add-item-button" onclick="addItem('refrigerated-list', 'refrigerated-input')">Add</button>
+                    </div>
                 </div>
                 
                 <div class="grocery-section">
                     <h3>Spices/Seasonings to Check</h3>
-                    <ul>
-                        <li>Cumin (ground)</li>
-                        <li>Smoked paprika</li>
-                        <li>Chili powder</li>
-                        <li>Garlic powder</li>
-                        <li>Garam masala</li>
-                        <li>Turmeric</li>
-                        <li>Cayenne pepper (optional)</li>
-                        <li>Za'atar (or dried oregano + sesame seeds)</li>
-                        <li>Paprika (regular)</li>
-                        <li>Red pepper flakes (optional)</li>
-                        <li>Salt and black pepper</li>
-                        <li>Olive oil</li>
-                        <li>Vegetable broth/bouillon</li>
+                    <ul id="spices-list">
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Cumin (ground)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Garam masala</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Turmeric</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Cayenne pepper (optional)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Za'atar (or dried oregano + sesame seeds)</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Paprika</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Salt and black pepper</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Olive oil</span></li>
+                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Vegetable oil</span></li>
                     </ul>
+                    <div class="add-item-section">
+                        <input type="text" class="add-item-input" id="spices-input" placeholder="Add item...">
+                        <button class="add-item-button" onclick="addItem('spices-list', 'spices-input')">Add</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -805,55 +782,7 @@
     
     <script>
         const recipes = {
-            monday: {
-                title: "Sheet Pan Roasted Vegetable Fajitas",
-                steps: [
-                    {
-                        ingredients: ["Parchment paper"],
-                        instruction: "Preheat oven to 425°F. Line one or two large baking sheets with parchment paper."
-                    },
-                    {
-                        ingredients: [
-                            "3 bell peppers, sliced",
-                            "1 large onion, sliced",
-                            "1 medium zucchini, sliced",
-                            "2 tablespoons olive oil",
-                            "1½ teaspoons cumin",
-                            "1½ teaspoons smoked paprika",
-                            "¾ teaspoon chili powder",
-                            "¾ teaspoon garlic powder",
-                            "Salt and pepper"
-                        ],
-                        instruction: "In a large bowl, toss the sliced peppers, onions, and zucchini with olive oil, cumin, smoked paprika, chili powder, garlic powder, salt, and pepper."
-                    },
-                    {
-                        ingredients: ["Tossed vegetables"],
-                        instruction: "Spread vegetables evenly across the baking sheet(s). Roast for 25-30 minutes, stirring halfway through, until vegetables are tender and slightly charred."
-                    },
-                    {
-                        ingredients: [
-                            "2 cans black beans",
-                            "Pinch of cumin",
-                            "Salt"
-                        ],
-                        instruction: "While vegetables roast, warm black beans in a pot on the stove with a pinch of cumin and salt."
-                    },
-                    {
-                        ingredients: ["8-10 flour tortillas"],
-                        instruction: "Warm tortillas in the oven (wrapped in foil) for the last 5 minutes of cooking, or individually in a dry skillet."
-                    },
-                    {
-                        ingredients: [
-                            "Roasted vegetables",
-                            "Black beans",
-                            "1½ cups shredded cheese",
-                            "Optional: salsa, avocado, sour cream, cilantro, lime"
-                        ],
-                        instruction: "Serve family-style: let everyone build their own fajitas with roasted vegetables, black beans, cheese, and toppings."
-                    }
-                ]
-            },
-            tuesday: {
+            meal1: {
                 title: "Creamy Coconut Red Lentil Curry",
                 steps: [
                     {
@@ -909,101 +838,71 @@
                     }
                 ]
             },
-            wednesday: {
-                title: "One-Pot Pasta Primavera",
+            meal2: {
+                title: "Ginger Garlic Stir-Fried Noodles with Vegetables",
                 steps: [
                     {
-                        ingredients: [
-                            "12 oz pasta",
-                            "3 cups vegetable broth",
-                            "1½ cups water",
-                            "2 cloves garlic, minced"
-                        ],
-                        instruction: "In a large, deep skillet or wide pot, combine pasta, vegetable broth, water, and garlic. Bring to a boil over high heat."
+                        ingredients: ["12 oz rice noodles or lo mein noodles"],
+                        instruction: "Cook rice noodles according to package directions. Drain, rinse with cold water, and set aside."
                     },
                     {
                         ingredients: [
-                            "1½ cups cherry tomatoes, halved",
-                            "¾ lb asparagus, cut into 1-inch pieces"
+                            "3 tablespoons soy sauce",
+                            "1½ tablespoons rice vinegar",
+                            "1 tablespoon sesame oil",
+                            "1 tablespoon maple syrup or brown sugar",
+                            "2 tablespoons fresh ginger, minced",
+                            "4 cloves garlic, minced",
+                            "1 teaspoon cornstarch",
+                            "2 tablespoons water",
+                            "1 teaspoon chili garlic sauce or sriracha (optional)"
                         ],
-                        instruction: "Add cherry tomatoes and asparagus. Reduce heat to medium-high and cook, stirring frequently, for 10-12 minutes until pasta is nearly al dente and most liquid is absorbed."
+                        instruction: "In a small bowl, whisk together soy sauce, rice vinegar, sesame oil, maple syrup, ginger, garlic, cornstarch, water, and chili sauce if using. Set aside."
                     },
                     {
                         ingredients: [
-                            "1½ cups frozen peas",
-                            "2 cups fresh spinach"
+                            "1 tablespoon vegetable oil",
+                            "1 block (14 oz) firm tofu, cubed"
                         ],
-                        instruction: "Add frozen peas and spinach. Stir until spinach is wilted and peas are heated through, about 2-3 minutes."
+                        instruction: "Heat 1 tablespoon vegetable oil in a large wok or deep skillet over high heat. Add tofu cubes and cook, stirring occasionally, for 5-7 minutes until golden and crispy on most sides. Remove and set aside."
                     },
                     {
                         ingredients: [
-                            "¾ cup grated parmesan cheese",
-                            "Zest and juice of 1 lemon",
-                            "2 tablespoons olive oil",
-                            "Salt and pepper"
+                            "1 tablespoon vegetable oil",
+                            "1 red bell pepper, sliced",
+                            "1 cup snap peas or snow peas",
+                            "2 medium carrots, julienned",
+                            "1 cup broccoli florets"
                         ],
-                        instruction: "Remove from heat. Stir in parmesan cheese, lemon zest, lemon juice, and olive oil. The residual heat will create a light, creamy sauce. Season with salt and pepper to taste. If too dry, add a splash of water or broth."
+                        instruction: "Add remaining 1 tablespoon oil to the wok. Add bell pepper, snap peas, carrots, and broccoli. Stir-fry for 3-4 minutes until vegetables are tender-crisp and bright."
                     },
                     {
                         ingredients: [
-                            "Additional parmesan",
-                            "Fresh basil (optional)"
+                            "3 green onions, cut into 1-inch pieces",
+                            "2 cups baby bok choy or napa cabbage, chopped"
                         ],
-                        instruction: "Serve with additional parmesan and fresh basil if desired."
+                        instruction: "Add green onions and bok choy, stir-fry for 1-2 minutes until bok choy wilts."
+                    },
+                    {
+                        ingredients: [
+                            "Cooked tofu",
+                            "Cooked noodles",
+                            "Prepared sauce"
+                        ],
+                        instruction: "Return tofu to the wok. Add cooked noodles and pour the sauce over everything. Toss everything together for 2-3 minutes until noodles are heated through and coated in sauce. Taste and adjust seasoning with more soy sauce if needed."
+                    },
+                    {
+                        ingredients: [
+                            "¼ cup crushed peanuts or cashews",
+                            "Fresh cilantro or Thai basil",
+                            "Lime wedges",
+                            "Sesame seeds"
+                        ],
+                        instruction: "Serve in bowls topped with crushed peanuts, fresh herbs, lime wedges, and sesame seeds."
                     }
                 ]
             },
-            thursday: {
-                title: "Black Bean & Sweet Potato Quesadillas",
-                steps: [
-                    {
-                        ingredients: [
-                            "2 large sweet potatoes, cubed",
-                            "1½ tablespoons olive oil",
-                            "¾ teaspoon cumin",
-                            "¾ teaspoon smoked paprika",
-                            "Salt and pepper"
-                        ],
-                        instruction: "Preheat oven to 425°F. Spread sweet potato cubes on a large baking sheet. Toss with olive oil, cumin, smoked paprika, salt, and pepper."
-                    },
-                    {
-                        ingredients: ["Tossed sweet potatoes"],
-                        instruction: "Roast for 20-25 minutes, stirring halfway through, until tender and starting to brown."
-                    },
-                    {
-                        ingredients: ["1 can (15 oz) black beans"],
-                        instruction: "While sweet potatoes roast, roughly mash black beans in a bowl (leave some texture)."
-                    },
-                    {
-                        ingredients: [
-                            "Roasted sweet potatoes",
-                            "Mashed black beans"
-                        ],
-                        instruction: "When sweet potatoes are done, mash them roughly with a fork or potato masher. Mix with the mashed black beans."
-                    },
-                    {
-                        ingredients: [
-                            "8-10 flour tortillas",
-                            "2 cups shredded cheese",
-                            "Bean-sweet potato mixture",
-                            "Oil or butter"
-                        ],
-                        instruction: "Heat a large skillet or griddle over medium heat. Lightly brush with oil or butter. For each quesadilla: place a tortilla in the pan, spread about ⅓ cup of the bean-sweet potato mixture on half, sprinkle with cheese, fold in half. Cook 2-3 minutes per side until golden and cheese is melted."
-                    },
-                    {
-                        ingredients: ["Cooked quesadillas"],
-                        instruction: "Repeat with remaining tortillas. You can keep finished quesadillas warm in a 200°F oven."
-                    },
-                    {
-                        ingredients: [
-                            "Quesadillas",
-                            "Salsa, sour cream, avocado, cilantro"
-                        ],
-                        instruction: "Cut into wedges and serve with toppings."
-                    }
-                ]
-            },
-            friday: {
+            meal3: {
                 title: "Mediterranean Chickpea Bowls",
                 steps: [
                     {
@@ -1200,6 +1099,63 @@
             
             event.target.classList.add('active');
         }
+        
+        // Grocery list functions
+        function toggleItem(checkbox) {
+            const listItem = checkbox.parentElement;
+            if (checkbox.checked) {
+                listItem.classList.add('checked');
+            } else {
+                listItem.classList.remove('checked');
+            }
+        }
+        
+        function addItem(listId, inputId) {
+            const input = document.getElementById(inputId);
+            const itemText = input.value.trim();
+            
+            if (itemText === '') return;
+            
+            const list = document.getElementById(listId);
+            const newItem = document.createElement('li');
+            
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.onchange = function() { toggleItem(this); };
+            
+            const span = document.createElement('span');
+            span.textContent = itemText;
+            
+            const deleteBtn = document.createElement('span');
+            deleteBtn.className = 'delete-item';
+            deleteBtn.textContent = '✕';
+            deleteBtn.onclick = function() { deleteItem(this); };
+            
+            newItem.appendChild(checkbox);
+            newItem.appendChild(span);
+            newItem.appendChild(deleteBtn);
+            
+            list.appendChild(newItem);
+            input.value = '';
+        }
+        
+        function deleteItem(deleteBtn) {
+            const listItem = deleteBtn.parentElement;
+            listItem.remove();
+        }
+        
+        // Allow Enter key to add items
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.add-item-input');
+            inputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const button = this.nextElementSibling;
+                        button.click();
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
