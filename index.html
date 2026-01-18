@@ -290,6 +290,58 @@
             color: #d32f2f;
         }
         
+        .share-section {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .share-button {
+            padding: 12px 24px;
+            background-color: #2c5f2d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .share-button:hover {
+            background-color: #1f4420;
+        }
+        
+        .share-url {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            word-break: break-all;
+        }
+        
+        .share-url.active {
+            display: block;
+        }
+        
+        .copy-button {
+            padding: 8px 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .copy-button:hover {
+            background-color: #45a049;
+        }
+        
         /* Cooking Mode Styles */
         .cooking-mode-overlay {
             display: none;
@@ -673,6 +725,16 @@
         <div id="grocery" class="page">
             <h2 style="color: #2c5f2d; margin-bottom: 20px;">Complete Shopping List - Week 1</h2>
             
+            <div class="share-section">
+                <button class="share-button" onclick="generateShareLink()">📤 Share List</button>
+                <button class="share-button" onclick="clearAllChecks()">↺ Clear All Checks</button>
+                <div class="share-url" id="shareUrl">
+                    <p><strong>Share this link:</strong></p>
+                    <p id="shareUrlText"></p>
+                    <button class="copy-button" onclick="copyShareLink()">Copy Link</button>
+                </div>
+            </div>
+            
             <div class="grocery-list">
                 <div class="grocery-section">
                     <h3>Produce</h3>
@@ -757,6 +819,16 @@
                     <div class="add-item-section">
                         <input type="text" class="add-item-input" id="spices-input" placeholder="Add item...">
                         <button class="add-item-button" onclick="addItem('spices-list', 'spices-input')">Add</button>
+                    </div>
+                </div>
+                
+                <div class="grocery-section">
+                    <h3>Costco</h3>
+                    <ul id="costco-list">
+                    </ul>
+                    <div class="add-item-section">
+                        <input type="text" class="add-item-input" id="costco-input" placeholder="Add item...">
+                        <button class="add-item-button" onclick="addItem('costco-list', 'costco-input')">Add</button>
                     </div>
                 </div>
             </div>
@@ -1108,6 +1180,7 @@
             } else {
                 listItem.classList.remove('checked');
             }
+            saveListState();
         }
         
         function addItem(listId, inputId) {
@@ -1137,15 +1210,168 @@
             
             list.appendChild(newItem);
             input.value = '';
+            saveListState();
         }
         
         function deleteItem(deleteBtn) {
             const listItem = deleteBtn.parentElement;
             listItem.remove();
+            saveListState();
+        }
+        
+        // Save the entire list state to localStorage
+        function saveListState() {
+            const lists = ['produce-list', 'pantry-list', 'refrigerated-list', 'spices-list', 'costco-list'];
+            const state = {};
+            
+            lists.forEach(listId => {
+                const list = document.getElementById(listId);
+                const items = [];
+                
+                list.querySelectorAll('li').forEach(li => {
+                    const checkbox = li.querySelector('input[type="checkbox"]');
+                    const span = li.querySelector('span');
+                    items.push({
+                        text: span.textContent,
+                        checked: checkbox.checked
+                    });
+                });
+                
+                state[listId] = items;
+            });
+            
+            localStorage.setItem('groceryList', JSON.stringify(state));
+        }
+        
+        // Load the list state from localStorage
+        function loadListState() {
+            const saved = localStorage.getItem('groceryList');
+            if (!saved) return;
+            
+            const state = JSON.parse(saved);
+            const lists = ['produce-list', 'pantry-list', 'refrigerated-list', 'spices-list', 'costco-list'];
+            
+            lists.forEach(listId => {
+                if (!state[listId]) return;
+                
+                const list = document.getElementById(listId);
+                
+                // Clear existing items
+                list.innerHTML = '';
+                
+                // Rebuild from saved state
+                state[listId].forEach(item => {
+                    const newItem = document.createElement('li');
+                    
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.checked = item.checked;
+                    checkbox.onchange = function() { toggleItem(this); };
+                    
+                    const span = document.createElement('span');
+                    span.textContent = item.text;
+                    
+                    // Only add delete button for custom items (those not in original list)
+                    const isCustomItem = !isOriginalItem(listId, item.text);
+                    if (isCustomItem) {
+                        const deleteBtn = document.createElement('span');
+                        deleteBtn.className = 'delete-item';
+                        deleteBtn.textContent = '✕';
+                        deleteBtn.onclick = function() { deleteItem(this); };
+                        newItem.appendChild(checkbox);
+                        newItem.appendChild(span);
+                        newItem.appendChild(deleteBtn);
+                    } else {
+                        newItem.appendChild(checkbox);
+                        newItem.appendChild(span);
+                    }
+                    
+                    if (item.checked) {
+                        newItem.classList.add('checked');
+                    }
+                    
+                    list.appendChild(newItem);
+                });
+            });
+        }
+        
+        // Check if an item is from the original list (to know whether to show delete button)
+        function isOriginalItem(listId, text) {
+            // This is a simple check - you could make it more sophisticated
+            return !text.includes('✕');
+        }
+        
+        // Generate a shareable link
+        function generateShareLink() {
+            const state = localStorage.getItem('groceryList');
+            if (!state) {
+                alert('No list data to share. Make some changes first!');
+                return;
+            }
+            
+            // Compress and encode the state
+            const compressed = btoa(encodeURIComponent(state));
+            const url = window.location.href.split('?')[0] + '?list=' + compressed;
+            
+            document.getElementById('shareUrlText').textContent = url;
+            document.getElementById('shareUrl').classList.add('active');
+        }
+        
+        // Copy share link to clipboard
+        function copyShareLink() {
+            const urlText = document.getElementById('shareUrlText').textContent;
+            navigator.clipboard.writeText(urlText).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+        
+        // Clear all checkboxes
+        function clearAllChecks() {
+            if (!confirm('Clear all checked items? This will uncheck everything but keep your added items.')) {
+                return;
+            }
+            
+            const lists = ['produce-list', 'pantry-list', 'refrigerated-list', 'spices-list', 'costco-list'];
+            lists.forEach(listId => {
+                const list = document.getElementById(listId);
+                list.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = false;
+                    checkbox.parentElement.classList.remove('checked');
+                });
+            });
+            saveListState();
+        }
+        
+        // Load list from URL parameter if present
+        function loadFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const listData = urlParams.get('list');
+            
+            if (listData) {
+                try {
+                    const decoded = decodeURIComponent(atob(listData));
+                    localStorage.setItem('groceryList', decoded);
+                    loadListState();
+                    
+                    // Remove the parameter from URL so it doesn't keep reloading
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                    
+                    alert('Shopping list imported successfully!');
+                } catch (e) {
+                    console.error('Error loading list from URL:', e);
+                }
+            }
         }
         
         // Allow Enter key to add items
         document.addEventListener('DOMContentLoaded', function() {
+            // Check if we're loading from a shared URL
+            loadFromURL();
+            
+            // Load saved state
+            loadListState();
+            
+            // Setup Enter key listeners
             const inputs = document.querySelectorAll('.add-item-input');
             inputs.forEach(input => {
                 input.addEventListener('keypress', function(e) {
