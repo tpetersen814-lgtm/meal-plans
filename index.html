@@ -1311,10 +1311,12 @@
             }
             
             try {
-                // Use a Safari-compatible encoding method
-                // First, convert to URL-safe format
-                const urlSafeData = encodeURIComponent(state);
-                const url = window.location.href.split('?')[0] + '?list=' + urlSafeData;
+                // Convert string to hex encoding (Safari-safe)
+                const hex = Array.from(state)
+                    .map(c => c.charCodeAt(0).toString(16).padStart(2, '0'))
+                    .join('');
+                
+                const url = window.location.href.split('?')[0] + '?list=' + hex;
                 
                 document.getElementById('shareUrlText').textContent = url;
                 document.getElementById('shareUrl').classList.add('active');
@@ -1359,8 +1361,10 @@
             
             if (listData) {
                 try {
-                    // Decode from URL-safe format
-                    const decoded = decodeURIComponent(listData);
+                    // Decode from hex format
+                    const decoded = listData.match(/.{1,2}/g)
+                        .map(hex => String.fromCharCode(parseInt(hex, 16)))
+                        .join('');
                     
                     // Verify it's valid JSON before saving
                     JSON.parse(decoded);
