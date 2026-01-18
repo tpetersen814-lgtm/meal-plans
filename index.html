@@ -1311,9 +1311,10 @@
             }
             
             try {
-                // Compress and encode the state using base64url (safer for URLs)
-                const compressed = btoa(state).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-                const url = window.location.href.split('?')[0] + '?list=' + compressed;
+                // Use a Safari-compatible encoding method
+                // First, convert to URL-safe format
+                const urlSafeData = encodeURIComponent(state);
+                const url = window.location.href.split('?')[0] + '?list=' + urlSafeData;
                 
                 document.getElementById('shareUrlText').textContent = url;
                 document.getElementById('shareUrl').classList.add('active');
@@ -1358,10 +1359,8 @@
             
             if (listData) {
                 try {
-                    // Decode from base64url format
-                    const base64 = listData.replace(/-/g, '+').replace(/_/g, '/');
-                    const padding = '='.repeat((4 - base64.length % 4) % 4);
-                    const decoded = atob(base64 + padding);
+                    // Decode from URL-safe format
+                    const decoded = decodeURIComponent(listData);
                     
                     // Verify it's valid JSON before saving
                     JSON.parse(decoded);
