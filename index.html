@@ -1252,7 +1252,7 @@
             const lists = ['produce-list', 'pantry-list', 'refrigerated-list', 'spices-list', 'costco-list'];
             
             lists.forEach(listId => {
-                if (!state[listId]) return;
+                if (!state[listId] || state[listId].length === 0) return;
                 
                 const list = document.getElementById(listId);
                 
@@ -1309,8 +1309,8 @@
                 return;
             }
             
-            // Compress and encode the state
-            const compressed = btoa(encodeURIComponent(state));
+            // Compress and encode the state using base64url (safer for URLs)
+            const compressed = btoa(state).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
             const url = window.location.href.split('?')[0] + '?list=' + compressed;
             
             document.getElementById('shareUrlText').textContent = url;
@@ -1321,7 +1321,10 @@
         function copyShareLink() {
             const urlText = document.getElementById('shareUrlText').textContent;
             navigator.clipboard.writeText(urlText).then(() => {
-                alert('Link copied to clipboard!');
+                alert('Link copied to clipboard! Send this to share your list.');
+            }).catch(() => {
+                // Fallback for older browsers
+                alert('Copy this link: ' + urlText);
             });
         }
         
@@ -1349,16 +1352,29 @@
             
             if (listData) {
                 try {
-                    const decoded = decodeURIComponent(atob(listData));
+                    // Decode from base64url format
+                    const base64 = listData.replace(/-/g, '+').replace(/_/g, '/');
+                    const padding = '='.repeat((4 - base64.length % 4) % 4);
+                    const decoded = atob(base64 + padding);
+                    
+                    // Verify it's valid JSON before saving
+                    JSON.parse(decoded);
+                    
                     localStorage.setItem('groceryList', decoded);
-                    loadListState();
                     
-                    // Remove the parameter from URL so it doesn't keep reloading
-                    window.history.replaceState({}, document.title, window.location.pathname);
+                    // Force reload the state
+                    setTimeout(() => {
+                        loadListState();
+                        
+                        // Remove the parameter from URL so it doesn't keep reloading
+                        window.history.replaceState({}, document.title, window.location.pathname);
+                        
+                        alert('Shopping list imported successfully! ✓');
+                    }, 100);
                     
-                    alert('Shopping list imported successfully!');
                 } catch (e) {
                     console.error('Error loading list from URL:', e);
+                    alert('Error loading shared list. The link may be corrupted. Please ask for a new link.');
                 }
             }
         }
