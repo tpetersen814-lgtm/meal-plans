@@ -1304,17 +1304,23 @@
         // Generate a shareable link
         function generateShareLink() {
             const state = localStorage.getItem('groceryList');
+            
             if (!state) {
-                alert('No list data to share. Make some changes first!');
+                alert('No list data to share. Make sure you have checked some items or added items first!');
                 return;
             }
             
-            // Compress and encode the state using base64url (safer for URLs)
-            const compressed = btoa(state).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-            const url = window.location.href.split('?')[0] + '?list=' + compressed;
-            
-            document.getElementById('shareUrlText').textContent = url;
-            document.getElementById('shareUrl').classList.add('active');
+            try {
+                // Compress and encode the state using base64url (safer for URLs)
+                const compressed = btoa(state).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+                const url = window.location.href.split('?')[0] + '?list=' + compressed;
+                
+                document.getElementById('shareUrlText').textContent = url;
+                document.getElementById('shareUrl').classList.add('active');
+            } catch (e) {
+                alert('Error generating share link: ' + e.message);
+                console.error('Share link error:', e);
+            }
         }
         
         // Copy share link to clipboard
