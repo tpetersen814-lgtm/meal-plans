@@ -1359,32 +1359,53 @@
             const urlParams = new URLSearchParams(window.location.search);
             const listData = urlParams.get('list');
             
+            console.log('loadFromURL called');
+            console.log('listData from URL:', listData ? 'present' : 'not present');
+            
             if (listData) {
                 try {
+                    console.log('Starting to decode...');
+                    
                     // Decode from hex format
                     const decoded = listData.match(/.{1,2}/g)
                         .map(hex => String.fromCharCode(parseInt(hex, 16)))
                         .join('');
                     
+                    console.log('Decoded successfully');
+                    
                     // Verify it's valid JSON before saving
-                    JSON.parse(decoded);
+                    const parsed = JSON.parse(decoded);
+                    console.log('JSON parsed successfully, data:', parsed);
                     
                     localStorage.setItem('groceryList', decoded);
+                    console.log('Saved to localStorage');
                     
-                    // Force reload the state
+                    // Force reload the state and switch to grocery list page
                     setTimeout(() => {
+                        console.log('Loading state...');
                         loadListState();
+                        
+                        // Switch to the grocery list page automatically
+                        showPage('grocery');
+                        
+                        // Update the nav buttons
+                        document.querySelectorAll('.nav-button').forEach(button => {
+                            button.classList.remove('active');
+                        });
+                        document.querySelectorAll('.nav-button')[1].classList.add('active');
                         
                         // Remove the parameter from URL so it doesn't keep reloading
                         window.history.replaceState({}, document.title, window.location.pathname);
                         
                         alert('Shopping list imported successfully! ✓');
-                    }, 100);
+                    }, 500);
                     
                 } catch (e) {
                     console.error('Error loading list from URL:', e);
-                    alert('Error loading shared list. The link may be corrupted. Please ask for a new link.');
+                    alert('Error loading shared list: ' + e.message + '\n\nThe link may be corrupted. Please ask for a new link.');
                 }
+            } else {
+                console.log('No list parameter in URL');
             }
         }
         
