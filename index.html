@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 1 Meal Plan</title>
+    <title>Week 2 Meal Plan</title>
     <style>
         * {
             margin: 0;
@@ -105,6 +105,17 @@
             font-size: 0.9em;
         }
         
+        .no-cook-badge {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
         .expand-icon {
             font-size: 1.5em;
             color: #2c5f2d;
@@ -200,145 +211,6 @@
         }
         
         .cooking-mode-button:hover {
-            background-color: #45a049;
-        }
-        
-        .grocery-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .grocery-section {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        
-        .grocery-section h3 {
-            color: #2c5f2d;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-            border-bottom: 2px solid #2c5f2d;
-            padding-bottom: 8px;
-        }
-        
-        .grocery-section ul {
-            list-style: none;
-        }
-        
-        .grocery-section li {
-            padding: 5px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .grocery-section li:before {
-            content: "";
-        }
-        
-        .grocery-section input[type="checkbox"] {
-            margin-right: 10px;
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-        }
-        
-        .grocery-section li.checked {
-            text-decoration: line-through;
-            color: #999;
-        }
-        
-        .add-item-section {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #ddd;
-        }
-        
-        .add-item-input {
-            width: calc(100% - 80px);
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1em;
-        }
-        
-        .add-item-button {
-            padding: 8px 15px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-            margin-left: 5px;
-        }
-        
-        .add-item-button:hover {
-            background-color: #45a049;
-        }
-        
-        .delete-item {
-            color: #f44336;
-            cursor: pointer;
-            margin-left: 10px;
-            font-weight: bold;
-        }
-        
-        .delete-item:hover {
-            color: #d32f2f;
-        }
-        
-        .share-section {
-            background-color: #e8f5e9;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .share-button {
-            padding: 12px 24px;
-            background-color: #2c5f2d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        
-        .share-button:hover {
-            background-color: #1f4420;
-        }
-        
-        .share-url {
-            display: none;
-            margin-top: 15px;
-            padding: 10px;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            word-break: break-all;
-        }
-        
-        .share-url.active {
-            display: block;
-        }
-        
-        .copy-button {
-            padding: 8px 16px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        
-        .copy-button:hover {
             background-color: #45a049;
         }
         
@@ -509,72 +381,76 @@
 </head>
 <body>
     <div class="container">
-        <h1>Week 1 Meal Plan</h1>
+        <h1>Week 2 Meal Plan</h1>
         <p class="subtitle">Vegetarian dinners with leftovers for lunch | 4-5 servings per meal</p>
         
         <div class="nav-buttons">
             <button class="nav-button active" onclick="showPage('meals')">Meal Plan</button>
-            <button class="nav-button" onclick="showPage('grocery')">Grocery List</button>
+            <button class="nav-button" onclick="showPage('grocery')">Shopping List</button>
         </div>
         
         <!-- MEAL PLAN PAGE -->
         <div id="meals" class="page active">
             
-            <!-- MEAL 1 -->
+            <!-- MEAL 1: NO-COOK -->
             <div class="meal-day" data-meal="meal1">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Meal 1: Creamy Coconut Red Lentil Curry</h2>
-                        <div class="meal-meta">Serves 4-5 | Time: 30 minutes</div>
+                        <h2>Meal 1: Mediterranean Mezze Platter <span class="no-cook-badge">⚡ NO COOKING</span></h2>
+                        <div class="meal-meta">Serves 4-5 | Time: 15 minutes assembly</div>
                     </div>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="meal-content">
-                    <p>Red lentils simmered with coconut milk, tomatoes, ginger, garlic, and garam masala. Served over rice with naan or flatbread.</p>
+                    <p>A beautiful, no-cook Mediterranean spread with hummus, fresh vegetables, olives, cheese, pita, and more. Perfect for power outages or hot days!</p>
                     
                     <h3>Ingredients</h3>
                     <ul>
-                        <li>1½ tablespoons olive oil or coconut oil</li>
-                        <li>1 medium onion, diced</li>
-                        <li>3 cloves garlic, minced</li>
-                        <li>1½ tablespoons fresh ginger, minced</li>
-                        <li>1½ tablespoons garam masala</li>
-                        <li>¾ teaspoon cumin</li>
-                        <li>¾ teaspoon turmeric</li>
-                        <li>¼ teaspoon cayenne pepper (optional, or to taste)</li>
-                        <li>1½ cups red lentils, rinsed</li>
-                        <li>1 can (14.5 oz) diced tomatoes</li>
-                        <li>1 can (13.5 oz) coconut milk</li>
-                        <li>2 cups vegetable broth</li>
-                        <li>1½ teaspoons salt (or to taste)</li>
-                        <li>1½ cups spinach, roughly chopped</li>
-                        <li>Juice of ½ lemon</li>
-                        <li>Rice for serving (2 cups uncooked)</li>
-                        <li>Naan or flatbread for serving</li>
+                        <li>2 containers (10 oz each) hummus (plain or flavored varieties)</li>
+                        <li>1 container (8 oz) tzatziki sauce</li>
+                        <li>1 container (7 oz) baba ganoush (or extra hummus)</li>
+                        <li>8 oz feta cheese, cubed</li>
+                        <li>1 cup kalamata olives</li>
+                        <li>1 cup cherry tomatoes, halved</li>
+                        <li>2 cucumbers, sliced into rounds or sticks</li>
+                        <li>2 bell peppers (mixed colors), sliced into strips</li>
+                        <li>2 cups baby carrots</li>
+                        <li>1 package (16 oz) pita bread or pita chips</li>
+                        <li>8 oz marinated artichoke hearts, drained</li>
+                        <li>1 cup roasted red peppers (jarred), sliced</li>
+                        <li>1 cup dolmas (stuffed grape leaves) - optional</li>
+                        <li>½ cup extra virgin olive oil</li>
+                        <li>2 tablespoons za'atar or dried oregano</li>
+                        <li>1 lemon, cut into wedges</li>
+                        <li>Fresh herbs (parsley, mint) for garnish</li>
                     </ul>
                     
                     <h3>Instructions</h3>
                     <ol>
-                        <li>Start cooking rice according to package directions (2 cups uncooked rice).</li>
-                        <li>Heat oil in a large pot or Dutch oven over medium heat. Add onion and cook for 5 minutes until softened.</li>
-                        <li>Add garlic and ginger, cook for 1 minute until fragrant.</li>
-                        <li>Add garam masala, cumin, turmeric, and cayenne. Stir for 30 seconds.</li>
-                        <li>Add red lentils, diced tomatoes (with juice), coconut milk, and vegetable broth. Stir well.</li>
-                        <li>Bring to a boil, then reduce heat and simmer uncovered for 20-25 minutes, stirring occasionally, until lentils are completely soft and broken down.</li>
-                        <li>Stir in spinach and cook until wilted, about 2 minutes.</li>
-                        <li>Add salt and lemon juice to taste.</li>
-                        <li>Serve over rice with naan on the side.</li>
+                        <li>Choose a large serving platter or cutting board as your base.</li>
+                        <li>Place the three dips (hummus, tzatziki, baba ganoush) in small bowls around the platter.</li>
+                        <li>Arrange the feta cheese cubes in one section of the platter.</li>
+                        <li>Create sections with the olives, cherry tomatoes, cucumbers, bell peppers, and baby carrots.</li>
+                        <li>Add the artichoke hearts, roasted red peppers, and dolmas (if using) to fill in gaps.</li>
+                        <li>Drizzle olive oil over the vegetables and feta, then sprinkle with za'atar.</li>
+                        <li>Arrange pita bread around the edges or in a basket alongside.</li>
+                        <li>Garnish with fresh herbs and lemon wedges.</li>
+                        <li>Serve immediately or cover and refrigerate until ready to eat (stays fresh for several hours).</li>
                     </ol>
                     
                     <div class="baby-note">
-                        <strong>For baby:</strong> Before adding cayenne, remove a portion of the curry. The lentils should be very soft and easily mashed. Serve with rice and torn pieces of soft naan. You can thin with a bit of extra coconut milk if needed.
+                        <strong>For baby:</strong> Offer small pieces of soft pita bread, mashed chickpeas from the hummus, small cucumber pieces (peeled), well-cooked baby carrots, and small crumbles of feta. Skip olives due to choking risk. The plain hummus works great as a dip or spread.
                     </div>
                     
                     <div class="storage-tip">
-                        <strong>Storage tip:</strong> This curry actually improves overnight. Store curry and rice separately. Add a splash of water or broth when reheating as it thickens.
+                        <strong>Storage tip:</strong> Leftovers keep well! Store each component separately in airtight containers for up to 3 days. The dips stay fresh longest. Vegetables may get less crisp but are still tasty. Perfect for next-day lunches!
                     </div>
                     
-                    <button class="cooking-mode-button" onclick="startCookingMode('meal1')">Start Cooking Mode</button>
+                    <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
+                        <strong style="color: #e65100;">⚡ Power Outage Ready:</strong> This meal requires no cooking or heating! Keep everything refrigerated until serving. If power is out for extended periods, the dips and cheese should be consumed within 4 hours at room temperature. Vegetables can stay out longer.
+                    </div>
+                    
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal1')">Start Assembly Mode</button>
                 </div>
             </div>
             
@@ -582,67 +458,58 @@
             <div class="meal-day" data-meal="meal2">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Meal 2: Ginger Garlic Stir-Fried Noodles with Vegetables</h2>
-                        <div class="meal-meta">Serves 4-5 | Time: 30 minutes</div>
+                        <h2>Meal 2: Sheet Pan Roasted Vegetable & Halloumi Bowl</h2>
+                        <div class="meal-meta">Serves 4-5 | Time: 35 minutes</div>
                     </div>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="meal-content">
-                    <p>Chewy rice noodles tossed with crispy vegetables in a savory ginger-garlic sauce, topped with crushed peanuts and fresh herbs.</p>
+                    <p>Colorful roasted vegetables with crispy, salty halloumi cheese over quinoa, drizzled with a tangy lemon-herb dressing.</p>
                     
                     <h3>Ingredients</h3>
-                    <h4>For the noodles and vegetables:</h4>
+                    <h4>For the bowl:</h4>
                     <ul>
-                        <li>12 oz rice noodles (pad thai style) or lo mein noodles</li>
-                        <li>2 tablespoons vegetable oil, divided</li>
-                        <li>1 block (14 oz) firm tofu, pressed and cubed</li>
-                        <li>1 red bell pepper, sliced into strips</li>
-                        <li>1 cup snap peas or snow peas</li>
-                        <li>2 medium carrots, julienned or shredded</li>
-                        <li>1 cup broccoli florets, cut small</li>
-                        <li>3 green onions, cut into 1-inch pieces</li>
-                        <li>2 cups baby bok choy or napa cabbage, chopped</li>
+                        <li>1½ cups quinoa, uncooked</li>
+                        <li>3 cups vegetable broth or water</li>
+                        <li>2 packages (8 oz each) halloumi cheese, sliced ½-inch thick</li>
+                        <li>1 large sweet potato, cubed</li>
+                        <li>2 medium zucchini, sliced into half-moons</li>
+                        <li>1 red onion, cut into wedges</li>
+                        <li>2 cups cherry tomatoes</li>
+                        <li>1 can (15 oz) chickpeas, drained and patted dry</li>
+                        <li>3 tablespoons olive oil</li>
+                        <li>2 teaspoons cumin</li>
+                        <li>1 teaspoon smoked paprika</li>
+                        <li>Salt and pepper</li>
+                        <li>2 cups arugula or spinach</li>
                     </ul>
                     
-                    <h4>For the sauce:</h4>
+                    <h4>For the lemon-herb dressing:</h4>
                     <ul>
-                        <li>3 tablespoons soy sauce</li>
-                        <li>1½ tablespoons rice vinegar</li>
-                        <li>1 tablespoon sesame oil</li>
-                        <li>1 tablespoon maple syrup or brown sugar</li>
-                        <li>2 tablespoons fresh ginger, minced</li>
-                        <li>4 cloves garlic, minced</li>
-                        <li>1 teaspoon cornstarch</li>
-                        <li>2 tablespoons water</li>
-                        <li>1 teaspoon chili garlic sauce or sriracha (optional)</li>
-                    </ul>
-                    
-                    <h4>For garnish:</h4>
-                    <ul>
-                        <li>¼ cup crushed peanuts or cashews</li>
-                        <li>Fresh cilantro or Thai basil</li>
-                        <li>Lime wedges</li>
-                        <li>Sesame seeds</li>
+                        <li>¼ cup olive oil</li>
+                        <li>3 tablespoons lemon juice</li>
+                        <li>2 cloves garlic, minced</li>
+                        <li>2 tablespoons fresh herbs (parsley, basil, or mint), chopped</li>
+                        <li>1 teaspoon Dijon mustard</li>
+                        <li>Salt and pepper</li>
                     </ul>
                     
                     <h3>Instructions</h3>
                     <ol>
-                        <li>Cook rice noodles according to package directions. Drain, rinse with cold water, and set aside.</li>
-                        <li>In a small bowl, whisk together soy sauce, rice vinegar, sesame oil, maple syrup, ginger, garlic, cornstarch, water, and chili sauce if using. Set aside.</li>
-                        <li>Heat 1 tablespoon vegetable oil in a large wok or deep skillet over high heat. Add tofu cubes and cook, stirring occasionally, for 5-7 minutes until golden and crispy on most sides. Remove and set aside.</li>
-                        <li>Add remaining 1 tablespoon oil to the wok. Add bell pepper, snap peas, carrots, and broccoli. Stir-fry for 3-4 minutes until vegetables are tender-crisp and bright.</li>
-                        <li>Add green onions and bok choy, stir-fry for 1-2 minutes until bok choy wilts.</li>
-                        <li>Return tofu to the wok. Add cooked noodles and pour the sauce over everything. Toss everything together for 2-3 minutes until noodles are heated through and coated in sauce.</li>
-                        <li>Remove from heat. Taste and adjust seasoning with more soy sauce if needed.</li>
-                        <li>Serve in bowls topped with crushed peanuts, fresh herbs, lime wedges, and sesame seeds.</li>
+                        <li>Preheat oven to 425°F. Start cooking quinoa according to package directions (usually 1½ cups quinoa to 3 cups liquid).</li>
+                        <li>On two large baking sheets, spread out the sweet potato cubes, zucchini, red onion, cherry tomatoes, and chickpeas. Toss with olive oil, cumin, smoked paprika, salt, and pepper.</li>
+                        <li>Roast for 25-30 minutes, stirring halfway through, until vegetables are tender and starting to caramelize.</li>
+                        <li>During the last 10 minutes of roasting, heat a non-stick skillet over medium-high heat (no oil needed - halloumi releases its own fat). Add halloumi slices and cook 2-3 minutes per side until golden brown.</li>
+                        <li>While everything cooks, whisk together all dressing ingredients in a small bowl.</li>
+                        <li>To serve: divide quinoa among bowls, top with arugula, roasted vegetables, chickpeas, and halloumi. Drizzle with dressing.</li>
                     </ol>
                     
                     <div class="baby-note">
-                        <strong>For baby:</strong> Set aside plain cooked noodles and soft-cooked vegetables (broccoli, carrots, bok choy) before adding sauce. Cut tofu and noodles into small pieces. You can add a tiny bit of the sauce for flavor or serve plain. Skip the peanuts for choking safety.
+                        <strong>For baby:</strong> Set aside some roasted sweet potato and zucchini before seasoning heavily. Mash or cut into small pieces. The quinoa is great for baby - serve plain or with a tiny bit of dressing. Halloumi can be cut into very small pieces, but monitor closely as it's quite salty.
                     </div>
                     
                     <div class="storage-tip">
-                        <strong>Storage tip:</strong> Store in airtight container for up to 4 days. Noodles may absorb sauce and become less saucy - add a splash of soy sauce and sesame oil when reheating. Reheat in a skillet for best texture.
+                        <strong>Storage tip:</strong> Store components separately for best results. The quinoa and roasted vegetables keep well for 4 days. Halloumi can be stored and reheated in a skillet (it won't be as crispy but still delicious). Keep dressing separate and add when serving.
                     </div>
                     
                     <button class="cooking-mode-button" onclick="startCookingMode('meal2')">Start Cooking Mode</button>
@@ -653,66 +520,52 @@
             <div class="meal-day" data-meal="meal3">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Meal 3: Mediterranean Chickpea Bowls</h2>
-                        <div class="meal-meta">Serves 4-5 | Time: 35 minutes</div>
+                        <h2>Meal 3: Creamy Tuscan White Bean Soup</h2>
+                        <div class="meal-meta">Serves 4-5 | Time: 30 minutes</div>
                     </div>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="meal-content">
-                    <p>Roasted chickpeas with za'atar, cucumber-tomato salad, hummus, couscous, and a lemon-tahini dressing.</p>
+                    <p>A hearty, comforting Italian-inspired soup with white beans, tomatoes, kale, and parmesan. Served with crusty bread for dipping.</p>
                     
                     <h3>Ingredients</h3>
-                    <h4>For the chickpeas:</h4>
                     <ul>
-                        <li>2 cans (15 oz each) chickpeas, drained, rinsed, and patted dry</li>
                         <li>2 tablespoons olive oil</li>
-                        <li>1½ tablespoons za'atar (or 2 teaspoons dried oregano + 1 teaspoon sesame seeds)</li>
-                        <li>¾ teaspoon cumin</li>
-                        <li>¼ teaspoon paprika</li>
-                        <li>Salt and pepper</li>
-                    </ul>
-                    
-                    <h4>For the bowls:</h4>
-                    <ul>
-                        <li>1½ cups couscous</li>
-                        <li>2 cups boiling water or vegetable broth</li>
-                        <li>1½ tablespoons olive oil</li>
-                        <li>Salt</li>
-                        <li>1 cup hummus (store-bought or homemade)</li>
-                        <li>1 large cucumber, diced</li>
-                        <li>2 cups cherry tomatoes, halved</li>
-                        <li>¼ red onion, finely diced</li>
-                        <li>3 tablespoons fresh parsley or cilantro, chopped</li>
-                        <li>1½ tablespoons lemon juice</li>
-                        <li>1½ tablespoons olive oil</li>
-                        <li>Salt and pepper</li>
-                    </ul>
-                    
-                    <h4>For the lemon-tahini dressing:</h4>
-                    <ul>
-                        <li>⅓ cup tahini</li>
-                        <li>3 tablespoons lemon juice</li>
-                        <li>1 clove garlic, minced</li>
-                        <li>4-5 tablespoons water (to thin)</li>
-                        <li>Salt to taste</li>
+                        <li>1 large onion, diced</li>
+                        <li>3 carrots, diced</li>
+                        <li>3 celery stalks, diced</li>
+                        <li>4 cloves garlic, minced</li>
+                        <li>1 teaspoon dried rosemary (or 1 tablespoon fresh)</li>
+                        <li>1 teaspoon dried thyme</li>
+                        <li>¼ teaspoon red pepper flakes (optional)</li>
+                        <li>3 cans (15 oz each) cannellini beans (white beans), drained and rinsed</li>
+                        <li>1 can (28 oz) crushed tomatoes</li>
+                        <li>6 cups vegetable broth</li>
+                        <li>3 cups chopped kale or spinach</li>
+                        <li>½ cup heavy cream or half-and-half</li>
+                        <li>½ cup grated parmesan cheese, plus more for serving</li>
+                        <li>2 tablespoons lemon juice</li>
+                        <li>Salt and pepper to taste</li>
+                        <li>Crusty bread for serving</li>
                     </ul>
                     
                     <h3>Instructions</h3>
                     <ol>
-                        <li>Preheat oven to 400°F.</li>
-                        <li>Spread dried chickpeas on a baking sheet. Toss with olive oil, za'atar, cumin, paprika, salt, and pepper. Roast for 25-30 minutes, shaking the pan halfway through, until golden and slightly crispy.</li>
-                        <li>While chickpeas roast, place couscous in a large bowl. Add salt and olive oil. Pour boiling water or broth over couscous, stir, cover with a plate or plastic wrap, and let sit for 5 minutes. Fluff with a fork.</li>
-                        <li>In a bowl, combine cucumbers, tomatoes, red onion, and parsley. Dress with lemon juice, olive oil, salt, and pepper.</li>
-                        <li>Whisk together tahini, lemon juice, and garlic. Add water one tablespoon at a time until you reach a pourable consistency. Season with salt.</li>
-                        <li>For each serving, add a base of couscous, top with roasted chickpeas, cucumber-tomato salad, a dollop of hummus, and drizzle with tahini dressing.</li>
+                        <li>Heat olive oil in a large pot or Dutch oven over medium heat. Add onion, carrots, and celery. Cook for 8-10 minutes, stirring occasionally, until vegetables soften.</li>
+                        <li>Add garlic, rosemary, thyme, and red pepper flakes (if using). Cook for 1 minute until fragrant.</li>
+                        <li>Add the beans, crushed tomatoes, and vegetable broth. Bring to a boil, then reduce heat and simmer for 15 minutes to let flavors meld.</li>
+                        <li>Use a potato masher or the back of a wooden spoon to partially mash some of the beans in the pot (about one-third of them). This creates a creamier texture while keeping some beans whole.</li>
+                        <li>Stir in the chopped kale and cook for 3-4 minutes until wilted.</li>
+                        <li>Remove from heat and stir in the cream, parmesan cheese, and lemon juice. Taste and adjust seasoning with salt and pepper.</li>
+                        <li>Serve hot with additional parmesan and crusty bread.</li>
                     </ol>
                     
                     <div class="baby-note">
-                        <strong>For baby:</strong> Set aside chickpeas before adding heavy seasoning (or mash some of the roasted ones). Serve with couscous, small cucumber pieces (peeled and deseeded), and a small amount of hummus. The tahini dressing can be thinned and offered in small amounts.
+                        <strong>For baby:</strong> This soup is naturally baby-friendly! Before adding cream and parmesan, set aside a portion. Mash the beans and vegetables more thoroughly for younger babies. The soft vegetables, beans, and broth make a nutritious, easy-to-eat meal. Serve with small pieces of soft bread for dipping.
                     </div>
                     
                     <div class="storage-tip">
-                        <strong>Storage tip:</strong> Store all components separately. Chickpeas lose their crispness but are still delicious. Everything keeps well for 3-4 days.
+                        <strong>Storage tip:</strong> This soup tastes even better the next day! Store in an airtight container for up to 5 days. It will thicken as it sits - just add a splash of broth or water when reheating. Freezes beautifully for up to 3 months.
                     </div>
                     
                     <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
@@ -723,115 +576,26 @@
         
         <!-- GROCERY LIST PAGE -->
         <div id="grocery" class="page">
-            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Complete Shopping List - Week 1</h2>
+            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Shopping List - Week 2</h2>
             
-            <div class="share-section">
-                <button class="share-button" onclick="generateShareLink()">📤 Share List</button>
-                <button class="share-button" onclick="clearAllChecks()">↺ Clear All Checks</button>
-                <div class="share-url" id="shareUrl">
-                    <p><strong>Share this link:</strong></p>
-                    <p id="shareUrlText"></p>
-                    <button class="copy-button" onclick="copyShareLink()">Copy Link</button>
+            <div style="background-color: #e8f5e9; padding: 30px; border-radius: 8px; text-align: center;">
+                <h3 style="color: #2c5f2d; margin-bottom: 15px;">📝 Your Shared Shopping List</h3>
+                <p style="margin-bottom: 25px; font-size: 1.1em; line-height: 1.6;">
+                    Your shopping list is in Google Sheets so you and your wife can both check off items in real-time!
+                </p>
+                
+                <a href="YOUR_GOOGLE_SHEET_URL_HERE" target="_blank" style="text-decoration: none;">
+                    <button style="padding: 15px 40px; background-color: #4caf50; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                        Open Shopping List in Google Sheets
+                    </button>
+                </a>
+                
+                <div style="margin-top: 30px; padding: 20px; background-color: white; border-radius: 5px; text-align: left;">
+                    <h4 style="color: #2c5f2d; margin-bottom: 10px;">💡 For Week 2:</h4>
+                    <p style="margin-bottom: 15px;">Create a new tab in your Google Sheet for Week 2, or update the existing list with these new ingredients.</p>
                 </div>
             </div>
             
-            <div class="grocery-list">
-                <div class="grocery-section">
-                    <h3>Produce</h3>
-                    <ul id="produce-list">
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Onions, yellow or white (1 medium)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Red onion (½ small)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Red bell pepper (1)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Carrots (2 medium)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Broccoli (1 cup florets)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Snap peas or snow peas (1 cup)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Baby bok choy or napa cabbage (2 cups)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Green onions (3)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Cherry tomatoes (2 cups - about 1 pint)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Cucumber (1 large)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Spinach, fresh (1½ cups - small bag)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Garlic (2 heads - you'll need 8 cloves total)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Fresh ginger (1 large knob)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Lemons (2-3)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Limes (for garnish)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Fresh cilantro or parsley (1-2 bunches)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Thai basil or regular basil (optional)</span></li>
-                    </ul>
-                    <div class="add-item-section">
-                        <input type="text" class="add-item-input" id="produce-input" placeholder="Add item...">
-                        <button class="add-item-button" onclick="addItem('produce-list', 'produce-input')">Add</button>
-                    </div>
-                </div>
-                
-                <div class="grocery-section">
-                    <h3>Pantry/Dry Goods</h3>
-                    <ul id="pantry-list">
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Red lentils (1½ cups)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Chickpeas, canned (2 cans, 15 oz each)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Rice noodles or lo mein noodles (12 oz)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Couscous (1½ cups)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Rice (2 cups uncooked)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Naan or flatbread (1 package)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Coconut milk, full-fat (1 can, 13.5 oz)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Diced tomatoes (1 can, 14.5 oz)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Hummus (1 cup/8 oz)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Tahini (⅓ cup)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Vegetable broth (4 cups total)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Soy sauce</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Rice vinegar</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Sesame oil</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Maple syrup or brown sugar</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Cornstarch</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Crushed peanuts or cashews (¼ cup)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Sesame seeds</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Chili garlic sauce or sriracha (optional)</span></li>
-                    </ul>
-                    <div class="add-item-section">
-                        <input type="text" class="add-item-input" id="pantry-input" placeholder="Add item...">
-                        <button class="add-item-button" onclick="addItem('pantry-list', 'pantry-input')">Add</button>
-                    </div>
-                </div>
-                
-                <div class="grocery-section">
-                    <h3>Refrigerated/Protein</h3>
-                    <ul id="refrigerated-list">
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Firm tofu (1 block, 14 oz)</span></li>
-                    </ul>
-                    <div class="add-item-section">
-                        <input type="text" class="add-item-input" id="refrigerated-input" placeholder="Add item...">
-                        <button class="add-item-button" onclick="addItem('refrigerated-list', 'refrigerated-input')">Add</button>
-                    </div>
-                </div>
-                
-                <div class="grocery-section">
-                    <h3>Spices/Seasonings to Check</h3>
-                    <ul id="spices-list">
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Cumin (ground)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Garam masala</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Turmeric</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Cayenne pepper (optional)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Za'atar (or dried oregano + sesame seeds)</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Paprika</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Salt and black pepper</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Olive oil</span></li>
-                        <li><input type="checkbox" onchange="toggleItem(this)"><span>Vegetable oil</span></li>
-                    </ul>
-                    <div class="add-item-section">
-                        <input type="text" class="add-item-input" id="spices-input" placeholder="Add item...">
-                        <button class="add-item-button" onclick="addItem('spices-list', 'spices-input')">Add</button>
-                    </div>
-                </div>
-                
-                <div class="grocery-section">
-                    <h3>Costco</h3>
-                    <ul id="costco-list">
-                    </ul>
-                    <div class="add-item-section">
-                        <input type="text" class="add-item-input" id="costco-input" placeholder="Add item...">
-                        <button class="add-item-button" onclick="addItem('costco-list', 'costco-input')">Add</button>
-                    </div>
-                </div>
-            </div>
         </div>
         
     </div>
@@ -855,183 +619,169 @@
     <script>
         const recipes = {
             meal1: {
-                title: "Creamy Coconut Red Lentil Curry",
+                title: "Mediterranean Mezze Platter",
                 steps: [
                     {
-                        ingredients: ["2 cups uncooked rice"],
-                        instruction: "Start cooking rice according to package directions (2 cups uncooked rice)."
+                        ingredients: ["Large platter or cutting board"],
+                        instruction: "Choose a large serving platter or cutting board as your base."
                     },
                     {
                         ingredients: [
-                            "1½ tablespoons oil",
-                            "1 medium onion, diced"
+                            "Hummus (2 containers)",
+                            "Tzatziki sauce",
+                            "Baba ganoush",
+                            "Small bowls"
                         ],
-                        instruction: "Heat oil in a large pot or Dutch oven over medium heat. Add onion and cook for 5 minutes until softened."
+                        instruction: "Place the three dips in small bowls and arrange them around the platter."
                     },
                     {
                         ingredients: [
-                            "3 cloves garlic, minced",
-                            "1½ tablespoons fresh ginger, minced"
+                            "8 oz feta cheese, cubed"
                         ],
-                        instruction: "Add garlic and ginger, cook for 1 minute until fragrant."
+                        instruction: "Arrange the feta cheese cubes in one section of the platter."
                     },
                     {
                         ingredients: [
-                            "1½ tablespoons garam masala",
-                            "¾ teaspoon cumin",
-                            "¾ teaspoon turmeric",
-                            "¼ teaspoon cayenne pepper (optional)"
+                            "1 cup kalamata olives",
+                            "1 cup cherry tomatoes, halved",
+                            "2 cucumbers, sliced",
+                            "2 bell peppers, sliced",
+                            "2 cups baby carrots"
                         ],
-                        instruction: "Add garam masala, cumin, turmeric, and cayenne. Stir for 30 seconds."
+                        instruction: "Create sections with the olives, cherry tomatoes, cucumbers, bell peppers, and baby carrots around the platter."
                     },
                     {
                         ingredients: [
-                            "1½ cups red lentils, rinsed",
-                            "1 can (14.5 oz) diced tomatoes",
-                            "1 can (13.5 oz) coconut milk",
-                            "2 cups vegetable broth"
+                            "8 oz artichoke hearts",
+                            "1 cup roasted red peppers",
+                            "1 cup dolmas (optional)"
                         ],
-                        instruction: "Add red lentils, diced tomatoes (with juice), coconut milk, and vegetable broth. Stir well. Bring to a boil, then reduce heat and simmer uncovered for 20-25 minutes, stirring occasionally, until lentils are completely soft and broken down."
+                        instruction: "Add the artichoke hearts, roasted red peppers, and dolmas (if using) to fill in any gaps."
                     },
                     {
                         ingredients: [
-                            "1½ cups spinach, chopped",
-                            "1½ teaspoons salt",
-                            "Juice of ½ lemon"
+                            "½ cup olive oil",
+                            "2 tablespoons za'atar"
                         ],
-                        instruction: "Stir in spinach and cook until wilted, about 2 minutes. Add salt and lemon juice to taste."
+                        instruction: "Drizzle olive oil over the vegetables and feta, then sprinkle with za'atar."
                     },
                     {
                         ingredients: [
-                            "Cooked rice",
-                            "Naan or flatbread"
+                            "Pita bread",
+                            "Fresh herbs (parsley, mint)",
+                            "Lemon wedges"
                         ],
-                        instruction: "Serve over rice with naan on the side."
+                        instruction: "Arrange pita bread around the edges or in a basket. Garnish with fresh herbs and lemon wedges. Serve immediately!"
                     }
                 ]
             },
             meal2: {
-                title: "Ginger Garlic Stir-Fried Noodles with Vegetables",
+                title: "Sheet Pan Roasted Vegetable & Halloumi Bowl",
                 steps: [
                     {
-                        ingredients: ["12 oz rice noodles or lo mein noodles"],
-                        instruction: "Cook rice noodles according to package directions. Drain, rinse with cold water, and set aside."
+                        ingredients: [
+                            "1½ cups quinoa",
+                            "3 cups vegetable broth or water"
+                        ],
+                        instruction: "Preheat oven to 425°F. Start cooking quinoa according to package directions."
                     },
                     {
                         ingredients: [
-                            "3 tablespoons soy sauce",
-                            "1½ tablespoons rice vinegar",
-                            "1 tablespoon sesame oil",
-                            "1 tablespoon maple syrup or brown sugar",
-                            "2 tablespoons fresh ginger, minced",
-                            "4 cloves garlic, minced",
-                            "1 teaspoon cornstarch",
-                            "2 tablespoons water",
-                            "1 teaspoon chili garlic sauce or sriracha (optional)"
+                            "1 large sweet potato, cubed",
+                            "2 zucchini, sliced",
+                            "1 red onion, cut into wedges",
+                            "2 cups cherry tomatoes",
+                            "1 can chickpeas, drained",
+                            "3 tablespoons olive oil",
+                            "2 teaspoons cumin",
+                            "1 teaspoon smoked paprika",
+                            "Salt and pepper"
                         ],
-                        instruction: "In a small bowl, whisk together soy sauce, rice vinegar, sesame oil, maple syrup, ginger, garlic, cornstarch, water, and chili sauce if using. Set aside."
+                        instruction: "On two large baking sheets, spread out the vegetables and chickpeas. Toss with olive oil, cumin, smoked paprika, salt, and pepper."
+                    },
+                    {
+                        ingredients: ["Prepared vegetables"],
+                        instruction: "Roast for 25-30 minutes, stirring halfway through, until vegetables are tender and starting to caramelize."
+                    },
+                    {
+                        ingredients: ["2 packages (8 oz each) halloumi, sliced"],
+                        instruction: "During the last 10 minutes, heat a non-stick skillet over medium-high heat. Cook halloumi slices 2-3 minutes per side until golden brown."
                     },
                     {
                         ingredients: [
-                            "1 tablespoon vegetable oil",
-                            "1 block (14 oz) firm tofu, cubed"
+                            "¼ cup olive oil",
+                            "3 tablespoons lemon juice",
+                            "2 cloves garlic, minced",
+                            "2 tablespoons fresh herbs, chopped",
+                            "1 teaspoon Dijon mustard",
+                            "Salt and pepper"
                         ],
-                        instruction: "Heat 1 tablespoon vegetable oil in a large wok or deep skillet over high heat. Add tofu cubes and cook, stirring occasionally, for 5-7 minutes until golden and crispy on most sides. Remove and set aside."
+                        instruction: "While everything cooks, whisk together all dressing ingredients in a small bowl."
                     },
                     {
                         ingredients: [
-                            "1 tablespoon vegetable oil",
-                            "1 red bell pepper, sliced",
-                            "1 cup snap peas or snow peas",
-                            "2 medium carrots, julienned",
-                            "1 cup broccoli florets"
+                            "Cooked quinoa",
+                            "2 cups arugula or spinach",
+                            "Roasted vegetables and chickpeas",
+                            "Cooked halloumi",
+                            "Dressing"
                         ],
-                        instruction: "Add remaining 1 tablespoon oil to the wok. Add bell pepper, snap peas, carrots, and broccoli. Stir-fry for 3-4 minutes until vegetables are tender-crisp and bright."
-                    },
-                    {
-                        ingredients: [
-                            "3 green onions, cut into 1-inch pieces",
-                            "2 cups baby bok choy or napa cabbage, chopped"
-                        ],
-                        instruction: "Add green onions and bok choy, stir-fry for 1-2 minutes until bok choy wilts."
-                    },
-                    {
-                        ingredients: [
-                            "Cooked tofu",
-                            "Cooked noodles",
-                            "Prepared sauce"
-                        ],
-                        instruction: "Return tofu to the wok. Add cooked noodles and pour the sauce over everything. Toss everything together for 2-3 minutes until noodles are heated through and coated in sauce. Taste and adjust seasoning with more soy sauce if needed."
-                    },
-                    {
-                        ingredients: [
-                            "¼ cup crushed peanuts or cashews",
-                            "Fresh cilantro or Thai basil",
-                            "Lime wedges",
-                            "Sesame seeds"
-                        ],
-                        instruction: "Serve in bowls topped with crushed peanuts, fresh herbs, lime wedges, and sesame seeds."
+                        instruction: "Divide quinoa among bowls, top with arugula, roasted vegetables, chickpeas, and halloumi. Drizzle with dressing and serve."
                     }
                 ]
             },
             meal3: {
-                title: "Mediterranean Chickpea Bowls",
+                title: "Creamy Tuscan White Bean Soup",
                 steps: [
                     {
-                        ingredients: [],
-                        instruction: "Preheat oven to 400°F."
-                    },
-                    {
                         ingredients: [
-                            "2 cans chickpeas, dried",
                             "2 tablespoons olive oil",
-                            "1½ tablespoons za'atar",
-                            "¾ teaspoon cumin",
-                            "¼ teaspoon paprika",
+                            "1 large onion, diced",
+                            "3 carrots, diced",
+                            "3 celery stalks, diced"
+                        ],
+                        instruction: "Heat olive oil in a large pot over medium heat. Add onion, carrots, and celery. Cook for 8-10 minutes until vegetables soften."
+                    },
+                    {
+                        ingredients: [
+                            "4 cloves garlic, minced",
+                            "1 teaspoon dried rosemary",
+                            "1 teaspoon dried thyme",
+                            "¼ teaspoon red pepper flakes (optional)"
+                        ],
+                        instruction: "Add garlic, rosemary, thyme, and red pepper flakes. Cook for 1 minute until fragrant."
+                    },
+                    {
+                        ingredients: [
+                            "3 cans cannellini beans",
+                            "1 can (28 oz) crushed tomatoes",
+                            "6 cups vegetable broth"
+                        ],
+                        instruction: "Add beans, crushed tomatoes, and vegetable broth. Bring to a boil, then reduce heat and simmer for 15 minutes."
+                    },
+                    {
+                        ingredients: ["Potato masher or wooden spoon"],
+                        instruction: "Use a potato masher to partially mash about one-third of the beans in the pot. This creates a creamier texture."
+                    },
+                    {
+                        ingredients: ["3 cups chopped kale or spinach"],
+                        instruction: "Stir in the kale and cook for 3-4 minutes until wilted."
+                    },
+                    {
+                        ingredients: [
+                            "½ cup heavy cream",
+                            "½ cup grated parmesan",
+                            "2 tablespoons lemon juice",
                             "Salt and pepper"
                         ],
-                        instruction: "Spread dried chickpeas on a baking sheet. Toss with olive oil, za'atar, cumin, paprika, salt, and pepper. Roast for 25-30 minutes, shaking the pan halfway through, until golden and slightly crispy."
+                        instruction: "Remove from heat. Stir in cream, parmesan, and lemon juice. Taste and adjust seasoning."
                     },
                     {
                         ingredients: [
-                            "1½ cups couscous",
-                            "2 cups boiling water or broth",
-                            "1½ tablespoons olive oil",
-                            "Salt"
+                            "Extra parmesan",
+                            "Crusty bread"
                         ],
-                        instruction: "While chickpeas roast, place couscous in a large bowl. Add salt and olive oil. Pour boiling water or broth over couscous, stir, cover with a plate or plastic wrap, and let sit for 5 minutes. Fluff with a fork."
-                    },
-                    {
-                        ingredients: [
-                            "1 large cucumber, diced",
-                            "2 cups cherry tomatoes, halved",
-                            "¼ red onion, diced",
-                            "3 tablespoons parsley, chopped",
-                            "1½ tablespoons lemon juice",
-                            "1½ tablespoons olive oil",
-                            "Salt and pepper"
-                        ],
-                        instruction: "In a bowl, combine cucumbers, tomatoes, red onion, and parsley. Dress with lemon juice, olive oil, salt, and pepper."
-                    },
-                    {
-                        ingredients: [
-                            "⅓ cup tahini",
-                            "3 tablespoons lemon juice",
-                            "1 clove garlic, minced",
-                            "4-5 tablespoons water",
-                            "Salt"
-                        ],
-                        instruction: "Whisk together tahini, lemon juice, and garlic. Add water one tablespoon at a time until you reach a pourable consistency. Season with salt."
-                    },
-                    {
-                        ingredients: [
-                            "Couscous",
-                            "Roasted chickpeas",
-                            "Cucumber-tomato salad",
-                            "1 cup hummus",
-                            "Tahini dressing"
-                        ],
-                        instruction: "For each serving, add a base of couscous, top with roasted chickpeas, cucumber-tomato salad, a dollop of hummus, and drizzle with tahini dressing."
+                        instruction: "Serve hot with additional parmesan and crusty bread for dipping."
                     }
                 ]
             }
@@ -1051,7 +801,6 @@
             
             renderStep();
             
-            // Prevent scrolling on body
             document.body.style.overflow = 'hidden';
         }
         
@@ -1061,7 +810,6 @@
             currentRecipe = null;
             currentStepIndex = 0;
             
-            // Re-enable scrolling
             document.body.style.overflow = 'auto';
         }
         
@@ -1071,11 +819,9 @@
             const step = currentRecipe.steps[currentStepIndex];
             const totalSteps = currentRecipe.steps.length;
             
-            // Update progress
             document.getElementById('cookingModeProgress').textContent = 
                 `Step ${currentStepIndex + 1} of ${totalSteps}`;
             
-            // Build step HTML
             let stepHTML = '<div class="cooking-step active">';
             
             if (step.ingredients.length > 0) {
@@ -1094,7 +840,6 @@
             
             document.getElementById('cookingModeContent').innerHTML = stepHTML;
             
-            // Update buttons
             document.getElementById('prevStepBtn').disabled = currentStepIndex === 0;
             
             const nextBtn = document.getElementById('nextStepBtn');
@@ -1125,7 +870,6 @@
             }
         }
         
-        // Add swipe support for mobile
         let touchStartX = 0;
         let touchEndX = 0;
         
@@ -1144,10 +888,8 @@
             
             if (Math.abs(diff) > swipeThreshold) {
                 if (diff > 0) {
-                    // Swiped left - next step
                     nextStep();
                 } else {
-                    // Swiped right - previous step
                     prevStep();
                 }
             }
@@ -1171,263 +913,6 @@
             
             event.target.classList.add('active');
         }
-        
-        // Grocery list functions
-        function toggleItem(checkbox) {
-            const listItem = checkbox.parentElement;
-            if (checkbox.checked) {
-                listItem.classList.add('checked');
-            } else {
-                listItem.classList.remove('checked');
-            }
-            saveListState();
-        }
-        
-        function addItem(listId, inputId) {
-            const input = document.getElementById(inputId);
-            const itemText = input.value.trim();
-            
-            if (itemText === '') return;
-            
-            const list = document.getElementById(listId);
-            const newItem = document.createElement('li');
-            
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.onchange = function() { toggleItem(this); };
-            
-            const span = document.createElement('span');
-            span.textContent = itemText;
-            
-            const deleteBtn = document.createElement('span');
-            deleteBtn.className = 'delete-item';
-            deleteBtn.textContent = '✕';
-            deleteBtn.onclick = function() { deleteItem(this); };
-            
-            newItem.appendChild(checkbox);
-            newItem.appendChild(span);
-            newItem.appendChild(deleteBtn);
-            
-            list.appendChild(newItem);
-            input.value = '';
-            saveListState();
-        }
-        
-        function deleteItem(deleteBtn) {
-            const listItem = deleteBtn.parentElement;
-            listItem.remove();
-            saveListState();
-        }
-        
-        // Save the entire list state to localStorage
-        function saveListState() {
-            const lists = ['produce-list', 'pantry-list', 'refrigerated-list', 'spices-list', 'costco-list'];
-            const state = {};
-            
-            lists.forEach(listId => {
-                const list = document.getElementById(listId);
-                const items = [];
-                
-                list.querySelectorAll('li').forEach(li => {
-                    const checkbox = li.querySelector('input[type="checkbox"]');
-                    const span = li.querySelector('span');
-                    items.push({
-                        text: span.textContent,
-                        checked: checkbox.checked
-                    });
-                });
-                
-                state[listId] = items;
-            });
-            
-            localStorage.setItem('groceryList', JSON.stringify(state));
-        }
-        
-        // Load the list state from localStorage
-        function loadListState() {
-            const saved = localStorage.getItem('groceryList');
-            if (!saved) return;
-            
-            const state = JSON.parse(saved);
-            const lists = ['produce-list', 'pantry-list', 'refrigerated-list', 'spices-list', 'costco-list'];
-            
-            lists.forEach(listId => {
-                if (!state[listId] || state[listId].length === 0) return;
-                
-                const list = document.getElementById(listId);
-                
-                // Clear existing items
-                list.innerHTML = '';
-                
-                // Rebuild from saved state
-                state[listId].forEach(item => {
-                    const newItem = document.createElement('li');
-                    
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    checkbox.checked = item.checked;
-                    checkbox.onchange = function() { toggleItem(this); };
-                    
-                    const span = document.createElement('span');
-                    span.textContent = item.text;
-                    
-                    // Only add delete button for custom items (those not in original list)
-                    const isCustomItem = !isOriginalItem(listId, item.text);
-                    if (isCustomItem) {
-                        const deleteBtn = document.createElement('span');
-                        deleteBtn.className = 'delete-item';
-                        deleteBtn.textContent = '✕';
-                        deleteBtn.onclick = function() { deleteItem(this); };
-                        newItem.appendChild(checkbox);
-                        newItem.appendChild(span);
-                        newItem.appendChild(deleteBtn);
-                    } else {
-                        newItem.appendChild(checkbox);
-                        newItem.appendChild(span);
-                    }
-                    
-                    if (item.checked) {
-                        newItem.classList.add('checked');
-                    }
-                    
-                    list.appendChild(newItem);
-                });
-            });
-        }
-        
-        // Check if an item is from the original list (to know whether to show delete button)
-        function isOriginalItem(listId, text) {
-            // This is a simple check - you could make it more sophisticated
-            return !text.includes('✕');
-        }
-        
-        // Generate a shareable link
-        function generateShareLink() {
-            const state = localStorage.getItem('groceryList');
-            
-            if (!state) {
-                alert('No list data to share. Make sure you have checked some items or added items first!');
-                return;
-            }
-            
-            try {
-                // Convert string to hex encoding (Safari-safe)
-                const hex = Array.from(state)
-                    .map(c => c.charCodeAt(0).toString(16).padStart(2, '0'))
-                    .join('');
-                
-                const url = window.location.href.split('?')[0] + '?list=' + hex;
-                
-                document.getElementById('shareUrlText').textContent = url;
-                document.getElementById('shareUrl').classList.add('active');
-            } catch (e) {
-                alert('Error generating share link: ' + e.message);
-                console.error('Share link error:', e);
-            }
-        }
-        
-        // Copy share link to clipboard
-        function copyShareLink() {
-            const urlText = document.getElementById('shareUrlText').textContent;
-            navigator.clipboard.writeText(urlText).then(() => {
-                alert('Link copied to clipboard! Send this to share your list.');
-            }).catch(() => {
-                // Fallback for older browsers
-                alert('Copy this link: ' + urlText);
-            });
-        }
-        
-        // Clear all checkboxes
-        function clearAllChecks() {
-            if (!confirm('Clear all checked items? This will uncheck everything but keep your added items.')) {
-                return;
-            }
-            
-            const lists = ['produce-list', 'pantry-list', 'refrigerated-list', 'spices-list', 'costco-list'];
-            lists.forEach(listId => {
-                const list = document.getElementById(listId);
-                list.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                    checkbox.checked = false;
-                    checkbox.parentElement.classList.remove('checked');
-                });
-            });
-            saveListState();
-        }
-        
-        // Load list from URL parameter if present
-        function loadFromURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const listData = urlParams.get('list');
-            
-            console.log('loadFromURL called');
-            console.log('listData from URL:', listData ? 'present' : 'not present');
-            
-            if (listData) {
-                try {
-                    console.log('Starting to decode...');
-                    
-                    // Decode from hex format
-                    const decoded = listData.match(/.{1,2}/g)
-                        .map(hex => String.fromCharCode(parseInt(hex, 16)))
-                        .join('');
-                    
-                    console.log('Decoded successfully');
-                    
-                    // Verify it's valid JSON before saving
-                    const parsed = JSON.parse(decoded);
-                    console.log('JSON parsed successfully, data:', parsed);
-                    
-                    localStorage.setItem('groceryList', decoded);
-                    console.log('Saved to localStorage');
-                    
-                    // Force reload the state and switch to grocery list page
-                    setTimeout(() => {
-                        console.log('Loading state...');
-                        loadListState();
-                        
-                        // Switch to the grocery list page automatically
-                        showPage('grocery');
-                        
-                        // Update the nav buttons
-                        document.querySelectorAll('.nav-button').forEach(button => {
-                            button.classList.remove('active');
-                        });
-                        document.querySelectorAll('.nav-button')[1].classList.add('active');
-                        
-                        // Remove the parameter from URL so it doesn't keep reloading
-                        window.history.replaceState({}, document.title, window.location.pathname);
-                        
-                        alert('Shopping list imported successfully! ✓');
-                    }, 500);
-                    
-                } catch (e) {
-                    console.error('Error loading list from URL:', e);
-                    alert('Error loading shared list: ' + e.message + '\n\nThe link may be corrupted. Please ask for a new link.');
-                }
-            } else {
-                console.log('No list parameter in URL');
-            }
-        }
-        
-        // Allow Enter key to add items
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if we're loading from a shared URL
-            loadFromURL();
-            
-            // Load saved state
-            loadListState();
-            
-            // Setup Enter key listeners
-            const inputs = document.querySelectorAll('.add-item-input');
-            inputs.forEach(input => {
-                input.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        const button = this.nextElementSibling;
-                        button.click();
-                    }
-                });
-            });
-        });
     </script>
 </body>
 </html>
