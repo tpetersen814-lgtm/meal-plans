@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 2 Meal Plan</title>
+    <title>Sweet Potato & Chickpea Buddha Bowl</title>
     <style>
         * {
             margin: 0;
@@ -103,17 +103,6 @@
         .meal-meta {
             color: #666;
             font-size: 0.9em;
-        }
-        
-        .no-cook-badge {
-            display: inline-block;
-            background-color: #ff9800;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.85em;
-            font-weight: bold;
-            margin-left: 10px;
         }
         
         .expand-icon {
@@ -381,194 +370,80 @@
 </head>
 <body>
     <div class="container">
-        <h1>Week 2 Meal Plan</h1>
-        <p class="subtitle">Vegetarian dinners with leftovers for lunch | 4-5 servings per meal</p>
+        <h1>Sweet Potato & Chickpea Buddha Bowl</h1>
+        <p class="subtitle">Light, fresh, and baby-friendly | 4-5 servings | 35 minutes</p>
         
         <div class="nav-buttons">
-            <button class="nav-button active" onclick="showPage('meals')">Meal Plan</button>
+            <button class="nav-button active" onclick="showPage('recipe')">Recipe</button>
             <button class="nav-button" onclick="showPage('grocery')">Shopping List</button>
         </div>
         
-        <!-- MEAL PLAN PAGE -->
-        <div id="meals" class="page active">
+        <!-- RECIPE PAGE -->
+        <div id="recipe" class="page active">
             
-            <!-- MEAL 1: NO-COOK -->
-            <div class="meal-day" data-meal="meal1">
+            <div class="meal-day expanded" data-meal="meal1">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Meal 1: Mediterranean Mezze Platter <span class="no-cook-badge">⚡ NO COOKING</span></h2>
-                        <div class="meal-meta">Serves 4-5 | Time: 15 minutes assembly</div>
-                    </div>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="meal-content">
-                    <p>A beautiful, no-cook Mediterranean spread with hummus, fresh vegetables, olives, cheese, pita, and more. Perfect for power outages or hot days!</p>
-                    
-                    <h3>Ingredients</h3>
-                    <ul>
-                        <li>2 containers (10 oz each) hummus (plain or flavored varieties)</li>
-                        <li>1 container (8 oz) tzatziki sauce</li>
-                        <li>1 container (7 oz) baba ganoush (or extra hummus)</li>
-                        <li>8 oz feta cheese, cubed</li>
-                        <li>1 cup kalamata olives</li>
-                        <li>1 cup cherry tomatoes, halved</li>
-                        <li>2 cucumbers, sliced into rounds or sticks</li>
-                        <li>2 bell peppers (mixed colors), sliced into strips</li>
-                        <li>2 cups baby carrots</li>
-                        <li>1 package (16 oz) pita bread or pita chips</li>
-                        <li>8 oz marinated artichoke hearts, drained</li>
-                        <li>1 cup roasted red peppers (jarred), sliced</li>
-                        <li>1 cup dolmas (stuffed grape leaves) - optional</li>
-                        <li>½ cup extra virgin olive oil</li>
-                        <li>2 tablespoons za'atar or dried oregano</li>
-                        <li>1 lemon, cut into wedges</li>
-                        <li>Fresh herbs (parsley, mint) for garnish</li>
-                    </ul>
-                    
-                    <h3>Instructions</h3>
-                    <ol>
-                        <li>Choose a large serving platter or cutting board as your base.</li>
-                        <li>Place the three dips (hummus, tzatziki, baba ganoush) in small bowls around the platter.</li>
-                        <li>Arrange the feta cheese cubes in one section of the platter.</li>
-                        <li>Create sections with the olives, cherry tomatoes, cucumbers, bell peppers, and baby carrots.</li>
-                        <li>Add the artichoke hearts, roasted red peppers, and dolmas (if using) to fill in gaps.</li>
-                        <li>Drizzle olive oil over the vegetables and feta, then sprinkle with za'atar.</li>
-                        <li>Arrange pita bread around the edges or in a basket alongside.</li>
-                        <li>Garnish with fresh herbs and lemon wedges.</li>
-                        <li>Serve immediately or cover and refrigerate until ready to eat (stays fresh for several hours).</li>
-                    </ol>
-                    
-                    <div class="baby-note">
-                        <strong>For baby:</strong> Offer small pieces of soft pita bread, mashed chickpeas from the hummus, small cucumber pieces (peeled), well-cooked baby carrots, and small crumbles of feta. Skip olives due to choking risk. The plain hummus works great as a dip or spread.
-                    </div>
-                    
-                    <div class="storage-tip">
-                        <strong>Storage tip:</strong> Leftovers keep well! Store each component separately in airtight containers for up to 3 days. The dips stay fresh longest. Vegetables may get less crisp but are still tasty. Perfect for next-day lunches!
-                    </div>
-                    
-                    <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
-                        <strong style="color: #e65100;">⚡ Power Outage Ready:</strong> This meal requires no cooking or heating! Keep everything refrigerated until serving. If power is out for extended periods, the dips and cheese should be consumed within 4 hours at room temperature. Vegetables can stay out longer.
-                    </div>
-                    
-                    <button class="cooking-mode-button" onclick="startCookingMode('meal1')">Start Assembly Mode</button>
-                </div>
-            </div>
-            
-            <!-- MEAL 2 -->
-            <div class="meal-day" data-meal="meal2">
-                <div class="meal-header" onclick="toggleMeal(this)">
-                    <div>
-                        <h2>Meal 2: Sheet Pan Roasted Vegetable & Halloumi Bowl</h2>
+                        <h2>Sweet Potato & Chickpea Buddha Bowl</h2>
                         <div class="meal-meta">Serves 4-5 | Time: 35 minutes</div>
                     </div>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="meal-content">
-                    <p>Colorful roasted vegetables with crispy, salty halloumi cheese over quinoa, drizzled with a tangy lemon-herb dressing.</p>
+                    <p>A colorful, nutritious bowl with roasted sweet potatoes, crispy chickpeas, fresh vegetables, and creamy tahini sauce. Naturally sweet and perfect for the whole family, including baby!</p>
                     
                     <h3>Ingredients</h3>
                     <h4>For the bowl:</h4>
                     <ul>
-                        <li>1½ cups quinoa, uncooked</li>
-                        <li>3 cups vegetable broth or water</li>
-                        <li>2 packages (8 oz each) halloumi cheese, sliced ½-inch thick</li>
-                        <li>1 large sweet potato, cubed</li>
-                        <li>2 medium zucchini, sliced into half-moons</li>
-                        <li>1 red onion, cut into wedges</li>
-                        <li>2 cups cherry tomatoes</li>
-                        <li>1 can (15 oz) chickpeas, drained and patted dry</li>
-                        <li>3 tablespoons olive oil</li>
-                        <li>2 teaspoons cumin</li>
-                        <li>1 teaspoon smoked paprika</li>
-                        <li>Salt and pepper</li>
-                        <li>2 cups arugula or spinach</li>
-                    </ul>
-                    
-                    <h4>For the lemon-herb dressing:</h4>
-                    <ul>
-                        <li>¼ cup olive oil</li>
-                        <li>3 tablespoons lemon juice</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>2 tablespoons fresh herbs (parsley, basil, or mint), chopped</li>
-                        <li>1 teaspoon Dijon mustard</li>
-                        <li>Salt and pepper</li>
-                    </ul>
-                    
-                    <h3>Instructions</h3>
-                    <ol>
-                        <li>Preheat oven to 425°F. Start cooking quinoa according to package directions (usually 1½ cups quinoa to 3 cups liquid).</li>
-                        <li>On two large baking sheets, spread out the sweet potato cubes, zucchini, red onion, cherry tomatoes, and chickpeas. Toss with olive oil, cumin, smoked paprika, salt, and pepper.</li>
-                        <li>Roast for 25-30 minutes, stirring halfway through, until vegetables are tender and starting to caramelize.</li>
-                        <li>During the last 10 minutes of roasting, heat a non-stick skillet over medium-high heat (no oil needed - halloumi releases its own fat). Add halloumi slices and cook 2-3 minutes per side until golden brown.</li>
-                        <li>While everything cooks, whisk together all dressing ingredients in a small bowl.</li>
-                        <li>To serve: divide quinoa among bowls, top with arugula, roasted vegetables, chickpeas, and halloumi. Drizzle with dressing.</li>
-                    </ol>
-                    
-                    <div class="baby-note">
-                        <strong>For baby:</strong> Set aside some roasted sweet potato and zucchini before seasoning heavily. Mash or cut into small pieces. The quinoa is great for baby - serve plain or with a tiny bit of dressing. Halloumi can be cut into very small pieces, but monitor closely as it's quite salty.
-                    </div>
-                    
-                    <div class="storage-tip">
-                        <strong>Storage tip:</strong> Store components separately for best results. The quinoa and roasted vegetables keep well for 4 days. Halloumi can be stored and reheated in a skillet (it won't be as crispy but still delicious). Keep dressing separate and add when serving.
-                    </div>
-                    
-                    <button class="cooking-mode-button" onclick="startCookingMode('meal2')">Start Cooking Mode</button>
-                </div>
-            </div>
-            
-            <!-- MEAL 3 -->
-            <div class="meal-day" data-meal="meal3">
-                <div class="meal-header" onclick="toggleMeal(this)">
-                    <div>
-                        <h2>Meal 3: Creamy Tuscan White Bean Soup</h2>
-                        <div class="meal-meta">Serves 4-5 | Time: 30 minutes</div>
-                    </div>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="meal-content">
-                    <p>A hearty, comforting Italian-inspired soup with white beans, tomatoes, kale, and parmesan. Served with crusty bread for dipping.</p>
-                    
-                    <h3>Ingredients</h3>
-                    <ul>
-                        <li>2 tablespoons olive oil</li>
-                        <li>1 large onion, diced</li>
-                        <li>3 carrots, diced</li>
-                        <li>3 celery stalks, diced</li>
-                        <li>4 cloves garlic, minced</li>
-                        <li>1 teaspoon dried rosemary (or 1 tablespoon fresh)</li>
-                        <li>1 teaspoon dried thyme</li>
-                        <li>¼ teaspoon red pepper flakes (optional)</li>
-                        <li>3 cans (15 oz each) cannellini beans (white beans), drained and rinsed</li>
-                        <li>1 can (28 oz) crushed tomatoes</li>
-                        <li>6 cups vegetable broth</li>
-                        <li>3 cups chopped kale or spinach</li>
-                        <li>½ cup heavy cream or half-and-half</li>
-                        <li>½ cup grated parmesan cheese, plus more for serving</li>
-                        <li>2 tablespoons lemon juice</li>
+                        <li>2 large sweet potatoes, peeled and cubed (½-inch pieces)</li>
+                        <li>2 cans (15 oz each) chickpeas, drained, rinsed, and patted dry</li>
+                        <li>3 tablespoons olive oil, divided</li>
+                        <li>1 teaspoon cumin</li>
+                        <li>1 teaspoon paprika</li>
+                        <li>½ teaspoon garlic powder</li>
                         <li>Salt and pepper to taste</li>
-                        <li>Crusty bread for serving</li>
+                        <li>2 cups cooked quinoa or brown rice (about 1 cup uncooked)</li>
+                        <li>4 cups mixed greens (spinach, arugula, or spring mix)</li>
+                        <li>2 cucumbers, diced</li>
+                        <li>2 cups cherry tomatoes, halved</li>
+                        <li>1 avocado, sliced</li>
+                        <li>¼ cup sunflower seeds or pumpkin seeds (optional)</li>
+                    </ul>
+                    
+                    <h4>For the creamy tahini sauce:</h4>
+                    <ul>
+                        <li>½ cup tahini</li>
+                        <li>¼ cup lemon juice (about 2 lemons)</li>
+                        <li>2 cloves garlic, minced</li>
+                        <li>6-8 tablespoons water (to thin)</li>
+                        <li>½ teaspoon maple syrup or honey (optional)</li>
+                        <li>Salt to taste</li>
                     </ul>
                     
                     <h3>Instructions</h3>
                     <ol>
-                        <li>Heat olive oil in a large pot or Dutch oven over medium heat. Add onion, carrots, and celery. Cook for 8-10 minutes, stirring occasionally, until vegetables soften.</li>
-                        <li>Add garlic, rosemary, thyme, and red pepper flakes (if using). Cook for 1 minute until fragrant.</li>
-                        <li>Add the beans, crushed tomatoes, and vegetable broth. Bring to a boil, then reduce heat and simmer for 15 minutes to let flavors meld.</li>
-                        <li>Use a potato masher or the back of a wooden spoon to partially mash some of the beans in the pot (about one-third of them). This creates a creamier texture while keeping some beans whole.</li>
-                        <li>Stir in the chopped kale and cook for 3-4 minutes until wilted.</li>
-                        <li>Remove from heat and stir in the cream, parmesan cheese, and lemon juice. Taste and adjust seasoning with salt and pepper.</li>
-                        <li>Serve hot with additional parmesan and crusty bread.</li>
+                        <li>Preheat oven to 400°F. Cook quinoa or rice according to package directions.</li>
+                        <li>On a large baking sheet, toss sweet potato cubes with 1½ tablespoons olive oil, half the cumin, half the paprika, half the garlic powder, salt, and pepper.</li>
+                        <li>On a second baking sheet (or the other half of a large sheet), toss chickpeas with remaining 1½ tablespoons olive oil and remaining spices.</li>
+                        <li>Roast both for 25-30 minutes, stirring halfway through. Sweet potatoes should be tender and starting to caramelize; chickpeas should be golden and slightly crispy.</li>
+                        <li>While roasting, make the tahini sauce: Whisk together tahini, lemon juice, and garlic. Add water one tablespoon at a time until you reach a pourable, creamy consistency. Add maple syrup if using, and season with salt. Set aside.</li>
+                        <li>To assemble bowls: Start with a base of quinoa or rice, add a handful of mixed greens, then arrange roasted sweet potatoes, chickpeas, cucumbers, tomatoes, and avocado on top.</li>
+                        <li>Drizzle generously with tahini sauce and sprinkle with seeds if using.</li>
                     </ol>
                     
                     <div class="baby-note">
-                        <strong>For baby:</strong> This soup is naturally baby-friendly! Before adding cream and parmesan, set aside a portion. Mash the beans and vegetables more thoroughly for younger babies. The soft vegetables, beans, and broth make a nutritious, easy-to-eat meal. Serve with small pieces of soft bread for dipping.
+                        <strong>For baby (10 months):</strong> This meal is PERFECT for baby! The roasted sweet potatoes are naturally sweet and soft. Before adding spices heavily, set aside some plain sweet potato cubes. Mash a few chickpeas (or leave whole if baby is comfortable). Offer small cucumber pieces (peeled and deseeded), and tiny pieces of avocado. The quinoa/rice is great finger food. Thin the tahini sauce with extra water and offer a small amount - babies often love it! Skip the seeds for choking safety.
                     </div>
                     
                     <div class="storage-tip">
-                        <strong>Storage tip:</strong> This soup tastes even better the next day! Store in an airtight container for up to 5 days. It will thicken as it sits - just add a splash of broth or water when reheating. Freezes beautifully for up to 3 months.
+                        <strong>Storage tip:</strong> Store components separately for best results. Roasted sweet potatoes and chickpeas keep for 4 days. Keep the sauce, greens, and fresh vegetables separate. Assemble bowls fresh when ready to eat. The sweet potatoes and chickpeas are delicious served warm or cold!
                     </div>
                     
-                    <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
+                    <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
+                        <strong style="color: #e65100;">💡 Make-ahead tip:</strong> Roast the sweet potatoes and chickpeas on the weekend and store in the fridge. Throughout the week, you can quickly assemble fresh bowls in just 5 minutes!
+                    </div>
+                    
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal1')">Start Cooking Mode</button>
                 </div>
             </div>
             
@@ -576,23 +451,59 @@
         
         <!-- GROCERY LIST PAGE -->
         <div id="grocery" class="page">
-            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Shopping List - Week 2</h2>
+            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Shopping List</h2>
             
             <div style="background-color: #e8f5e9; padding: 30px; border-radius: 8px; text-align: center;">
                 <h3 style="color: #2c5f2d; margin-bottom: 15px;">📝 Your Shared Shopping List</h3>
                 <p style="margin-bottom: 25px; font-size: 1.1em; line-height: 1.6;">
-                    Your shopping list is in Google Sheets so you and your wife can both check off items in real-time!
+                    Add these ingredients to your Google Sheets shopping list!
                 </p>
                 
-                <a href="https://docs.google.com/spreadsheets/d/1O-Lo_iphmyHBstILjbDVWx28iY48xdBlaH_Gd9CFUgo/edit?gid=1679216792#gid=1679216792" target="_blank" style="text-decoration: none;">
+                <a href="YOUR_GOOGLE_SHEET_URL_HERE" target="_blank" style="text-decoration: none;">
                     <button style="padding: 15px 40px; background-color: #4caf50; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
                         Open Shopping List in Google Sheets
                     </button>
                 </a>
                 
                 <div style="margin-top: 30px; padding: 20px; background-color: white; border-radius: 5px; text-align: left;">
-                    <h4 style="color: #2c5f2d; margin-bottom: 10px;">💡 For Week 2:</h4>
-                    <p style="margin-bottom: 15px;">Create a new tab in your Google Sheet for Week 2, or update the existing list with these new ingredients.</p>
+                    <h4 style="color: #2c5f2d; margin-bottom: 15px;">🛒 Ingredients Needed:</h4>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div>
+                            <strong>Produce:</strong>
+                            <ul style="margin-left: 20px; margin-top: 5px;">
+                                <li>Sweet potatoes (2 large)</li>
+                                <li>Cucumbers (2)</li>
+                                <li>Cherry tomatoes (2 cups)</li>
+                                <li>Mixed greens (4 cups)</li>
+                                <li>Avocado (1)</li>
+                                <li>Garlic (2 cloves)</li>
+                                <li>Lemons (2)</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <strong>Pantry/Dry Goods:</strong>
+                            <ul style="margin-left: 20px; margin-top: 5px;">
+                                <li>Chickpeas, canned (2 cans, 15 oz each)</li>
+                                <li>Quinoa or brown rice (1 cup uncooked)</li>
+                                <li>Tahini (½ cup)</li>
+                                <li>Olive oil</li>
+                                <li>Cumin</li>
+                                <li>Paprika</li>
+                                <li>Garlic powder</li>
+                                <li>Maple syrup (optional)</li>
+                                <li>Sunflower or pumpkin seeds (optional)</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <strong>Spices to Check:</strong>
+                            <ul style="margin-left: 20px; margin-top: 5px;">
+                                <li>Salt and pepper</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -606,7 +517,7 @@
             <div class="cooking-mode-title" id="cookingModeTitle">Cooking Mode</div>
             <button class="close-cooking-mode" onclick="exitCookingMode()">✕</button>
         </div>
-        <div class="cooking-mode-progress" id="cookingModeProgress">Step 1 of 6</div>
+        <div class="cooking-mode-progress" id="cookingModeProgress">Step 1 of 7</div>
         <div class="cooking-mode-content" id="cookingModeContent">
             <!-- Steps will be inserted here -->
         </div>
@@ -619,169 +530,70 @@
     <script>
         const recipes = {
             meal1: {
-                title: "Mediterranean Mezze Platter",
-                steps: [
-                    {
-                        ingredients: ["Large platter or cutting board"],
-                        instruction: "Choose a large serving platter or cutting board as your base."
-                    },
-                    {
-                        ingredients: [
-                            "Hummus (2 containers)",
-                            "Tzatziki sauce",
-                            "Baba ganoush",
-                            "Small bowls"
-                        ],
-                        instruction: "Place the three dips in small bowls and arrange them around the platter."
-                    },
-                    {
-                        ingredients: [
-                            "8 oz feta cheese, cubed"
-                        ],
-                        instruction: "Arrange the feta cheese cubes in one section of the platter."
-                    },
-                    {
-                        ingredients: [
-                            "1 cup kalamata olives",
-                            "1 cup cherry tomatoes, halved",
-                            "2 cucumbers, sliced",
-                            "2 bell peppers, sliced",
-                            "2 cups baby carrots"
-                        ],
-                        instruction: "Create sections with the olives, cherry tomatoes, cucumbers, bell peppers, and baby carrots around the platter."
-                    },
-                    {
-                        ingredients: [
-                            "8 oz artichoke hearts",
-                            "1 cup roasted red peppers",
-                            "1 cup dolmas (optional)"
-                        ],
-                        instruction: "Add the artichoke hearts, roasted red peppers, and dolmas (if using) to fill in any gaps."
-                    },
-                    {
-                        ingredients: [
-                            "½ cup olive oil",
-                            "2 tablespoons za'atar"
-                        ],
-                        instruction: "Drizzle olive oil over the vegetables and feta, then sprinkle with za'atar."
-                    },
-                    {
-                        ingredients: [
-                            "Pita bread",
-                            "Fresh herbs (parsley, mint)",
-                            "Lemon wedges"
-                        ],
-                        instruction: "Arrange pita bread around the edges or in a basket. Garnish with fresh herbs and lemon wedges. Serve immediately!"
-                    }
-                ]
-            },
-            meal2: {
-                title: "Sheet Pan Roasted Vegetable & Halloumi Bowl",
+                title: "Sweet Potato & Chickpea Buddha Bowl",
                 steps: [
                     {
                         ingredients: [
-                            "1½ cups quinoa",
-                            "3 cups vegetable broth or water"
+                            "1 cup uncooked quinoa or brown rice"
                         ],
-                        instruction: "Preheat oven to 425°F. Start cooking quinoa according to package directions."
+                        instruction: "Preheat oven to 400°F. Cook quinoa or rice according to package directions."
                     },
                     {
                         ingredients: [
-                            "1 large sweet potato, cubed",
-                            "2 zucchini, sliced",
-                            "1 red onion, cut into wedges",
-                            "2 cups cherry tomatoes",
-                            "1 can chickpeas, drained",
-                            "3 tablespoons olive oil",
-                            "2 teaspoons cumin",
-                            "1 teaspoon smoked paprika",
+                            "2 large sweet potatoes, cubed",
+                            "1½ tablespoons olive oil",
+                            "½ teaspoon cumin",
+                            "½ teaspoon paprika",
+                            "¼ teaspoon garlic powder",
                             "Salt and pepper"
                         ],
-                        instruction: "On two large baking sheets, spread out the vegetables and chickpeas. Toss with olive oil, cumin, smoked paprika, salt, and pepper."
-                    },
-                    {
-                        ingredients: ["Prepared vegetables"],
-                        instruction: "Roast for 25-30 minutes, stirring halfway through, until vegetables are tender and starting to caramelize."
-                    },
-                    {
-                        ingredients: ["2 packages (8 oz each) halloumi, sliced"],
-                        instruction: "During the last 10 minutes, heat a non-stick skillet over medium-high heat. Cook halloumi slices 2-3 minutes per side until golden brown."
+                        instruction: "On a large baking sheet, toss sweet potato cubes with olive oil, cumin, paprika, garlic powder, salt, and pepper."
                     },
                     {
                         ingredients: [
-                            "¼ cup olive oil",
-                            "3 tablespoons lemon juice",
+                            "2 cans chickpeas, dried",
+                            "1½ tablespoons olive oil",
+                            "½ teaspoon cumin",
+                            "½ teaspoon paprika",
+                            "¼ teaspoon garlic powder",
+                            "Salt and pepper"
+                        ],
+                        instruction: "On a second baking sheet, toss chickpeas with olive oil and remaining spices."
+                    },
+                    {
+                        ingredients: ["Prepared sweet potatoes and chickpeas"],
+                        instruction: "Roast both for 25-30 minutes, stirring halfway through. Sweet potatoes should be tender and caramelized; chickpeas should be golden and slightly crispy."
+                    },
+                    {
+                        ingredients: [
+                            "½ cup tahini",
+                            "¼ cup lemon juice",
                             "2 cloves garlic, minced",
-                            "2 tablespoons fresh herbs, chopped",
-                            "1 teaspoon Dijon mustard",
-                            "Salt and pepper"
+                            "6-8 tablespoons water",
+                            "½ teaspoon maple syrup (optional)",
+                            "Salt"
                         ],
-                        instruction: "While everything cooks, whisk together all dressing ingredients in a small bowl."
+                        instruction: "While roasting, make tahini sauce: Whisk tahini, lemon juice, and garlic. Add water one tablespoon at a time until creamy and pourable. Add maple syrup if using and season with salt."
                     },
                     {
                         ingredients: [
-                            "Cooked quinoa",
-                            "2 cups arugula or spinach",
-                            "Roasted vegetables and chickpeas",
-                            "Cooked halloumi",
-                            "Dressing"
+                            "2 cucumbers, diced",
+                            "2 cups cherry tomatoes, halved",
+                            "1 avocado, sliced"
                         ],
-                        instruction: "Divide quinoa among bowls, top with arugula, roasted vegetables, chickpeas, and halloumi. Drizzle with dressing and serve."
-                    }
-                ]
-            },
-            meal3: {
-                title: "Creamy Tuscan White Bean Soup",
-                steps: [
-                    {
-                        ingredients: [
-                            "2 tablespoons olive oil",
-                            "1 large onion, diced",
-                            "3 carrots, diced",
-                            "3 celery stalks, diced"
-                        ],
-                        instruction: "Heat olive oil in a large pot over medium heat. Add onion, carrots, and celery. Cook for 8-10 minutes until vegetables soften."
+                        instruction: "Prepare fresh vegetables: dice cucumbers, halve cherry tomatoes, and slice avocado."
                     },
                     {
                         ingredients: [
-                            "4 cloves garlic, minced",
-                            "1 teaspoon dried rosemary",
-                            "1 teaspoon dried thyme",
-                            "¼ teaspoon red pepper flakes (optional)"
+                            "Cooked quinoa or rice",
+                            "4 cups mixed greens",
+                            "Roasted sweet potatoes",
+                            "Roasted chickpeas",
+                            "Prepared vegetables",
+                            "Tahini sauce",
+                            "Seeds (optional)"
                         ],
-                        instruction: "Add garlic, rosemary, thyme, and red pepper flakes. Cook for 1 minute until fragrant."
-                    },
-                    {
-                        ingredients: [
-                            "3 cans cannellini beans",
-                            "1 can (28 oz) crushed tomatoes",
-                            "6 cups vegetable broth"
-                        ],
-                        instruction: "Add beans, crushed tomatoes, and vegetable broth. Bring to a boil, then reduce heat and simmer for 15 minutes."
-                    },
-                    {
-                        ingredients: ["Potato masher or wooden spoon"],
-                        instruction: "Use a potato masher to partially mash about one-third of the beans in the pot. This creates a creamier texture."
-                    },
-                    {
-                        ingredients: ["3 cups chopped kale or spinach"],
-                        instruction: "Stir in the kale and cook for 3-4 minutes until wilted."
-                    },
-                    {
-                        ingredients: [
-                            "½ cup heavy cream",
-                            "½ cup grated parmesan",
-                            "2 tablespoons lemon juice",
-                            "Salt and pepper"
-                        ],
-                        instruction: "Remove from heat. Stir in cream, parmesan, and lemon juice. Taste and adjust seasoning."
-                    },
-                    {
-                        ingredients: [
-                            "Extra parmesan",
-                            "Crusty bread"
-                        ],
-                        instruction: "Serve hot with additional parmesan and crusty bread for dipping."
+                        instruction: "Assemble bowls: Start with quinoa/rice, add greens, then arrange sweet potatoes, chickpeas, cucumbers, tomatoes, and avocado. Drizzle with tahini sauce and sprinkle with seeds. Enjoy!"
                     }
                 ]
             }
