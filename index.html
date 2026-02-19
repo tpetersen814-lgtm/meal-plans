@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet Potato & Chickpea Buddha Bowl</title>
+    <title>Dinner Party + Baby-Friendly Meals</title>
     <style>
         * {
             margin: 0;
@@ -103,6 +103,17 @@
         .meal-meta {
             color: #666;
             font-size: 0.9em;
+        }
+        
+        .baby-badge {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
         }
         
         .expand-icon {
@@ -370,80 +381,185 @@
 </head>
 <body>
     <div class="container">
-        <h1>Sweet Potato & Chickpea Buddha Bowl</h1>
-        <p class="subtitle">Light, fresh, and baby-friendly | 4-5 servings | 35 minutes</p>
+        <h1>Dinner Party + Baby Meals</h1>
+        <p class="subtitle">Perfect for entertaining 4 adults + 2 babies</p>
         
         <div class="nav-buttons">
-            <button class="nav-button active" onclick="showPage('recipe')">Recipe</button>
+            <button class="nav-button active" onclick="showPage('meals')">Recipes</button>
             <button class="nav-button" onclick="showPage('grocery')">Shopping List</button>
         </div>
         
-        <!-- RECIPE PAGE -->
-        <div id="recipe" class="page active">
+        <!-- MEAL PLAN PAGE -->
+        <div id="meals" class="page active">
             
-            <div class="meal-day expanded" data-meal="meal1">
+            <!-- MEAL 1: BURRITO BOWL BAR -->
+            <div class="meal-day" data-meal="meal1">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Sweet Potato & Chickpea Buddha Bowl</h2>
-                        <div class="meal-meta">Serves 4-5 | Time: 35 minutes</div>
+                        <h2>Build-Your-Own Burrito Bowl Bar</h2>
+                        <div class="meal-meta">Serves 4 adults + 2 babies | Prep: 40 minutes (can prep ahead!)</div>
                     </div>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="meal-content">
-                    <p>A colorful, nutritious bowl with roasted sweet potatoes, crispy chickpeas, fresh vegetables, and creamy tahini sauce. Naturally sweet and perfect for the whole family, including baby!</p>
+                    <p>A colorful spread where everyone builds their perfect bowl! Cilantro-lime rice, seasoned black beans, roasted vegetables, and all the toppings. Minimal hands-on time once prep is done, and babies get soft rice, beans, and avocado.</p>
                     
                     <h3>Ingredients</h3>
-                    <h4>For the bowl:</h4>
+                    <h4>For the cilantro-lime rice:</h4>
                     <ul>
-                        <li>2 large sweet potatoes, peeled and cubed (½-inch pieces)</li>
-                        <li>2 cans (15 oz each) chickpeas, drained, rinsed, and patted dry</li>
-                        <li>3 tablespoons olive oil, divided</li>
-                        <li>1 teaspoon cumin</li>
-                        <li>1 teaspoon paprika</li>
-                        <li>½ teaspoon garlic powder</li>
-                        <li>Salt and pepper to taste</li>
-                        <li>2 cups cooked quinoa or brown rice (about 1 cup uncooked)</li>
-                        <li>4 cups mixed greens (spinach, arugula, or spring mix)</li>
-                        <li>2 cucumbers, diced</li>
-                        <li>2 cups cherry tomatoes, halved</li>
-                        <li>1 avocado, sliced</li>
-                        <li>¼ cup sunflower seeds or pumpkin seeds (optional)</li>
+                        <li>2½ cups long-grain white rice (or brown rice)</li>
+                        <li>5 cups water or vegetable broth</li>
+                        <li>½ cup fresh cilantro, chopped</li>
+                        <li>Juice of 2 limes</li>
+                        <li>1 teaspoon salt</li>
+                        <li>2 tablespoons olive oil</li>
                     </ul>
                     
-                    <h4>For the creamy tahini sauce:</h4>
+                    <h4>For the seasoned black beans:</h4>
                     <ul>
-                        <li>½ cup tahini</li>
-                        <li>¼ cup lemon juice (about 2 lemons)</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>6-8 tablespoons water (to thin)</li>
-                        <li>½ teaspoon maple syrup or honey (optional)</li>
+                        <li>3 cans (15 oz each) black beans, drained and rinsed</li>
+                        <li>1 tablespoon olive oil</li>
+                        <li>1 small onion, diced</li>
+                        <li>3 cloves garlic, minced</li>
+                        <li>2 teaspoons cumin</li>
+                        <li>1 teaspoon chili powder</li>
+                        <li>½ cup vegetable broth or water</li>
                         <li>Salt to taste</li>
+                    </ul>
+                    
+                    <h4>For the roasted vegetables:</h4>
+                    <ul>
+                        <li>3 bell peppers (mixed colors), sliced into strips</li>
+                        <li>2 medium zucchini, sliced into half-moons</li>
+                        <li>1 large red onion, sliced into wedges</li>
+                        <li>2 cups corn kernels (fresh or frozen)</li>
+                        <li>3 tablespoons olive oil</li>
+                        <li>2 teaspoons cumin</li>
+                        <li>1 teaspoon smoked paprika</li>
+                        <li>Salt and pepper</li>
+                    </ul>
+                    
+                    <h4>For the toppings bar:</h4>
+                    <ul>
+                        <li>3 avocados, sliced or mashed</li>
+                        <li>2 cups shredded cheese (cheddar or Mexican blend)</li>
+                        <li>2 cups sour cream or Greek yogurt</li>
+                        <li>2 cups salsa (mild and spicy options)</li>
+                        <li>1 cup fresh cilantro, chopped</li>
+                        <li>2 limes, cut into wedges</li>
+                        <li>1 cup pickled jalapeños (optional)</li>
+                        <li>Tortilla chips for scooping</li>
                     </ul>
                     
                     <h3>Instructions</h3>
                     <ol>
-                        <li>Preheat oven to 400°F. Cook quinoa or rice according to package directions.</li>
-                        <li>On a large baking sheet, toss sweet potato cubes with 1½ tablespoons olive oil, half the cumin, half the paprika, half the garlic powder, salt, and pepper.</li>
-                        <li>On a second baking sheet (or the other half of a large sheet), toss chickpeas with remaining 1½ tablespoons olive oil and remaining spices.</li>
-                        <li>Roast both for 25-30 minutes, stirring halfway through. Sweet potatoes should be tender and starting to caramelize; chickpeas should be golden and slightly crispy.</li>
-                        <li>While roasting, make the tahini sauce: Whisk together tahini, lemon juice, and garlic. Add water one tablespoon at a time until you reach a pourable, creamy consistency. Add maple syrup if using, and season with salt. Set aside.</li>
-                        <li>To assemble bowls: Start with a base of quinoa or rice, add a handful of mixed greens, then arrange roasted sweet potatoes, chickpeas, cucumbers, tomatoes, and avocado on top.</li>
-                        <li>Drizzle generously with tahini sauce and sprinkle with seeds if using.</li>
+                        <li><strong>Make the rice (can do 1 day ahead):</strong> Cook rice according to package directions using water or broth. When done, fluff with a fork and stir in chopped cilantro, lime juice, salt, and olive oil. Keep warm or reheat before serving.</li>
+                        <li><strong>Roast the vegetables (can do 2 hours ahead):</strong> Preheat oven to 425°F. On two large baking sheets, toss bell peppers, zucchini, onion, and corn with olive oil, cumin, smoked paprika, salt, and pepper. Roast for 25-30 minutes, stirring halfway, until vegetables are tender and slightly charred. Keep warm or reheat.</li>
+                        <li><strong>Make the seasoned beans (can do 1 day ahead):</strong> Heat olive oil in a large pot over medium heat. Add onion and cook 5 minutes until softened. Add garlic and cook 1 minute. Stir in black beans, cumin, chili powder, and vegetable broth. Simmer for 10-15 minutes, mashing some beans with the back of a spoon to create a creamy texture. Season with salt. Keep warm or reheat.</li>
+                        <li><strong>Prep the toppings (30 minutes before guests):</strong> Slice or mash avocados (add lime juice to prevent browning). Place all toppings in individual bowls.</li>
+                        <li><strong>Set up the bar:</strong> Arrange all components buffet-style: rice, beans, roasted vegetables, then all the toppings. Give everyone bowls and let them build their perfect burrito bowl!</li>
                     </ol>
                     
                     <div class="baby-note">
-                        <strong>For baby (10 months):</strong> This meal is PERFECT for baby! The roasted sweet potatoes are naturally sweet and soft. Before adding spices heavily, set aside some plain sweet potato cubes. Mash a few chickpeas (or leave whole if baby is comfortable). Offer small cucumber pieces (peeled and deseeded), and tiny pieces of avocado. The quinoa/rice is great finger food. Thin the tahini sauce with extra water and offer a small amount - babies often love it! Skip the seeds for choking safety.
+                        <strong>For babies:</strong> This meal is PERFECT for babies! Before seasoning heavily, set aside plain portions of rice, beans, and roasted vegetables. Mash some beans, cut veggies into small pieces, and offer rice for finger food practice. The avocado is a hit with most babies! Skip spicy salsa and jalapeños. Everything is soft and easy to eat.
                     </div>
                     
                     <div class="storage-tip">
-                        <strong>Storage tip:</strong> Store components separately for best results. Roasted sweet potatoes and chickpeas keep for 4 days. Keep the sauce, greens, and fresh vegetables separate. Assemble bowls fresh when ready to eat. The sweet potatoes and chickpeas are delicious served warm or cold!
+                        <strong>Make-ahead magic:</strong> Rice and beans can be made 1 day ahead and reheated. Roasted vegetables can be done 2 hours ahead and kept warm or at room temperature. This means when guests arrive, you just set everything out - no cooking!
                     </div>
                     
                     <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
-                        <strong style="color: #e65100;">💡 Make-ahead tip:</strong> Roast the sweet potatoes and chickpeas on the weekend and store in the fridge. Throughout the week, you can quickly assemble fresh bowls in just 5 minutes!
+                        <strong style="color: #e65100;">🎉 Entertaining tip:</strong> Set out colorful bowls and serving spoons for each component. Label items like "Mild Salsa" and "Spicy Salsa" so guests know what they're getting. Put baby-friendly items at the front!
                     </div>
                     
                     <button class="cooking-mode-button" onclick="startCookingMode('meal1')">Start Cooking Mode</button>
+                </div>
+            </div>
+            
+            <!-- MEAL 2: BANANA OAT PANCAKES -->
+            <div class="meal-day" data-meal="meal2">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Banana Oat Pancakes <span class="baby-badge">👶 BABY FAVORITE</span></h2>
+                        <div class="meal-meta">Makes 16-20 small pancakes | Prep: 5 min | Cook: 15 min</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Simple 4-ingredient pancakes perfect for little ones. Naturally sweet, soft, and easy to grab. Freezes beautifully for quick daycare breakfasts.</p>
+                    
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>2 ripe bananas</li>
+                        <li>1 cup rolled oats</li>
+                        <li>2 eggs</li>
+                        <li>½ teaspoon cinnamon</li>
+                        <li>1 tablespoon butter or oil (for the pan)</li>
+                    </ul>
+                    
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li><strong>Blend the batter:</strong> Add the bananas (broken into chunks), oats, eggs, and cinnamon to a blender or food processor. Blend until smooth, about 20-30 seconds. The batter will be thinner than traditional pancake batter - that's normal. Let it sit for 5 minutes so the oats absorb some liquid and the batter thickens slightly.</li>
+                        <li><strong>Heat the pan:</strong> Heat a non-stick skillet or griddle over medium-low heat. Add a small amount of butter or oil and spread it around. Medium-low is key - these burn faster than regular pancakes because of the banana sugars.</li>
+                        <li><strong>Cook the pancakes:</strong> Pour about 1 tablespoon of batter per pancake onto the skillet (small silver-dollar size is perfect for little hands). Cook until bubbles form on the surface and the edges look set, about 2 minutes.</li>
+                        <li><strong>Flip and finish:</strong> Gently flip each pancake and cook for another 1-2 minutes until golden on the bottom. These are delicate, so a thin spatula helps. Transfer to a plate or cooling rack.</li>
+                        <li><strong>Cool and serve or store:</strong> Let pancakes cool completely before storing. For daycare, pack 3-4 pancakes in a small container - they're great cold or microwaved for about 20-30 seconds.</li>
+                    </ol>
+                    
+                    <div class="storage-tip">
+                        <strong>Freezer Instructions:</strong> Lay cooled pancakes in a single layer on a parchment-lined baking sheet and freeze for 1-2 hours, then transfer to a freezer bag. This prevents them from sticking together. They'll keep for up to 3 months. Pull out what you need the night before, or microwave straight from frozen for 30-45 seconds.
+                    </div>
+                    
+                    <div class="baby-note">
+                        <strong>Variations:</strong> Add 1 tablespoon of peanut butter or almond butter to the blender for extra protein and healthy fat. You can also toss in a small handful of spinach - it disappears in the batter and adds iron. For older kids or adults, top with yogurt and fresh berries.
+                    </div>
+                    
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal2')">Start Cooking Mode</button>
+                </div>
+            </div>
+            
+            <!-- MEAL 3: BLACK BEAN QUESADILLAS -->
+            <div class="meal-day" data-meal="meal3">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Black Bean & Sweet Potato Quesadillas <span class="baby-badge">👶 DAYCARE READY</span></h2>
+                        <div class="meal-meta">Makes 16-20 strips | Prep: 10 min | Cook: 20 min</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Protein-packed, naturally sweet, and perfect for tiny hands. The mashed filling holds together well, making these ideal for daycare lunches.</p>
+                    
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>1 medium sweet potato</li>
+                        <li>1 cup canned black beans (drained and rinsed)</li>
+                        <li>¾ cup shredded cheese (cheddar or Monterey Jack)</li>
+                        <li>½ teaspoon cumin</li>
+                        <li>¼ teaspoon garlic powder</li>
+                        <li>4 small flour tortillas (6-inch)</li>
+                        <li>1 tablespoon butter or oil (for the pan)</li>
+                    </ul>
+                    
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li><strong>Cook the sweet potato:</strong> Pierce the sweet potato several times with a fork. Microwave on high for 5-7 minutes, turning halfway, until completely soft when squeezed. Alternatively, roast at 400°F for 40-45 minutes. Let it cool enough to handle, then scoop out the flesh into a bowl.</li>
+                        <li><strong>Make the filling:</strong> Add the black beans to the bowl with the sweet potato. Mash everything together with a fork - you want a chunky, spreadable mixture (some whole beans are fine and give good texture for baby to practice with). Stir in the cumin and garlic powder.</li>
+                        <li><strong>Assemble the quesadillas:</strong> Spread about 3 tablespoons of the bean and sweet potato filling evenly over half of each tortilla. Sprinkle the shredded cheese over the filling, then fold the tortilla in half, pressing down gently.</li>
+                        <li><strong>Cook the quesadillas:</strong> Heat a skillet over medium heat and add a small amount of butter or oil. Place 1-2 quesadillas in the pan (don't crowd them). Cook for about 2-3 minutes per side until the tortilla is golden and crispy and the cheese is melted.</li>
+                        <li><strong>Flip and finish:</strong> Flip carefully with a spatula and cook the other side for another 2-3 minutes until golden. Transfer to a cutting board.</li>
+                        <li><strong>Cut into strips and serve or store:</strong> Let the quesadilla cool for a minute or two, then cut into strips about 1 inch wide - the perfect size for little hands to grab and self-feed. For daycare, pack 4-5 strips in a container.</li>
+                    </ol>
+                    
+                    <div class="storage-tip">
+                        <strong>Freezer Instructions:</strong> Let the cooked quesadilla strips cool completely. Lay them in a single layer on a parchment-lined baking sheet, freeze for 1-2 hours, then transfer to a freezer bag. They keep for 2-3 months. For daycare, pack frozen strips in a container the night before - they'll partially thaw by lunchtime and reheat in the microwave in 30-45 seconds.
+                    </div>
+                    
+                    <div class="baby-note">
+                        <strong>Variations:</strong> Swap the sweet potato for butternut squash (same method). Add a handful of finely chopped spinach to the filling for extra iron. For a little kick for older family members, add a pinch of smoked paprika or a few dashes of hot sauce to the adult portions.
+                    </div>
+                    
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
                 </div>
             </div>
             
@@ -451,7 +567,7 @@
         
         <!-- GROCERY LIST PAGE -->
         <div id="grocery" class="page">
-            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Shopping List</h2>
+            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Complete Shopping List</h2>
             
             <div style="background-color: #e8f5e9; padding: 30px; border-radius: 8px; text-align: center;">
                 <h3 style="color: #2c5f2d; margin-bottom: 15px;">📝 Your Shared Shopping List</h3>
@@ -459,52 +575,11 @@
                     Add these ingredients to your Google Sheets shopping list!
                 </p>
                 
-                <a href="https://docs.google.com/spreadsheets/d/1O-Lo_iphmyHBstILjbDVWx28iY48xdBlaH_Gd9CFUgo/edit?gid=587230376#gid=587230376" target="_blank" style="text-decoration: none;">
+                <a href="YOUR_GOOGLE_SHEET_URL_HERE" target="_blank" style="text-decoration: none;">
                     <button style="padding: 15px 40px; background-color: #4caf50; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
                         Open Shopping List in Google Sheets
                     </button>
                 </a>
-                
-                <div style="margin-top: 30px; padding: 20px; background-color: white; border-radius: 5px; text-align: left;">
-                    <h4 style="color: #2c5f2d; margin-bottom: 15px;">🛒 Ingredients Needed:</h4>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                        <div>
-                            <strong>Produce:</strong>
-                            <ul style="margin-left: 20px; margin-top: 5px;">
-                                <li>Sweet potatoes (2 large)</li>
-                                <li>Cucumbers (2)</li>
-                                <li>Cherry tomatoes (2 cups)</li>
-                                <li>Mixed greens (4 cups)</li>
-                                <li>Avocado (1)</li>
-                                <li>Garlic (2 cloves)</li>
-                                <li>Lemons (2)</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <strong>Pantry/Dry Goods:</strong>
-                            <ul style="margin-left: 20px; margin-top: 5px;">
-                                <li>Chickpeas, canned (2 cans, 15 oz each)</li>
-                                <li>Quinoa or brown rice (1 cup uncooked)</li>
-                                <li>Tahini (½ cup)</li>
-                                <li>Olive oil</li>
-                                <li>Cumin</li>
-                                <li>Paprika</li>
-                                <li>Garlic powder</li>
-                                <li>Maple syrup (optional)</li>
-                                <li>Sunflower or pumpkin seeds (optional)</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <strong>Spices to Check:</strong>
-                            <ul style="margin-left: 20px; margin-top: 5px;">
-                                <li>Salt and pepper</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
             
         </div>
@@ -517,7 +592,7 @@
             <div class="cooking-mode-title" id="cookingModeTitle">Cooking Mode</div>
             <button class="close-cooking-mode" onclick="exitCookingMode()">✕</button>
         </div>
-        <div class="cooking-mode-progress" id="cookingModeProgress">Step 1 of 7</div>
+        <div class="cooking-mode-progress" id="cookingModeProgress">Step 1</div>
         <div class="cooking-mode-content" id="cookingModeContent">
             <!-- Steps will be inserted here -->
         </div>
@@ -530,70 +605,135 @@
     <script>
         const recipes = {
             meal1: {
-                title: "Sweet Potato & Chickpea Buddha Bowl",
+                title: "Build-Your-Own Burrito Bowl Bar",
                 steps: [
                     {
                         ingredients: [
-                            "1 cup uncooked quinoa or brown rice"
+                            "2½ cups rice",
+                            "5 cups water or broth",
+                            "1 teaspoon salt"
                         ],
-                        instruction: "Preheat oven to 400°F. Cook quinoa or rice according to package directions."
+                        instruction: "Make the rice: Cook rice according to package directions using water or broth with salt. This can be done 1 day ahead!"
                     },
                     {
                         ingredients: [
-                            "2 large sweet potatoes, cubed",
-                            "1½ tablespoons olive oil",
-                            "½ teaspoon cumin",
-                            "½ teaspoon paprika",
-                            "¼ teaspoon garlic powder",
+                            "½ cup cilantro, chopped",
+                            "Juice of 2 limes",
+                            "2 tablespoons olive oil"
+                        ],
+                        instruction: "When rice is done, fluff with a fork and stir in chopped cilantro, lime juice, and olive oil. Keep warm or set aside to reheat later."
+                    },
+                    {
+                        ingredients: [
+                            "3 bell peppers, sliced",
+                            "2 zucchini, sliced",
+                            "1 red onion, sliced",
+                            "2 cups corn",
+                            "3 tablespoons olive oil",
+                            "2 teaspoons cumin",
+                            "1 teaspoon smoked paprika",
                             "Salt and pepper"
                         ],
-                        instruction: "On a large baking sheet, toss sweet potato cubes with olive oil, cumin, paprika, garlic powder, salt, and pepper."
+                        instruction: "Preheat oven to 425°F. On two baking sheets, toss vegetables and corn with olive oil, cumin, smoked paprika, salt, and pepper. Can prep this 2 hours ahead!"
+                    },
+                    {
+                        ingredients: ["Prepared vegetables"],
+                        instruction: "Roast vegetables for 25-30 minutes, stirring halfway, until tender and slightly charred. Keep warm or serve at room temperature."
                     },
                     {
                         ingredients: [
-                            "2 cans chickpeas, dried",
-                            "1½ tablespoons olive oil",
-                            "½ teaspoon cumin",
-                            "½ teaspoon paprika",
-                            "¼ teaspoon garlic powder",
-                            "Salt and pepper"
+                            "1 tablespoon olive oil",
+                            "1 small onion, diced",
+                            "3 cloves garlic, minced"
                         ],
-                        instruction: "On a second baking sheet, toss chickpeas with olive oil and remaining spices."
-                    },
-                    {
-                        ingredients: ["Prepared sweet potatoes and chickpeas"],
-                        instruction: "Roast both for 25-30 minutes, stirring halfway through. Sweet potatoes should be tender and caramelized; chickpeas should be golden and slightly crispy."
+                        instruction: "Make the beans: Heat olive oil in a large pot over medium heat. Add onion and cook 5 minutes. Add garlic and cook 1 minute more."
                     },
                     {
                         ingredients: [
-                            "½ cup tahini",
-                            "¼ cup lemon juice",
-                            "2 cloves garlic, minced",
-                            "6-8 tablespoons water",
-                            "½ teaspoon maple syrup (optional)",
+                            "3 cans black beans",
+                            "2 teaspoons cumin",
+                            "1 teaspoon chili powder",
+                            "½ cup vegetable broth",
                             "Salt"
                         ],
-                        instruction: "While roasting, make tahini sauce: Whisk tahini, lemon juice, and garlic. Add water one tablespoon at a time until creamy and pourable. Add maple syrup if using and season with salt."
+                        instruction: "Add black beans, cumin, chili powder, and vegetable broth. Simmer 10-15 minutes, mashing some beans for creaminess. Season with salt. Can make 1 day ahead!"
                     },
                     {
                         ingredients: [
-                            "2 cucumbers, diced",
-                            "2 cups cherry tomatoes, halved",
-                            "1 avocado, sliced"
+                            "3 avocados",
+                            "2 cups shredded cheese",
+                            "2 cups sour cream",
+                            "2 cups salsa",
+                            "1 cup cilantro",
+                            "2 limes",
+                            "Jalapeños (optional)",
+                            "Tortilla chips"
                         ],
-                        instruction: "Prepare fresh vegetables: dice cucumbers, halve cherry tomatoes, and slice avocado."
+                        instruction: "Prep toppings 30 minutes before guests: slice avocados, put all toppings in bowls. Set everything out buffet-style and let everyone build their perfect bowl!"
+                    }
+                ]
+            },
+            meal2: {
+                title: "Banana Oat Pancakes",
+                steps: [
+                    {
+                        ingredients: [
+                            "2 ripe bananas",
+                            "1 cup rolled oats",
+                            "2 eggs",
+                            "½ teaspoon cinnamon"
+                        ],
+                        instruction: "Add bananas (in chunks), oats, eggs, and cinnamon to a blender. Blend until smooth, about 20-30 seconds. Let sit 5 minutes to thicken."
+                    },
+                    {
+                        ingredients: ["Butter or oil"],
+                        instruction: "Heat a non-stick skillet over medium-low heat. Add butter or oil. Keep heat medium-low - these burn faster than regular pancakes!"
+                    },
+                    {
+                        ingredients: ["Prepared batter"],
+                        instruction: "Pour 1 tablespoon of batter per pancake (silver-dollar size). Cook until bubbles form and edges look set, about 2 minutes."
+                    },
+                    {
+                        ingredients: [],
+                        instruction: "Gently flip each pancake (they're delicate!) and cook another 1-2 minutes until golden. Transfer to a plate."
+                    },
+                    {
+                        ingredients: [],
+                        instruction: "Let cool completely before storing. Pack 3-4 in containers for daycare - great cold or microwaved 20-30 seconds!"
+                    }
+                ]
+            },
+            meal3: {
+                title: "Black Bean & Sweet Potato Quesadillas",
+                steps: [
+                    {
+                        ingredients: ["1 medium sweet potato"],
+                        instruction: "Pierce sweet potato with a fork. Microwave 5-7 minutes, turning halfway, until completely soft. Or roast at 400°F for 40-45 minutes. Let cool, then scoop out flesh."
                     },
                     {
                         ingredients: [
-                            "Cooked quinoa or rice",
-                            "4 cups mixed greens",
-                            "Roasted sweet potatoes",
-                            "Roasted chickpeas",
-                            "Prepared vegetables",
-                            "Tahini sauce",
-                            "Seeds (optional)"
+                            "Sweet potato flesh",
+                            "1 cup black beans",
+                            "½ teaspoon cumin",
+                            "¼ teaspoon garlic powder"
                         ],
-                        instruction: "Assemble bowls: Start with quinoa/rice, add greens, then arrange sweet potatoes, chickpeas, cucumbers, tomatoes, and avocado. Drizzle with tahini sauce and sprinkle with seeds. Enjoy!"
+                        instruction: "Mash sweet potato and black beans together with a fork - keep it chunky! Stir in cumin and garlic powder."
+                    },
+                    {
+                        ingredients: [
+                            "4 small tortillas",
+                            "Bean-sweet potato filling",
+                            "¾ cup shredded cheese"
+                        ],
+                        instruction: "Spread 3 tablespoons filling on half of each tortilla. Sprinkle with cheese. Fold in half and press gently."
+                    },
+                    {
+                        ingredients: ["Butter or oil"],
+                        instruction: "Heat skillet over medium heat with butter or oil. Cook 1-2 quesadillas at a time, 2-3 minutes per side until golden and cheese melts."
+                    },
+                    {
+                        ingredients: [],
+                        instruction: "Let cool 1-2 minutes, then cut into 1-inch strips - perfect for little hands! Pack 4-5 strips for daycare."
                     }
                 ]
             }
