@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinner Party + Baby-Friendly Meals</title>
+    <title>Quick Weeknight Meals</title>
     <style>
         * {
             margin: 0;
@@ -103,17 +103,6 @@
         .meal-meta {
             color: #666;
             font-size: 0.9em;
-        }
-        
-        .baby-badge {
-            display: inline-block;
-            background-color: #ff9800;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.85em;
-            font-weight: bold;
-            margin-left: 10px;
         }
         
         .expand-icon {
@@ -381,8 +370,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Dinner Party + Baby Meals</h1>
-        <p class="subtitle">Perfect for entertaining 4 adults + 2 babies</p>
+        <h1>Quick Weeknight Meals</h1>
+        <p class="subtitle">Two easy dinners ready in 25 minutes or less | 4-5 servings each</p>
         
         <div class="nav-buttons">
             <button class="nav-button active" onclick="showPage('meals')">Recipes</button>
@@ -392,174 +381,125 @@
         <!-- MEAL PLAN PAGE -->
         <div id="meals" class="page active">
             
-            <!-- MEAL 1: BURRITO BOWL BAR -->
+            <!-- MEAL 1: SHEET PAN GNOCCHI -->
             <div class="meal-day" data-meal="meal1">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Build-Your-Own Burrito Bowl Bar</h2>
-                        <div class="meal-meta">Serves 4 adults + 2 babies | Prep: 40 minutes (can prep ahead!)</div>
+                        <h2>Meal 1: Sheet Pan Gnocchi with Vegetables & Pesto</h2>
+                        <div class="meal-meta">Serves 4-5 | Time: 25 minutes (mostly hands-off!)</div>
                     </div>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="meal-content">
-                    <p>A colorful spread where everyone builds their perfect bowl! Cilantro-lime rice, seasoned black beans, roasted vegetables, and all the toppings. Minimal hands-on time once prep is done, and babies get soft rice, beans, and avocado.</p>
+                    <p>The ultimate easy weeknight dinner! Store-bought gnocchi gets crispy in the oven alongside roasted vegetables, then everything is tossed with pesto. One pan, minimal effort, maximum flavor.</p>
                     
                     <h3>Ingredients</h3>
-                    <h4>For the cilantro-lime rice:</h4>
                     <ul>
-                        <li>2½ cups long-grain white rice (or brown rice)</li>
-                        <li>5 cups water or vegetable broth</li>
-                        <li>½ cup fresh cilantro, chopped</li>
-                        <li>Juice of 2 limes</li>
-                        <li>1 teaspoon salt</li>
-                        <li>2 tablespoons olive oil</li>
-                    </ul>
-                    
-                    <h4>For the seasoned black beans:</h4>
-                    <ul>
-                        <li>3 cans (15 oz each) black beans, drained and rinsed</li>
-                        <li>1 tablespoon olive oil</li>
-                        <li>1 small onion, diced</li>
-                        <li>3 cloves garlic, minced</li>
-                        <li>2 teaspoons cumin</li>
-                        <li>1 teaspoon chili powder</li>
-                        <li>½ cup vegetable broth or water</li>
-                        <li>Salt to taste</li>
-                    </ul>
-                    
-                    <h4>For the roasted vegetables:</h4>
-                    <ul>
-                        <li>3 bell peppers (mixed colors), sliced into strips</li>
-                        <li>2 medium zucchini, sliced into half-moons</li>
-                        <li>1 large red onion, sliced into wedges</li>
-                        <li>2 cups corn kernels (fresh or frozen)</li>
+                        <li>2 packages (16 oz each) shelf-stable or refrigerated gnocchi</li>
+                        <li>2 cups cherry tomatoes</li>
+                        <li>1 medium zucchini, diced</li>
+                        <li>1 red bell pepper, diced</li>
+                        <li>1 yellow bell pepper, diced</li>
+                        <li>1 small red onion, diced</li>
                         <li>3 tablespoons olive oil</li>
-                        <li>2 teaspoons cumin</li>
-                        <li>1 teaspoon smoked paprika</li>
-                        <li>Salt and pepper</li>
-                    </ul>
-                    
-                    <h4>For the toppings bar:</h4>
-                    <ul>
-                        <li>3 avocados, sliced or mashed</li>
-                        <li>2 cups shredded cheese (cheddar or Mexican blend)</li>
-                        <li>2 cups sour cream or Greek yogurt</li>
-                        <li>2 cups salsa (mild and spicy options)</li>
-                        <li>1 cup fresh cilantro, chopped</li>
-                        <li>2 limes, cut into wedges</li>
-                        <li>1 cup pickled jalapeños (optional)</li>
-                        <li>Tortilla chips for scooping</li>
+                        <li>1 teaspoon garlic powder</li>
+                        <li>½ teaspoon Italian seasoning</li>
+                        <li>Salt and pepper to taste</li>
+                        <li>½ cup basil pesto (store-bought or homemade)</li>
+                        <li>½ cup grated parmesan cheese</li>
+                        <li>Fresh basil for garnish (optional)</li>
                     </ul>
                     
                     <h3>Instructions</h3>
                     <ol>
-                        <li><strong>Make the rice (can do 1 day ahead):</strong> Cook rice according to package directions using water or broth. When done, fluff with a fork and stir in chopped cilantro, lime juice, salt, and olive oil. Keep warm or reheat before serving.</li>
-                        <li><strong>Roast the vegetables (can do 2 hours ahead):</strong> Preheat oven to 425°F. On two large baking sheets, toss bell peppers, zucchini, onion, and corn with olive oil, cumin, smoked paprika, salt, and pepper. Roast for 25-30 minutes, stirring halfway, until vegetables are tender and slightly charred. Keep warm or reheat.</li>
-                        <li><strong>Make the seasoned beans (can do 1 day ahead):</strong> Heat olive oil in a large pot over medium heat. Add onion and cook 5 minutes until softened. Add garlic and cook 1 minute. Stir in black beans, cumin, chili powder, and vegetable broth. Simmer for 10-15 minutes, mashing some beans with the back of a spoon to create a creamy texture. Season with salt. Keep warm or reheat.</li>
-                        <li><strong>Prep the toppings (30 minutes before guests):</strong> Slice or mash avocados (add lime juice to prevent browning). Place all toppings in individual bowls.</li>
-                        <li><strong>Set up the bar:</strong> Arrange all components buffet-style: rice, beans, roasted vegetables, then all the toppings. Give everyone bowls and let them build their perfect burrito bowl!</li>
+                        <li>Preheat oven to 450°F. Line a large baking sheet with parchment paper.</li>
+                        <li>On the baking sheet, combine gnocchi, cherry tomatoes, zucchini, bell peppers, and red onion. Drizzle with olive oil and sprinkle with garlic powder, Italian seasoning, salt, and pepper. Toss everything together until well coated.</li>
+                        <li>Spread everything out in a single layer (don't overcrowd - use two pans if needed). Roast for 20-25 minutes, stirring halfway through, until gnocchi is golden and crispy and vegetables are tender.</li>
+                        <li>Remove from oven and immediately toss with pesto while everything is hot.</li>
+                        <li>Transfer to serving bowls and top with parmesan cheese and fresh basil if using. Serve hot!</li>
                     </ol>
                     
                     <div class="baby-note">
-                        <strong>For babies:</strong> This meal is PERFECT for babies! Before seasoning heavily, set aside plain portions of rice, beans, and roasted vegetables. Mash some beans, cut veggies into small pieces, and offer rice for finger food practice. The avocado is a hit with most babies! Skip spicy salsa and jalapeños. Everything is soft and easy to eat.
+                        <strong>For baby:</strong> Gnocchi is naturally soft and perfect for babies! Set aside a portion before adding pesto (or use just a tiny bit). Cut gnocchi and vegetables into appropriate sizes. The roasted veggies are soft and easy to pick up. Skip the parmesan if baby is under 12 months.
                     </div>
                     
                     <div class="storage-tip">
-                        <strong>Make-ahead magic:</strong> Rice and beans can be made 1 day ahead and reheated. Roasted vegetables can be done 2 hours ahead and kept warm or at room temperature. This means when guests arrive, you just set everything out - no cooking!
+                        <strong>Storage tip:</strong> Leftovers keep for 3-4 days in the fridge. The gnocchi won't be as crispy when reheated, but it's still delicious! Reheat in a skillet over medium heat for best results, or microwave for convenience.
                     </div>
                     
                     <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
-                        <strong style="color: #e65100;">🎉 Entertaining tip:</strong> Set out colorful bowls and serving spoons for each component. Label items like "Mild Salsa" and "Spicy Salsa" so guests know what they're getting. Put baby-friendly items at the front!
+                        <strong style="color: #e65100;">⚡ Speed tip:</strong> While the oven preheats, chop all your vegetables. Once they're on the pan, you're hands-free for 20 minutes!
                     </div>
                     
                     <button class="cooking-mode-button" onclick="startCookingMode('meal1')">Start Cooking Mode</button>
                 </div>
             </div>
             
-            <!-- MEAL 2: BANANA OAT PANCAKES -->
+            <!-- MEAL 2: THAI PEANUT NOODLES -->
             <div class="meal-day" data-meal="meal2">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Banana Oat Pancakes <span class="baby-badge">👶 BABY FAVORITE</span></h2>
-                        <div class="meal-meta">Makes 16-20 small pancakes | Prep: 5 min | Cook: 15 min</div>
+                        <h2>Meal 2: Thai Peanut Noodles with Crispy Tofu</h2>
+                        <div class="meal-meta">Serves 4-5 | Time: 20 minutes</div>
                     </div>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="meal-content">
-                    <p>Simple 4-ingredient pancakes perfect for little ones. Naturally sweet, soft, and easy to grab. Freezes beautifully for quick daycare breakfasts.</p>
+                    <p>Silky rice noodles with crispy tofu and crunchy vegetables, all coated in a rich, creamy peanut sauce. Serve hot or cold - perfect for meal prep!</p>
                     
                     <h3>Ingredients</h3>
+                    <h4>For the noodles and tofu:</h4>
                     <ul>
-                        <li>2 ripe bananas</li>
-                        <li>1 cup rolled oats</li>
-                        <li>2 eggs</li>
-                        <li>½ teaspoon cinnamon</li>
-                        <li>1 tablespoon butter or oil (for the pan)</li>
+                        <li>12 oz rice noodles (pad thai style)</li>
+                        <li>1 block (14 oz) extra-firm tofu, pressed and cubed</li>
+                        <li>2 tablespoons vegetable oil, divided</li>
+                        <li>2 cups shredded red cabbage</li>
+                        <li>2 medium carrots, julienned or shredded</li>
+                        <li>1 red bell pepper, thinly sliced</li>
+                        <li>1 cup edamame (frozen, shelled)</li>
+                        <li>3 green onions, sliced</li>
+                        <li>¼ cup chopped peanuts</li>
+                        <li>Fresh cilantro for garnish</li>
+                        <li>Lime wedges for serving</li>
+                    </ul>
+                    
+                    <h4>For the peanut sauce:</h4>
+                    <ul>
+                        <li>½ cup creamy peanut butter</li>
+                        <li>3 tablespoons soy sauce</li>
+                        <li>2 tablespoons rice vinegar</li>
+                        <li>2 tablespoons maple syrup or brown sugar</li>
+                        <li>2 tablespoons lime juice (about 1 lime)</li>
+                        <li>1 tablespoon sesame oil</li>
+                        <li>2 cloves garlic, minced</li>
+                        <li>1 teaspoon fresh ginger, minced</li>
+                        <li>¼ cup warm water (to thin)</li>
+                        <li>1 teaspoon sriracha or chili garlic sauce (optional)</li>
                     </ul>
                     
                     <h3>Instructions</h3>
                     <ol>
-                        <li><strong>Blend the batter:</strong> Add the bananas (broken into chunks), oats, eggs, and cinnamon to a blender or food processor. Blend until smooth, about 20-30 seconds. The batter will be thinner than traditional pancake batter - that's normal. Let it sit for 5 minutes so the oats absorb some liquid and the batter thickens slightly.</li>
-                        <li><strong>Heat the pan:</strong> Heat a non-stick skillet or griddle over medium-low heat. Add a small amount of butter or oil and spread it around. Medium-low is key - these burn faster than regular pancakes because of the banana sugars.</li>
-                        <li><strong>Cook the pancakes:</strong> Pour about 1 tablespoon of batter per pancake onto the skillet (small silver-dollar size is perfect for little hands). Cook until bubbles form on the surface and the edges look set, about 2 minutes.</li>
-                        <li><strong>Flip and finish:</strong> Gently flip each pancake and cook for another 1-2 minutes until golden on the bottom. These are delicate, so a thin spatula helps. Transfer to a plate or cooling rack.</li>
-                        <li><strong>Cool and serve or store:</strong> Let pancakes cool completely before storing. For daycare, pack 3-4 pancakes in a small container - they're great cold or microwaved for about 20-30 seconds.</li>
+                        <li>Cook rice noodles according to package directions. Drain, rinse with cold water, and set aside.</li>
+                        <li>While noodles cook, make the peanut sauce: In a bowl, whisk together peanut butter, soy sauce, rice vinegar, maple syrup, lime juice, sesame oil, garlic, ginger, and warm water until smooth. Add sriracha if using. Set aside.</li>
+                        <li>Press tofu between paper towels to remove excess moisture, then cut into ½-inch cubes. Heat 1 tablespoon vegetable oil in a large skillet or wok over medium-high heat. Add tofu and cook 8-10 minutes, stirring occasionally, until golden and crispy on all sides. Remove and set aside.</li>
+                        <li>In the same skillet, add remaining 1 tablespoon oil. Add cabbage, carrots, and bell pepper. Stir-fry for 3-4 minutes until vegetables are tender-crisp. Add edamame and cook 1 more minute.</li>
+                        <li>Add cooked noodles, crispy tofu, and peanut sauce to the skillet. Toss everything together for 2-3 minutes until well coated and heated through. If the sauce is too thick, add a splash of water.</li>
+                        <li>Remove from heat. Divide among bowls and top with green onions, chopped peanuts, and cilantro. Serve with lime wedges. Can be served hot, room temperature, or cold!</li>
                     </ol>
                     
-                    <div class="storage-tip">
-                        <strong>Freezer Instructions:</strong> Lay cooled pancakes in a single layer on a parchment-lined baking sheet and freeze for 1-2 hours, then transfer to a freezer bag. This prevents them from sticking together. They'll keep for up to 3 months. Pull out what you need the night before, or microwave straight from frozen for 30-45 seconds.
+                    <div class="baby-note">
+                        <strong>For baby:</strong> Set aside plain noodles and vegetables before adding sauce. Cut tofu and noodles into small pieces. The soft noodles, edamame, and vegetables are great for self-feeding. You can add a tiny bit of the peanut sauce for flavor (check for peanut allergy first!), or serve plain. Skip whole peanuts for choking safety.
                     </div>
                     
-                    <div class="baby-note">
-                        <strong>Variations:</strong> Add 1 tablespoon of peanut butter or almond butter to the blender for extra protein and healthy fat. You can also toss in a small handful of spinach - it disappears in the batter and adds iron. For older kids or adults, top with yogurt and fresh berries.
+                    <div class="storage-tip">
+                        <strong>Storage tip:</strong> This is PERFECT for meal prep! Store in airtight containers for up to 5 days. The noodles will absorb some sauce, so you may want to thin it with a little water or extra soy sauce when reheating. Delicious served cold straight from the fridge!
+                    </div>
+                    
+                    <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
+                        <strong style="color: #e65100;">🥡 Lunch hack:</strong> Make a double batch! This reheats beautifully or can be eaten cold for lunches all week. Pack with extra lime wedges and peanuts on the side.
                     </div>
                     
                     <button class="cooking-mode-button" onclick="startCookingMode('meal2')">Start Cooking Mode</button>
-                </div>
-            </div>
-            
-            <!-- MEAL 3: BLACK BEAN QUESADILLAS -->
-            <div class="meal-day" data-meal="meal3">
-                <div class="meal-header" onclick="toggleMeal(this)">
-                    <div>
-                        <h2>Black Bean & Sweet Potato Quesadillas <span class="baby-badge">👶 DAYCARE READY</span></h2>
-                        <div class="meal-meta">Makes 16-20 strips | Prep: 10 min | Cook: 20 min</div>
-                    </div>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="meal-content">
-                    <p>Protein-packed, naturally sweet, and perfect for tiny hands. The mashed filling holds together well, making these ideal for daycare lunches.</p>
-                    
-                    <h3>Ingredients</h3>
-                    <ul>
-                        <li>1 medium sweet potato</li>
-                        <li>1 cup canned black beans (drained and rinsed)</li>
-                        <li>¾ cup shredded cheese (cheddar or Monterey Jack)</li>
-                        <li>½ teaspoon cumin</li>
-                        <li>¼ teaspoon garlic powder</li>
-                        <li>4 small flour tortillas (6-inch)</li>
-                        <li>1 tablespoon butter or oil (for the pan)</li>
-                    </ul>
-                    
-                    <h3>Instructions</h3>
-                    <ol>
-                        <li><strong>Cook the sweet potato:</strong> Pierce the sweet potato several times with a fork. Microwave on high for 5-7 minutes, turning halfway, until completely soft when squeezed. Alternatively, roast at 400°F for 40-45 minutes. Let it cool enough to handle, then scoop out the flesh into a bowl.</li>
-                        <li><strong>Make the filling:</strong> Add the black beans to the bowl with the sweet potato. Mash everything together with a fork - you want a chunky, spreadable mixture (some whole beans are fine and give good texture for baby to practice with). Stir in the cumin and garlic powder.</li>
-                        <li><strong>Assemble the quesadillas:</strong> Spread about 3 tablespoons of the bean and sweet potato filling evenly over half of each tortilla. Sprinkle the shredded cheese over the filling, then fold the tortilla in half, pressing down gently.</li>
-                        <li><strong>Cook the quesadillas:</strong> Heat a skillet over medium heat and add a small amount of butter or oil. Place 1-2 quesadillas in the pan (don't crowd them). Cook for about 2-3 minutes per side until the tortilla is golden and crispy and the cheese is melted.</li>
-                        <li><strong>Flip and finish:</strong> Flip carefully with a spatula and cook the other side for another 2-3 minutes until golden. Transfer to a cutting board.</li>
-                        <li><strong>Cut into strips and serve or store:</strong> Let the quesadilla cool for a minute or two, then cut into strips about 1 inch wide - the perfect size for little hands to grab and self-feed. For daycare, pack 4-5 strips in a container.</li>
-                    </ol>
-                    
-                    <div class="storage-tip">
-                        <strong>Freezer Instructions:</strong> Let the cooked quesadilla strips cool completely. Lay them in a single layer on a parchment-lined baking sheet, freeze for 1-2 hours, then transfer to a freezer bag. They keep for 2-3 months. For daycare, pack frozen strips in a container the night before - they'll partially thaw by lunchtime and reheat in the microwave in 30-45 seconds.
-                    </div>
-                    
-                    <div class="baby-note">
-                        <strong>Variations:</strong> Swap the sweet potato for butternut squash (same method). Add a handful of finely chopped spinach to the filling for extra iron. For a little kick for older family members, add a pinch of smoked paprika or a few dashes of hot sauce to the adult portions.
-                    </div>
-                    
-                    <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
                 </div>
             </div>
             
@@ -567,7 +507,7 @@
         
         <!-- GROCERY LIST PAGE -->
         <div id="grocery" class="page">
-            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Complete Shopping List</h2>
+            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Shopping List - Quick Weeknight Meals</h2>
             
             <div style="background-color: #e8f5e9; padding: 30px; border-radius: 8px; text-align: center;">
                 <h3 style="color: #2c5f2d; margin-bottom: 15px;">📝 Your Shared Shopping List</h3>
@@ -575,7 +515,7 @@
                     Add these ingredients to your Google Sheets shopping list!
                 </p>
                 
-                <a href="https://docs.google.com/spreadsheets/d/1O-Lo_iphmyHBstILjbDVWx28iY48xdBlaH_Gd9CFUgo/edit?usp=drivesdk" target="_blank" style="text-decoration: none;">
+                <a href="YOUR_GOOGLE_SHEET_URL_HERE" target="_blank" style="text-decoration: none;">
                     <button style="padding: 15px 40px; background-color: #4caf50; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
                         Open Shopping List in Google Sheets
                     </button>
@@ -605,135 +545,98 @@
     <script>
         const recipes = {
             meal1: {
-                title: "Build-Your-Own Burrito Bowl Bar",
+                title: "Sheet Pan Gnocchi with Vegetables & Pesto",
                 steps: [
                     {
-                        ingredients: [
-                            "2½ cups rice",
-                            "5 cups water or broth",
-                            "1 teaspoon salt"
-                        ],
-                        instruction: "Make the rice: Cook rice according to package directions using water or broth with salt. This can be done 1 day ahead!"
+                        ingredients: [],
+                        instruction: "Preheat oven to 450°F. Line a large baking sheet with parchment paper."
                     },
                     {
                         ingredients: [
-                            "½ cup cilantro, chopped",
-                            "Juice of 2 limes",
-                            "2 tablespoons olive oil"
-                        ],
-                        instruction: "When rice is done, fluff with a fork and stir in chopped cilantro, lime juice, and olive oil. Keep warm or set aside to reheat later."
-                    },
-                    {
-                        ingredients: [
-                            "3 bell peppers, sliced",
-                            "2 zucchini, sliced",
-                            "1 red onion, sliced",
-                            "2 cups corn",
+                            "2 packages gnocchi",
+                            "2 cups cherry tomatoes",
+                            "1 zucchini, diced",
+                            "2 bell peppers, diced",
+                            "1 red onion, diced",
                             "3 tablespoons olive oil",
-                            "2 teaspoons cumin",
-                            "1 teaspoon smoked paprika",
+                            "1 teaspoon garlic powder",
+                            "½ teaspoon Italian seasoning",
                             "Salt and pepper"
                         ],
-                        instruction: "Preheat oven to 425°F. On two baking sheets, toss vegetables and corn with olive oil, cumin, smoked paprika, salt, and pepper. Can prep this 2 hours ahead!"
+                        instruction: "On the baking sheet, combine all ingredients. Drizzle with olive oil and season with garlic powder, Italian seasoning, salt, and pepper. Toss until well coated."
                     },
                     {
-                        ingredients: ["Prepared vegetables"],
-                        instruction: "Roast vegetables for 25-30 minutes, stirring halfway, until tender and slightly charred. Keep warm or serve at room temperature."
+                        ingredients: [],
+                        instruction: "Spread everything in a single layer (use two pans if crowded). Roast for 20-25 minutes, stirring halfway through, until gnocchi is golden and crispy."
                     },
                     {
-                        ingredients: [
-                            "1 tablespoon olive oil",
-                            "1 small onion, diced",
-                            "3 cloves garlic, minced"
-                        ],
-                        instruction: "Make the beans: Heat olive oil in a large pot over medium heat. Add onion and cook 5 minutes. Add garlic and cook 1 minute more."
+                        ingredients: ["½ cup basil pesto"],
+                        instruction: "Remove from oven and immediately toss with pesto while hot."
                     },
                     {
                         ingredients: [
-                            "3 cans black beans",
-                            "2 teaspoons cumin",
-                            "1 teaspoon chili powder",
-                            "½ cup vegetable broth",
-                            "Salt"
+                            "½ cup parmesan cheese",
+                            "Fresh basil (optional)"
                         ],
-                        instruction: "Add black beans, cumin, chili powder, and vegetable broth. Simmer 10-15 minutes, mashing some beans for creaminess. Season with salt. Can make 1 day ahead!"
-                    },
-                    {
-                        ingredients: [
-                            "3 avocados",
-                            "2 cups shredded cheese",
-                            "2 cups sour cream",
-                            "2 cups salsa",
-                            "1 cup cilantro",
-                            "2 limes",
-                            "Jalapeños (optional)",
-                            "Tortilla chips"
-                        ],
-                        instruction: "Prep toppings 30 minutes before guests: slice avocados, put all toppings in bowls. Set everything out buffet-style and let everyone build their perfect bowl!"
+                        instruction: "Transfer to bowls and top with parmesan and fresh basil. Enjoy!"
                     }
                 ]
             },
             meal2: {
-                title: "Banana Oat Pancakes",
+                title: "Thai Peanut Noodles with Crispy Tofu",
                 steps: [
                     {
-                        ingredients: [
-                            "2 ripe bananas",
-                            "1 cup rolled oats",
-                            "2 eggs",
-                            "½ teaspoon cinnamon"
-                        ],
-                        instruction: "Add bananas (in chunks), oats, eggs, and cinnamon to a blender. Blend until smooth, about 20-30 seconds. Let sit 5 minutes to thicken."
-                    },
-                    {
-                        ingredients: ["Butter or oil"],
-                        instruction: "Heat a non-stick skillet over medium-low heat. Add butter or oil. Keep heat medium-low - these burn faster than regular pancakes!"
-                    },
-                    {
-                        ingredients: ["Prepared batter"],
-                        instruction: "Pour 1 tablespoon of batter per pancake (silver-dollar size). Cook until bubbles form and edges look set, about 2 minutes."
-                    },
-                    {
-                        ingredients: [],
-                        instruction: "Gently flip each pancake (they're delicate!) and cook another 1-2 minutes until golden. Transfer to a plate."
-                    },
-                    {
-                        ingredients: [],
-                        instruction: "Let cool completely before storing. Pack 3-4 in containers for daycare - great cold or microwaved 20-30 seconds!"
-                    }
-                ]
-            },
-            meal3: {
-                title: "Black Bean & Sweet Potato Quesadillas",
-                steps: [
-                    {
-                        ingredients: ["1 medium sweet potato"],
-                        instruction: "Pierce sweet potato with a fork. Microwave 5-7 minutes, turning halfway, until completely soft. Or roast at 400°F for 40-45 minutes. Let cool, then scoop out flesh."
+                        ingredients: ["12 oz rice noodles"],
+                        instruction: "Cook rice noodles according to package directions. Drain, rinse with cold water, and set aside."
                     },
                     {
                         ingredients: [
-                            "Sweet potato flesh",
-                            "1 cup black beans",
-                            "½ teaspoon cumin",
-                            "¼ teaspoon garlic powder"
+                            "½ cup peanut butter",
+                            "3 tablespoons soy sauce",
+                            "2 tablespoons rice vinegar",
+                            "2 tablespoons maple syrup",
+                            "2 tablespoons lime juice",
+                            "1 tablespoon sesame oil",
+                            "2 cloves garlic, minced",
+                            "1 teaspoon ginger, minced",
+                            "¼ cup warm water",
+                            "1 teaspoon sriracha (optional)"
                         ],
-                        instruction: "Mash sweet potato and black beans together with a fork - keep it chunky! Stir in cumin and garlic powder."
+                        instruction: "Make peanut sauce: Whisk all ingredients together until smooth. Set aside."
                     },
                     {
                         ingredients: [
-                            "4 small tortillas",
-                            "Bean-sweet potato filling",
-                            "¾ cup shredded cheese"
+                            "1 block tofu, cubed",
+                            "1 tablespoon vegetable oil"
                         ],
-                        instruction: "Spread 3 tablespoons filling on half of each tortilla. Sprinkle with cheese. Fold in half and press gently."
+                        instruction: "Press tofu to remove moisture, cut into ½-inch cubes. Heat oil in a large skillet over medium-high heat. Cook tofu 8-10 minutes, stirring occasionally, until golden and crispy. Remove and set aside."
                     },
                     {
-                        ingredients: ["Butter or oil"],
-                        instruction: "Heat skillet over medium heat with butter or oil. Cook 1-2 quesadillas at a time, 2-3 minutes per side until golden and cheese melts."
+                        ingredients: [
+                            "1 tablespoon vegetable oil",
+                            "2 cups red cabbage, shredded",
+                            "2 carrots, julienned",
+                            "1 red bell pepper, sliced",
+                            "1 cup edamame"
+                        ],
+                        instruction: "In the same skillet, add oil. Stir-fry cabbage, carrots, and bell pepper for 3-4 minutes. Add edamame and cook 1 minute more."
                     },
                     {
-                        ingredients: [],
-                        instruction: "Let cool 1-2 minutes, then cut into 1-inch strips - perfect for little hands! Pack 4-5 strips for daycare."
+                        ingredients: [
+                            "Cooked noodles",
+                            "Crispy tofu",
+                            "Peanut sauce"
+                        ],
+                        instruction: "Add noodles, tofu, and peanut sauce to the skillet. Toss for 2-3 minutes until coated and heated. Add water if sauce is too thick."
+                    },
+                    {
+                        ingredients: [
+                            "3 green onions, sliced",
+                            "¼ cup chopped peanuts",
+                            "Fresh cilantro",
+                            "Lime wedges"
+                        ],
+                        instruction: "Divide among bowls and top with green onions, peanuts, cilantro. Serve with lime wedges. Enjoy hot, room temp, or cold!"
                     }
                 ]
             }
