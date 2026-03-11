@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Weeknight Meals</title>
+    <title>Family Meal Plan — Dinners & Baby Snacks</title>
     <style>
         * {
             margin: 0;
@@ -202,7 +202,17 @@
         .cooking-mode-button:hover {
             background-color: #45a049;
         }
-        
+
+        /* Section dividers */
+        .section-label {
+            font-size: 0.85em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #888;
+            margin: 25px 0 10px 0;
+        }
+
         /* Cooking Mode Styles */
         .cooking-mode-overlay {
             display: none;
@@ -346,168 +356,330 @@
         }
         
         @media print {
-            .nav-buttons {
-                display: none;
-            }
-            
-            .page {
-                display: block !important;
-            }
-            
-            .meal-content {
-                display: block !important;
-            }
-            
-            .expand-icon {
-                display: none;
-            }
-            
-            .cooking-mode-button {
-                display: none;
-            }
+            .nav-buttons { display: none; }
+            .page { display: block !important; }
+            .meal-content { display: block !important; }
+            .expand-icon { display: none; }
+            .cooking-mode-button { display: none; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Quick Weeknight Meals</h1>
-        <p class="subtitle">Two easy dinners ready in 25 minutes or less | 4-5 servings each</p>
+        <h1>Family Meal Plan</h1>
+        <p class="subtitle">2 weeknight dinners + 3 baby-friendly snacks &amp; breakfasts | Dinners serve 4–5 | Baby recipes make ~20–24 portions</p>
         
         <div class="nav-buttons">
-            <button class="nav-button active" onclick="showPage('meals')">Recipes</button>
-            <button class="nav-button" onclick="showPage('grocery')">Shopping List</button>
+            <button class="nav-button active" onclick="showPage('meals', event)">Recipes</button>
+            <button class="nav-button" onclick="showPage('grocery', event)">Shopping List</button>
         </div>
         
         <!-- MEAL PLAN PAGE -->
         <div id="meals" class="page active">
-            
-            <!-- MEAL 1: SHEET PAN GNOCCHI -->
+
+            <p class="section-label">🍽️ Weeknight Dinners</p>
+
+            <!-- MEAL 1: WEST AFRICAN PEANUT STEW -->
             <div class="meal-day" data-meal="meal1">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Meal 1: Sheet Pan Gnocchi with Vegetables & Pesto</h2>
-                        <div class="meal-meta">Serves 4-5 | Time: 25 minutes (mostly hands-off!)</div>
+                        <h2>Meal 1: West African Peanut Stew</h2>
+                        <div class="meal-meta">Serves 4–5 | Time: 35–40 minutes | Serve over rice</div>
                     </div>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="meal-content">
-                    <p>The ultimate easy weeknight dinner! Store-bought gnocchi gets crispy in the oven alongside roasted vegetables, then everything is tossed with pesto. One pan, minimal effort, maximum flavor.</p>
-                    
+                    <p>A deeply warming, pantry-friendly stew with bold flavors — sweet potato and chickpeas simmered in a rich tomato-peanut broth with warming spices. Comfort food at its most affordable. Inspired by the groundnut stews of West Africa.</p>
+
                     <h3>Ingredients</h3>
+                    <h4>For the stew:</h4>
                     <ul>
-                        <li>2 packages (16 oz each) shelf-stable or refrigerated gnocchi</li>
-                        <li>2 cups cherry tomatoes</li>
-                        <li>1 medium zucchini, diced</li>
-                        <li>1 red bell pepper, diced</li>
-                        <li>1 yellow bell pepper, diced</li>
-                        <li>1 small red onion, diced</li>
-                        <li>3 tablespoons olive oil</li>
-                        <li>1 teaspoon garlic powder</li>
-                        <li>½ teaspoon Italian seasoning</li>
+                        <li>2 medium sweet potatoes, peeled and cut into ½-inch cubes</li>
+                        <li>1 can (15 oz) chickpeas, drained and rinsed</li>
+                        <li>1 can (14 oz) diced tomatoes</li>
+                        <li>1 medium onion, diced</li>
+                        <li>4 cloves garlic, minced</li>
+                        <li>1 tablespoon fresh ginger, minced (or 1 tsp ground ginger)</li>
+                        <li>2 tablespoons tomato paste</li>
+                        <li>½ cup creamy peanut butter</li>
+                        <li>3 cups vegetable broth</li>
+                        <li>2 cups baby spinach</li>
+                        <li>2 tablespoons vegetable oil</li>
+                        <li>1 teaspoon cumin</li>
+                        <li>1 teaspoon smoked paprika</li>
+                        <li>½ teaspoon coriander</li>
                         <li>Salt and pepper to taste</li>
-                        <li>½ cup basil pesto (store-bought or homemade)</li>
-                        <li>½ cup grated parmesan cheese</li>
-                        <li>Fresh basil for garnish (optional)</li>
                     </ul>
-                    
+                    <h4>To serve:</h4>
+                    <ul>
+                        <li>2 cups dry white rice (cooked according to package directions)</li>
+                        <li>Lime wedges (optional)</li>
+                        <li>Fresh cilantro (optional)</li>
+                        <li>Chopped peanuts for garnish (optional)</li>
+                    </ul>
+
                     <h3>Instructions</h3>
                     <ol>
-                        <li>Preheat oven to 450°F. Line a large baking sheet with parchment paper.</li>
-                        <li>On the baking sheet, combine gnocchi, cherry tomatoes, zucchini, bell peppers, and red onion. Drizzle with olive oil and sprinkle with garlic powder, Italian seasoning, salt, and pepper. Toss everything together until well coated.</li>
-                        <li>Spread everything out in a single layer (don't overcrowd - use two pans if needed). Roast for 20-25 minutes, stirring halfway through, until gnocchi is golden and crispy and vegetables are tender.</li>
-                        <li>Remove from oven and immediately toss with pesto while everything is hot.</li>
-                        <li>Transfer to serving bowls and top with parmesan cheese and fresh basil if using. Serve hot!</li>
+                        <li>Start the rice cooking according to package directions — it'll be hands-off while you make the stew.</li>
+                        <li>Heat oil in a large pot or Dutch oven over medium heat. Add onion and cook for 5 minutes, stirring occasionally, until softened and translucent.</li>
+                        <li>Add garlic and ginger. Cook 1 minute, stirring, until fragrant.</li>
+                        <li>Add tomato paste, cumin, smoked paprika, and coriander. Stir well and cook for 1 minute — this blooms the spices and deepens the flavor.</li>
+                        <li>Add sweet potato, chickpeas, diced tomatoes (with their liquid), and vegetable broth. Stir to combine. Bring to a boil, then reduce heat to medium-low. Simmer uncovered for 15–20 minutes, until sweet potatoes are completely tender when pierced with a fork.</li>
+                        <li>Stir in peanut butter until fully dissolved into the broth. Simmer for 5 more minutes — the stew will thicken. If it gets too thick, add a splash more broth or water.</li>
+                        <li>Stir in spinach and cook 1–2 minutes until wilted. Taste and season generously with salt and pepper.</li>
+                        <li>Ladle over rice and finish with a squeeze of lime, cilantro, and chopped peanuts if desired. Serve hot!</li>
                     </ol>
-                    
+
                     <div class="baby-note">
-                        <strong>For baby:</strong> Gnocchi is naturally soft and perfect for babies! Set aside a portion before adding pesto (or use just a tiny bit). Cut gnocchi and vegetables into appropriate sizes. The roasted veggies are soft and easy to pick up. Skip the parmesan if baby is under 12 months.
+                        <strong>🍼 For baby (12 months+):</strong> This stew is wonderful for baby! Before adding the peanut butter, scoop out a small portion of sweet potato and chickpeas. Mash or dice to an appropriate texture. The peanut butter stew itself is also fine for baby at this age — just let it cool and serve in small spoonfuls. Chickpeas can be offered whole (they're soft after simmering) or lightly squished. Skip or reduce the chili flakes if using. Great for self-feeding on a tray!
                     </div>
-                    
+
                     <div class="storage-tip">
-                        <strong>Storage tip:</strong> Leftovers keep for 3-4 days in the fridge. The gnocchi won't be as crispy when reheated, but it's still delicious! Reheat in a skillet over medium heat for best results, or microwave for convenience.
+                        <strong>Storage &amp; Freezer:</strong> Stew (without rice) keeps 4–5 days in the fridge and freezes beautifully for up to 3 months. Freeze in individual portions for easy weeknight reheat. The stew thickens when cold — add a splash of water or broth when reheating. Store rice separately.
                     </div>
-                    
+
                     <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
-                        <strong style="color: #e65100;">⚡ Speed tip:</strong> While the oven preheats, chop all your vegetables. Once they're on the pan, you're hands-free for 20 minutes!
+                        <strong style="color: #e65100;">⚡ Speed tip:</strong> Use pre-cubed frozen sweet potato from Costco or your grocery freezer section — throw it straight in, no peeling or chopping needed. Cuts prep to under 5 minutes!
                     </div>
-                    
+
                     <button class="cooking-mode-button" onclick="startCookingMode('meal1')">Start Cooking Mode</button>
                 </div>
             </div>
-            
-            <!-- MEAL 2: THAI PEANUT NOODLES -->
+
+            <!-- MEAL 2: BLACK BEAN ENCHILADAS -->
             <div class="meal-day" data-meal="meal2">
                 <div class="meal-header" onclick="toggleMeal(this)">
                     <div>
-                        <h2>Meal 2: Thai Peanut Noodles with Crispy Tofu</h2>
-                        <div class="meal-meta">Serves 4-5 | Time: 20 minutes</div>
+                        <h2>Meal 2: Smoky Black Bean &amp; Cheese Enchiladas</h2>
+                        <div class="meal-meta">Serves 4–5 | Time: 40 minutes | Freezer-friendly</div>
                     </div>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="meal-content">
-                    <p>Silky rice noodles with crispy tofu and crunchy vegetables, all coated in a rich, creamy peanut sauce. Serve hot or cold - perfect for meal prep!</p>
-                    
+                    <p>Saucy, cheesy, deeply satisfying enchiladas with smoky cumin-spiced black beans. Mostly hands-off once they're in the oven, so you can set the table and get baby sorted while dinner finishes itself.</p>
+
                     <h3>Ingredients</h3>
-                    <h4>For the noodles and tofu:</h4>
+                    <h4>For the filling:</h4>
                     <ul>
-                        <li>12 oz rice noodles (pad thai style)</li>
-                        <li>1 block (14 oz) extra-firm tofu, pressed and cubed</li>
-                        <li>2 tablespoons vegetable oil, divided</li>
-                        <li>2 cups shredded red cabbage</li>
-                        <li>2 medium carrots, julienned or shredded</li>
-                        <li>1 red bell pepper, thinly sliced</li>
-                        <li>1 cup edamame (frozen, shelled)</li>
-                        <li>3 green onions, sliced</li>
-                        <li>¼ cup chopped peanuts</li>
-                        <li>Fresh cilantro for garnish</li>
-                        <li>Lime wedges for serving</li>
+                        <li>2 cans (15 oz each) black beans, drained and rinsed</li>
+                        <li>1 small onion, finely diced</li>
+                        <li>3 cloves garlic, minced</li>
+                        <li>1 tablespoon vegetable oil</li>
+                        <li>1 teaspoon cumin</li>
+                        <li>1 teaspoon smoked paprika</li>
+                        <li>½ teaspoon chili powder</li>
+                        <li>Salt and pepper to taste</li>
                     </ul>
-                    
-                    <h4>For the peanut sauce:</h4>
+                    <h4>For assembly:</h4>
                     <ul>
-                        <li>½ cup creamy peanut butter</li>
-                        <li>3 tablespoons soy sauce</li>
-                        <li>2 tablespoons rice vinegar</li>
-                        <li>2 tablespoons maple syrup or brown sugar</li>
-                        <li>2 tablespoons lime juice (about 1 lime)</li>
-                        <li>1 tablespoon sesame oil</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>1 teaspoon fresh ginger, minced</li>
-                        <li>¼ cup warm water (to thin)</li>
-                        <li>1 teaspoon sriracha or chili garlic sauce (optional)</li>
+                        <li>8–10 flour tortillas (8-inch)</li>
+                        <li>1 can (28 oz) red enchilada sauce</li>
+                        <li>2 cups shredded Mexican cheese blend (or cheddar)</li>
                     </ul>
-                    
+                    <h4>Optional toppings:</h4>
+                    <ul>
+                        <li>Sour cream</li>
+                        <li>Avocado or guacamole</li>
+                        <li>Fresh cilantro</li>
+                        <li>Jalapeño slices</li>
+                        <li>Lime wedges</li>
+                    </ul>
+
                     <h3>Instructions</h3>
                     <ol>
-                        <li>Cook rice noodles according to package directions. Drain, rinse with cold water, and set aside.</li>
-                        <li>While noodles cook, make the peanut sauce: In a bowl, whisk together peanut butter, soy sauce, rice vinegar, maple syrup, lime juice, sesame oil, garlic, ginger, and warm water until smooth. Add sriracha if using. Set aside.</li>
-                        <li>Press tofu between paper towels to remove excess moisture, then cut into ½-inch cubes. Heat 1 tablespoon vegetable oil in a large skillet or wok over medium-high heat. Add tofu and cook 8-10 minutes, stirring occasionally, until golden and crispy on all sides. Remove and set aside.</li>
-                        <li>In the same skillet, add remaining 1 tablespoon oil. Add cabbage, carrots, and bell pepper. Stir-fry for 3-4 minutes until vegetables are tender-crisp. Add edamame and cook 1 more minute.</li>
-                        <li>Add cooked noodles, crispy tofu, and peanut sauce to the skillet. Toss everything together for 2-3 minutes until well coated and heated through. If the sauce is too thick, add a splash of water.</li>
-                        <li>Remove from heat. Divide among bowls and top with green onions, chopped peanuts, and cilantro. Serve with lime wedges. Can be served hot, room temperature, or cold!</li>
+                        <li>Preheat oven to 375°F.</li>
+                        <li>Heat oil in a skillet over medium heat. Add onion and cook 4–5 minutes until softened. Add garlic and cook 1 minute more.</li>
+                        <li>Add cumin, smoked paprika, and chili powder. Stir and cook 30 seconds until fragrant. Add black beans and stir to coat in the spices. Using the back of a spoon or a fork, mash roughly half the beans — this makes a sturdier filling that holds together in the tortilla. Cook 2–3 more minutes. Season with salt and pepper and remove from heat.</li>
+                        <li>Pour about ½ cup of enchilada sauce into the bottom of a 9×13-inch baking dish and spread to coat.</li>
+                        <li>Lay a tortilla flat. Spoon a heaping 3–4 tablespoons of bean filling down the center, then add a pinch of cheese (reserve most cheese for the top). Roll up tightly and place seam-side down in the dish. Repeat with remaining tortillas.</li>
+                        <li>Pour the remaining enchilada sauce evenly over the top of all the enchiladas. Sprinkle the remaining shredded cheese generously over everything.</li>
+                        <li>Cover tightly with foil and bake for 20 minutes. Remove foil and bake 5 more minutes until cheese is bubbly and starting to brown at the edges.</li>
+                        <li>Let rest 5 minutes before serving. Top with sour cream, avocado, and cilantro as desired.</li>
                     </ol>
-                    
+
                     <div class="baby-note">
-                        <strong>For baby:</strong> Set aside plain noodles and vegetables before adding sauce. Cut tofu and noodles into small pieces. The soft noodles, edamame, and vegetables are great for self-feeding. You can add a tiny bit of the peanut sauce for flavor (check for peanut allergy first!), or serve plain. Skip whole peanuts for choking safety.
+                        <strong>🍼 For baby (12 months+):</strong> Enchiladas are great for baby! Cut a section of enchilada into small pieces — the tortilla softens in the sauce and is easy to eat. The beans are soft and high in iron. You can also offer plain cooked beans on the side. Skip spicy toppings like jalapeño but sour cream and avocado are excellent. A small strip of soft tortilla with mashed beans is perfect for self-feeding.
                     </div>
-                    
+
                     <div class="storage-tip">
-                        <strong>Storage tip:</strong> This is PERFECT for meal prep! Store in airtight containers for up to 5 days. The noodles will absorb some sauce, so you may want to thin it with a little water or extra soy sauce when reheating. Delicious served cold straight from the fridge!
+                        <strong>Storage &amp; Freezer:</strong> Leftovers keep 4 days in the fridge — they actually get better as the tortillas absorb the sauce. To freeze: assemble the dish but don't bake. Cover tightly with foil and freeze up to 3 months. Bake from frozen at 375°F for 45–50 minutes (covered), then 10 minutes uncovered.
                     </div>
-                    
+
                     <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
-                        <strong style="color: #e65100;">🥡 Lunch hack:</strong> Make a double batch! This reheats beautifully or can be eaten cold for lunches all week. Pack with extra lime wedges and peanuts on the side.
+                        <strong style="color: #e65100;">⚡ Speed tip:</strong> The bean filling takes 10 minutes. While it cools slightly, preheat the oven and set up your assembly line — sauce, beans, cheese, tortillas. Assembly goes fast once everything is laid out.
                     </div>
-                    
+
                     <button class="cooking-mode-button" onclick="startCookingMode('meal2')">Start Cooking Mode</button>
                 </div>
             </div>
-            
+
+            <p class="section-label" style="margin-top: 35px;">👶 Baby Snacks, Breakfasts &amp; Lunches</p>
+
+            <!-- MEAL 3: BANANA OAT PANCAKES -->
+            <div class="meal-day" data-meal="meal3">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Banana Oat Pancakes</h2>
+                        <div class="meal-meta">Baby Breakfast | Makes ~16–20 small pancakes | Prep: 5 min | Cook: 15 min</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Simple 4-ingredient pancakes perfect for little ones. Naturally sweet, soft, and easy for small hands to grab. Freezes beautifully — make a big batch on the weekend for quick daycare breakfasts all week.</p>
+
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>2 ripe bananas</li>
+                        <li>1 cup rolled oats</li>
+                        <li>2 eggs</li>
+                        <li>½ teaspoon cinnamon</li>
+                        <li>1 tablespoon butter or oil (for the pan)</li>
+                    </ul>
+
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>Add the bananas (broken into chunks), oats, eggs, and cinnamon to a blender or food processor. Blend until smooth, about 20–30 seconds. The batter will be thinner than traditional pancake batter — that's normal. Let it rest 5 minutes so the oats absorb liquid and the batter thickens slightly.</li>
+                        <li>Heat a non-stick skillet or griddle over medium-low heat. Add a small amount of butter or oil and spread it around. Medium-low is key — these burn faster than regular pancakes because of the banana sugars.</li>
+                        <li>Pour about 1 tablespoon of batter per pancake onto the skillet (small silver-dollar size is perfect for little hands). Cook until bubbles form on the surface and the edges look set, about 2 minutes.</li>
+                        <li>Gently flip each pancake and cook for another 1–2 minutes until golden on the bottom. These are delicate, so a thin spatula helps. Transfer to a plate or cooling rack.</li>
+                        <li>Let pancakes cool completely before storing. For daycare, pack 3–4 pancakes in a small container — they're great cold or microwaved for 20–30 seconds.</li>
+                    </ol>
+
+                    <div class="baby-note">
+                        <strong>🍼 For baby (12 months+):</strong> These pancakes were designed for baby! Serve at room temperature or slightly warm. Great for self-feeding — small enough to grab, soft enough to gum. You can add 1 tbsp of peanut butter to the blender for extra protein and healthy fat. Also excellent with a small smear of yogurt on top.
+                    </div>
+
+                    <div class="storage-tip">
+                        <strong>Freezer Instructions:</strong> Let pancakes cool completely. Lay in a single layer on a parchment-lined baking sheet and freeze 1–2 hours, then transfer to a freezer bag. Keeps up to 3 months. Pull out what you need the night before, or microwave straight from frozen for 30–45 seconds.
+                    </div>
+
+                    <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
+                        <strong style="color: #e65100;">💡 Variations:</strong> Toss a small handful of spinach into the blender — it disappears in the batter and adds iron. For adults: top with yogurt and fresh berries.
+                    </div>
+
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
+                </div>
+            </div>
+
+            <!-- MEAL 4: CORNBREAD BITES -->
+            <div class="meal-day" data-meal="meal4">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Veggie-Loaded Cornbread Bites</h2>
+                        <div class="meal-meta">Baby Snack / Lunch | Makes ~24 mini bites | Prep: 10 min | Bake: 15 min</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Savory, golden little bites packed with veggies and cheese. Perfect finger food for daycare lunches — sturdy enough to hold up in a lunchbox and easy for small hands to grab. Make a batch on Sunday and you're set for the week.</p>
+
+                    <h3>Ingredients</h3>
+                    <h4>Dry:</h4>
+                    <ul>
+                        <li>¾ cup cornmeal (medium grind)</li>
+                        <li>¾ cup all-purpose flour</li>
+                        <li>1½ teaspoons baking powder</li>
+                    </ul>
+                    <h4>Wet:</h4>
+                    <ul>
+                        <li>2 eggs</li>
+                        <li>½ cup whole milk</li>
+                        <li>3 tablespoons unsalted butter, melted (or oil)</li>
+                        <li>⅓ cup plain whole milk yogurt</li>
+                    </ul>
+                    <h4>Mix-ins:</h4>
+                    <ul>
+                        <li>¾ cup shredded cheddar cheese</li>
+                        <li>½ cup frozen corn kernels, thawed</li>
+                        <li>½ red bell pepper, finely diced</li>
+                        <li>¼ teaspoon garlic powder</li>
+                        <li>¼ teaspoon smoked paprika (optional)</li>
+                    </ul>
+
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>Preheat oven to 375°F (190°C). Grease a 24-cup mini muffin tin well with butter or oil, or use silicone mini muffin molds (easiest release).</li>
+                        <li>In a large bowl, whisk together the cornmeal, flour, and baking powder.</li>
+                        <li>In a separate bowl, whisk the eggs, then stir in milk, melted butter, and yogurt until smooth.</li>
+                        <li>Pour the wet mixture into the dry and stir until just combined — don't overmix, a few lumps are fine. Fold in the cheese, corn, bell pepper, garlic powder, and smoked paprika.</li>
+                        <li>Spoon batter into each mini muffin cup, filling about three-quarters full. A small cookie scoop works perfectly here.</li>
+                        <li>Bake for 12–15 minutes until tops are golden and a toothpick inserted in the center comes out clean. The edges should be just starting to pull away from the tin.</li>
+                        <li>Let cool in the tin 3–5 minutes, then turn out onto a cooling rack. For daycare, pack 4–6 bites in a container. Great at room temperature or microwaved for 15–20 seconds.</li>
+                    </ol>
+
+                    <div class="baby-note">
+                        <strong>🍼 For baby (12 months+):</strong> These are sized perfectly for small hands as-is. The soft crumb and mild savory flavor make them a consistent win. Serve at room temperature. Pair with soft fruit, steamed veggies, or a protein like diced egg for a complete daycare lunch.
+                    </div>
+
+                    <div class="storage-tip">
+                        <strong>Freezer Instructions:</strong> Cool completely, then spread in a single layer on a parchment-lined baking sheet and freeze 1–2 hours. Transfer to a freezer bag — keeps up to 3 months. Microwave from frozen for 30–40 seconds.
+                    </div>
+
+                    <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
+                        <strong style="color: #e65100;">💡 Variations:</strong> Swap bell pepper for finely diced zucchini or thawed frozen peas. For a Tex-Mex twist, add a pinch of cumin and use pepper jack cheese. Budget tip: cornmeal bought in bulk is extremely inexpensive — a large bag makes many batches.
+                    </div>
+
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal4')">Start Cooking Mode</button>
+                </div>
+            </div>
+
+            <!-- MEAL 5: CHICKPEA NUGGETS -->
+            <div class="meal-day" data-meal="meal5">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Chickpea Nuggets</h2>
+                        <div class="meal-meta">Baby Lunch | Makes ~20–24 nuggets | Prep: 10 min | Bake: 20 min</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Crispy on the outside, soft on the inside, and loaded with protein and iron. A perfect plant-powered finger food for little ones and a great daycare lunch that reheats well. Adults love these too with a dipping sauce.</p>
+
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>1 can (15 oz) chickpeas, drained and rinsed</li>
+                        <li>½ cup breadcrumbs (plain or panko)</li>
+                        <li>1 tablespoon tahini</li>
+                        <li>1 egg</li>
+                        <li>½ teaspoon garlic powder</li>
+                        <li>½ teaspoon smoked paprika</li>
+                        <li>¼ teaspoon cumin</li>
+                        <li>2 tablespoons fresh parsley or cilantro, finely chopped (optional)</li>
+                        <li>Pinch of salt</li>
+                        <li>1 tablespoon olive oil (for brushing)</li>
+                    </ul>
+
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>Preheat oven to 400°F (200°C). Line a baking sheet with parchment paper.</li>
+                        <li>Add the drained chickpeas to a mixing bowl. Mash with a fork or potato masher until mostly broken down but still a bit chunky — keep some texture. Don't blend smooth; a few whole chickpeas are fine.</li>
+                        <li>Add breadcrumbs, tahini, egg, garlic powder, smoked paprika, cumin, parsley (if using), and a pinch of salt. Stir everything together until it forms a thick, scoopable mixture. If too wet, add another tablespoon of breadcrumbs. If too dry, add a tiny splash of water.</li>
+                        <li>Using about 1 tablespoon of mixture per nugget, shape into small patties or ovals and place on the baking sheet. Flatten slightly to about ½ inch thick so they cook evenly. Brush or lightly drizzle the tops with olive oil.</li>
+                        <li>Bake 10 minutes, then carefully flip each nugget. Bake another 8–10 minutes until both sides are golden and firm to the touch.</li>
+                        <li>Let cool on the baking sheet for a few minutes — they firm up more as they cool. For daycare, pack 4–5 nuggets in a container. Great on their own or with a small side of hummus for dipping.</li>
+                    </ol>
+
+                    <div class="baby-note">
+                        <strong>🍼 For baby (12 months+):</strong> These are sized and textured perfectly for this age. The slightly chunky texture is great for developing chewing skills. Serve at room temperature — no sauce needed, but a little yogurt or hummus on the side is great for dipping practice. The chickpeas and tahini are excellent iron and protein sources.
+                    </div>
+
+                    <div class="storage-tip">
+                        <strong>Freezer Instructions:</strong> Cool completely. Freeze in a single layer on a parchment-lined sheet for 1–2 hours, then transfer to a freezer bag. Keeps up to 3 months. Reheat from frozen: microwave 45–60 seconds, or toaster oven for a crispier result.
+                    </div>
+
+                    <div class="storage-tip" style="background-color: #fff3e0; border-left-color: #ff9800;">
+                        <strong style="color: #e65100;">💡 Variations:</strong> Swap tahini for peanut butter or sunflower seed butter. Mix in ¼ cup finely grated carrot or zucchini (squeeze out moisture first). For a cheesy version, add 2 tbsp grated parmesan. Swap smoked paprika for mild curry powder for a different profile.
+                    </div>
+
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal5')">Start Cooking Mode</button>
+                </div>
+            </div>
+
         </div>
-        
+
         <!-- GROCERY LIST PAGE -->
         <div id="grocery" class="page">
-            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Shopping List - Quick Weeknight Meals</h2>
+            <h2 style="color: #2c5f2d; margin-bottom: 20px;">Shopping List — Family Meal Plan</h2>
             
             <div style="background-color: #e8f5e9; padding: 30px; border-radius: 8px; text-align: center;">
                 <h3 style="color: #2c5f2d; margin-bottom: 15px;">📝 Your Shared Shopping List</h3>
@@ -515,17 +687,16 @@
                     Add these ingredients to your Google Sheets shopping list!
                 </p>
                 
-                <a href="https://docs.google.com/spreadsheets/d/1O-Lo_iphmyHBstILjbDVWx28iY48xdBlaH_Gd9CFUgo/edit?usp=drivesdk" target="_blank" style="text-decoration: none;">
+                <a href="YOUR_GOOGLE_SHEET_URL_HERE" target="_blank" style="text-decoration: none;">
                     <button style="padding: 15px 40px; background-color: #4caf50; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2em; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
                         Open Shopping List in Google Sheets
                     </button>
                 </a>
             </div>
-            
         </div>
-        
+
     </div>
-    
+
     <!-- COOKING MODE OVERLAY -->
     <div class="cooking-mode-overlay" id="cookingModeOverlay">
         <div class="cooking-mode-header">
@@ -541,144 +712,264 @@
             <button class="cooking-nav-button next" id="nextStepBtn" onclick="nextStep()">Next →</button>
         </div>
     </div>
-    
+
     <script>
         const recipes = {
             meal1: {
-                title: "Sheet Pan Gnocchi with Vegetables & Pesto",
+                title: "West African Peanut Stew",
                 steps: [
                     {
-                        ingredients: [],
-                        instruction: "Preheat oven to 450°F. Line a large baking sheet with parchment paper."
+                        ingredients: ["2 cups dry white rice"],
+                        instruction: "Start the rice cooking according to package directions. It'll be ready by the time the stew is done."
                     },
                     {
                         ingredients: [
-                            "2 packages gnocchi",
-                            "2 cups cherry tomatoes",
-                            "1 zucchini, diced",
-                            "2 bell peppers, diced",
-                            "1 red onion, diced",
-                            "3 tablespoons olive oil",
-                            "1 teaspoon garlic powder",
-                            "½ teaspoon Italian seasoning",
-                            "Salt and pepper"
+                            "2 tbsp vegetable oil",
+                            "1 medium onion, diced"
                         ],
-                        instruction: "On the baking sheet, combine all ingredients. Drizzle with olive oil and season with garlic powder, Italian seasoning, salt, and pepper. Toss until well coated."
-                    },
-                    {
-                        ingredients: [],
-                        instruction: "Spread everything in a single layer (use two pans if crowded). Roast for 20-25 minutes, stirring halfway through, until gnocchi is golden and crispy."
-                    },
-                    {
-                        ingredients: ["½ cup basil pesto"],
-                        instruction: "Remove from oven and immediately toss with pesto while hot."
+                        instruction: "Heat oil in a large pot over medium heat. Add onion and cook for 5 minutes, stirring occasionally, until softened and translucent."
                     },
                     {
                         ingredients: [
-                            "½ cup parmesan cheese",
-                            "Fresh basil (optional)"
+                            "4 cloves garlic, minced",
+                            "1 tbsp fresh ginger, minced"
                         ],
-                        instruction: "Transfer to bowls and top with parmesan and fresh basil. Enjoy!"
+                        instruction: "Add garlic and ginger. Cook 1 minute, stirring, until fragrant."
+                    },
+                    {
+                        ingredients: [
+                            "2 tbsp tomato paste",
+                            "1 tsp cumin",
+                            "1 tsp smoked paprika",
+                            "½ tsp coriander"
+                        ],
+                        instruction: "Add tomato paste and all spices. Stir well and cook for 1 minute — this blooms the spices and builds deep flavor."
+                    },
+                    {
+                        ingredients: [
+                            "2 medium sweet potatoes, cubed",
+                            "1 can chickpeas, drained",
+                            "1 can diced tomatoes",
+                            "3 cups vegetable broth"
+                        ],
+                        instruction: "Add sweet potato, chickpeas, diced tomatoes (with liquid), and vegetable broth. Stir to combine. Bring to a boil, then reduce heat to medium-low. Simmer uncovered 15–20 minutes until sweet potato is completely tender."
+                    },
+                    {
+                        ingredients: ["½ cup creamy peanut butter"],
+                        instruction: "Stir in peanut butter until fully dissolved. Simmer 5 more minutes — the stew will thicken. Add a splash of water if it gets too thick."
+                    },
+                    {
+                        ingredients: ["2 cups baby spinach"],
+                        instruction: "Stir in spinach and cook 1–2 minutes until wilted. Taste and season generously with salt and pepper."
+                    },
+                    {
+                        ingredients: [
+                            "Cooked rice",
+                            "Lime wedges (optional)",
+                            "Fresh cilantro (optional)",
+                            "Chopped peanuts (optional)"
+                        ],
+                        instruction: "Ladle stew over rice. Finish with a squeeze of lime, cilantro, and chopped peanuts if desired. Enjoy!"
                     }
                 ]
             },
             meal2: {
-                title: "Thai Peanut Noodles with Crispy Tofu",
+                title: "Smoky Black Bean & Cheese Enchiladas",
                 steps: [
                     {
-                        ingredients: ["12 oz rice noodles"],
-                        instruction: "Cook rice noodles according to package directions. Drain, rinse with cold water, and set aside."
+                        ingredients: [],
+                        instruction: "Preheat oven to 375°F."
                     },
                     {
                         ingredients: [
-                            "½ cup peanut butter",
-                            "3 tablespoons soy sauce",
-                            "2 tablespoons rice vinegar",
-                            "2 tablespoons maple syrup",
-                            "2 tablespoons lime juice",
-                            "1 tablespoon sesame oil",
-                            "2 cloves garlic, minced",
-                            "1 teaspoon ginger, minced",
-                            "¼ cup warm water",
-                            "1 teaspoon sriracha (optional)"
+                            "1 tbsp vegetable oil",
+                            "1 small onion, finely diced"
                         ],
-                        instruction: "Make peanut sauce: Whisk all ingredients together until smooth. Set aside."
+                        instruction: "Heat oil in a skillet over medium heat. Add onion and cook 4–5 minutes until softened."
                     },
                     {
                         ingredients: [
-                            "1 block tofu, cubed",
-                            "1 tablespoon vegetable oil"
+                            "3 cloves garlic, minced",
+                            "1 tsp cumin",
+                            "1 tsp smoked paprika",
+                            "½ tsp chili powder"
                         ],
-                        instruction: "Press tofu to remove moisture, cut into ½-inch cubes. Heat oil in a large skillet over medium-high heat. Cook tofu 8-10 minutes, stirring occasionally, until golden and crispy. Remove and set aside."
+                        instruction: "Add garlic and spices. Cook 30 seconds, stirring, until fragrant."
+                    },
+                    {
+                        ingredients: ["2 cans (15 oz each) black beans, drained"],
+                        instruction: "Add black beans. Mash roughly half of them with the back of a spoon for a sturdier filling. Cook 2–3 minutes. Season with salt and pepper. Remove from heat."
                     },
                     {
                         ingredients: [
-                            "1 tablespoon vegetable oil",
-                            "2 cups red cabbage, shredded",
-                            "2 carrots, julienned",
-                            "1 red bell pepper, sliced",
-                            "1 cup edamame"
+                            "1 can (28 oz) enchilada sauce",
+                            "9×13 baking dish"
                         ],
-                        instruction: "In the same skillet, add oil. Stir-fry cabbage, carrots, and bell pepper for 3-4 minutes. Add edamame and cook 1 minute more."
+                        instruction: "Pour about ½ cup of enchilada sauce into the bottom of a 9×13 baking dish and spread to coat."
                     },
                     {
                         ingredients: [
-                            "Cooked noodles",
-                            "Crispy tofu",
-                            "Peanut sauce"
+                            "8–10 flour tortillas",
+                            "Bean filling",
+                            "1 cup shredded cheese (reserve 1 cup for top)"
                         ],
-                        instruction: "Add noodles, tofu, and peanut sauce to the skillet. Toss for 2-3 minutes until coated and heated. Add water if sauce is too thick."
+                        instruction: "Fill each tortilla with 3–4 tbsp of bean filling and a pinch of cheese. Roll up tightly and place seam-side down in the dish. Repeat with remaining tortillas."
                     },
                     {
                         ingredients: [
-                            "3 green onions, sliced",
-                            "¼ cup chopped peanuts",
-                            "Fresh cilantro",
-                            "Lime wedges"
+                            "Remaining enchilada sauce",
+                            "1 cup shredded cheese"
                         ],
-                        instruction: "Divide among bowls and top with green onions, peanuts, cilantro. Serve with lime wedges. Enjoy hot, room temp, or cold!"
+                        instruction: "Pour the remaining enchilada sauce evenly over the enchiladas. Sprinkle the remaining cheese generously over the top."
+                    },
+                    {
+                        ingredients: [],
+                        instruction: "Cover with foil and bake 20 minutes. Remove foil and bake 5 more minutes until cheese is bubbly. Let rest 5 minutes before serving. Top with sour cream, avocado, and cilantro."
+                    }
+                ]
+            },
+            meal3: {
+                title: "Banana Oat Pancakes",
+                steps: [
+                    {
+                        ingredients: [
+                            "2 ripe bananas",
+                            "1 cup rolled oats",
+                            "2 eggs",
+                            "½ tsp cinnamon"
+                        ],
+                        instruction: "Add all ingredients to a blender. Blend until smooth, about 20–30 seconds. Let batter rest 5 minutes to thicken slightly."
+                    },
+                    {
+                        ingredients: ["1 tbsp butter or oil"],
+                        instruction: "Heat a non-stick skillet over medium-low heat. Add butter or oil and spread around. Medium-low is important — these brown faster than regular pancakes."
+                    },
+                    {
+                        ingredients: ["Pancake batter"],
+                        instruction: "Pour about 1 tablespoon of batter per pancake (silver-dollar size). Cook until bubbles form on the surface and edges look set, about 2 minutes."
+                    },
+                    {
+                        ingredients: [],
+                        instruction: "Gently flip each pancake and cook 1–2 more minutes until golden on the bottom. Use a thin spatula — these are delicate. Transfer to a plate."
+                    },
+                    {
+                        ingredients: [],
+                        instruction: "Let pancakes cool completely before storing. For daycare: pack 3–4 pancakes in a small container. To freeze: lay in a single layer on a parchment sheet, freeze 1–2 hours, then bag. Reheat from frozen in 30–45 seconds."
+                    }
+                ]
+            },
+            meal4: {
+                title: "Veggie-Loaded Cornbread Bites",
+                steps: [
+                    {
+                        ingredients: [],
+                        instruction: "Preheat oven to 375°F. Grease a 24-cup mini muffin tin well with butter or oil (or use silicone molds for easiest release)."
+                    },
+                    {
+                        ingredients: [
+                            "¾ cup cornmeal",
+                            "¾ cup all-purpose flour",
+                            "1½ tsp baking powder"
+                        ],
+                        instruction: "In a large bowl, whisk together cornmeal, flour, and baking powder."
+                    },
+                    {
+                        ingredients: [
+                            "2 eggs",
+                            "½ cup whole milk",
+                            "3 tbsp melted butter or oil",
+                            "⅓ cup plain whole milk yogurt"
+                        ],
+                        instruction: "In a separate bowl, whisk eggs, then stir in milk, melted butter, and yogurt until smooth."
+                    },
+                    {
+                        ingredients: [
+                            "¾ cup shredded cheddar cheese",
+                            "½ cup frozen corn, thawed",
+                            "½ red bell pepper, finely diced",
+                            "¼ tsp garlic powder",
+                            "¼ tsp smoked paprika (optional)"
+                        ],
+                        instruction: "Pour wet mixture into dry and stir until just combined — don't overmix. Fold in cheese, corn, bell pepper, garlic powder, and paprika."
+                    },
+                    {
+                        ingredients: [],
+                        instruction: "Spoon batter into mini muffin cups, filling ¾ full. A small cookie scoop works perfectly. Bake 12–15 minutes until tops are golden and a toothpick comes out clean."
+                    },
+                    {
+                        ingredients: [],
+                        instruction: "Cool in tin 3–5 minutes, then turn out onto a rack. Cool completely before packing. For daycare: pack 4–6 bites per container."
+                    }
+                ]
+            },
+            meal5: {
+                title: "Chickpea Nuggets",
+                steps: [
+                    {
+                        ingredients: [],
+                        instruction: "Preheat oven to 400°F. Line a baking sheet with parchment paper."
+                    },
+                    {
+                        ingredients: ["1 can (15 oz) chickpeas, drained and rinsed"],
+                        instruction: "Add chickpeas to a mixing bowl. Mash with a fork until mostly broken down but still chunky — keep some texture. Don't over-mash."
+                    },
+                    {
+                        ingredients: [
+                            "½ cup breadcrumbs",
+                            "1 tbsp tahini",
+                            "1 egg",
+                            "½ tsp garlic powder",
+                            "½ tsp smoked paprika",
+                            "¼ tsp cumin",
+                            "2 tbsp parsley or cilantro (optional)",
+                            "Pinch of salt"
+                        ],
+                        instruction: "Add all remaining ingredients. Mix until a thick, scoopable mixture forms. If too wet, add more breadcrumbs; if too dry, add a tiny splash of water."
+                    },
+                    {
+                        ingredients: ["1 tbsp olive oil"],
+                        instruction: "Scoop about 1 tablespoon per nugget, shape into small patties, and place on the baking sheet. Flatten to about ½ inch thick. Brush tops with olive oil."
+                    },
+                    {
+                        ingredients: [],
+                        instruction: "Bake 10 minutes, then carefully flip each nugget. Bake another 8–10 minutes until both sides are golden and firm to the touch."
+                    },
+                    {
+                        ingredients: [],
+                        instruction: "Cool on baking sheet a few minutes — they firm up as they cool. Pack 4–5 for daycare. To freeze: cool completely, freeze in a single layer, then bag. Reheat from frozen: microwave 45–60 sec, or toaster oven for crispier."
                     }
                 ]
             }
         };
-        
+
         let currentRecipe = null;
         let currentStepIndex = 0;
-        
+
         function startCookingMode(mealId) {
             currentRecipe = recipes[mealId];
             currentStepIndex = 0;
-            
             const overlay = document.getElementById('cookingModeOverlay');
             overlay.classList.add('active');
-            
             document.getElementById('cookingModeTitle').textContent = currentRecipe.title;
-            
             renderStep();
-            
             document.body.style.overflow = 'hidden';
         }
-        
+
         function exitCookingMode() {
             const overlay = document.getElementById('cookingModeOverlay');
             overlay.classList.remove('active');
             currentRecipe = null;
             currentStepIndex = 0;
-            
             document.body.style.overflow = 'auto';
         }
-        
+
         function renderStep() {
             if (!currentRecipe) return;
-            
             const step = currentRecipe.steps[currentStepIndex];
             const totalSteps = currentRecipe.steps.length;
-            
-            document.getElementById('cookingModeProgress').textContent = 
+            document.getElementById('cookingModeProgress').textContent =
                 `Step ${currentStepIndex + 1} of ${totalSteps}`;
-            
             let stepHTML = '<div class="cooking-step active">';
-            
             if (step.ingredients.length > 0) {
                 stepHTML += '<div class="step-ingredients">';
                 stepHTML += '<h3>Ingredients for this step:</h3>';
@@ -686,28 +977,18 @@
                 step.ingredients.forEach(ingredient => {
                     stepHTML += `<li>${ingredient}</li>`;
                 });
-                stepHTML += '</ul>';
-                stepHTML += '</div>';
+                stepHTML += '</ul></div>';
             }
-            
             stepHTML += `<div class="step-instruction">${step.instruction}</div>`;
             stepHTML += '</div>';
-            
             document.getElementById('cookingModeContent').innerHTML = stepHTML;
-            
             document.getElementById('prevStepBtn').disabled = currentStepIndex === 0;
-            
             const nextBtn = document.getElementById('nextStepBtn');
-            if (currentStepIndex === totalSteps - 1) {
-                nextBtn.textContent = 'Done ✓';
-            } else {
-                nextBtn.textContent = 'Next →';
-            }
+            nextBtn.textContent = currentStepIndex === totalSteps - 1 ? 'Done ✓' : 'Next →';
         }
-        
+
         function nextStep() {
             if (!currentRecipe) return;
-            
             if (currentStepIndex < currentRecipe.steps.length - 1) {
                 currentStepIndex++;
                 renderStep();
@@ -715,58 +996,45 @@
                 exitCookingMode();
             }
         }
-        
+
         function prevStep() {
             if (!currentRecipe) return;
-            
             if (currentStepIndex > 0) {
                 currentStepIndex--;
                 renderStep();
             }
         }
-        
+
         let touchStartX = 0;
         let touchEndX = 0;
-        
+
         document.getElementById('cookingModeContent').addEventListener('touchstart', e => {
             touchStartX = e.changedTouches[0].screenX;
         });
-        
+
         document.getElementById('cookingModeContent').addEventListener('touchend', e => {
             touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
         });
-        
+
         function handleSwipe() {
             const swipeThreshold = 50;
             const diff = touchStartX - touchEndX;
-            
             if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    nextStep();
-                } else {
-                    prevStep();
-                }
+                if (diff > 0) { nextStep(); } else { prevStep(); }
             }
         }
-        
+
         function toggleMeal(header) {
             const mealDay = header.parentElement;
             mealDay.classList.toggle('expanded');
         }
-        
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.nav-button').forEach(button => {
-                button.classList.remove('active');
-            });
-            
+
+        function showPage(pageId, event) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.nav-button').forEach(button => button.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            
-            event.target.classList.add('active');
+            if (event && event.target) event.target.classList.add('active');
         }
     </script>
 </body>
