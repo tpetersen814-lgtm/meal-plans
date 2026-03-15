@@ -212,6 +212,72 @@
             </div>
         </div>
 
+            <!-- MEAL 3: SMOKY BLACK BEAN & CHEESE ENCHILADAS -->
+            <div class="meal-day" data-meal="meal3">
+                <div class="meal-header" onclick="toggleMeal(this)">
+                    <div>
+                        <h2>Meal 3: Smoky Black Bean &amp; Cheese Enchiladas</h2>
+                        <div class="meal-meta">Serves 4–5 | Active time: ~15 min | Total: ~40 min | Freezer-friendly</div>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="meal-content">
+                    <p>Saucy, cheesy, deeply satisfying enchiladas with smoky cumin-spiced black beans. Mostly hands-off once they're in the oven, so you can set the table and get baby sorted while dinner finishes itself.</p>
+
+                    <h3>Ingredients</h3>
+                    <h4>For the filling:</h4>
+                    <ul>
+                        <li>2 cans (15 oz each) black beans, drained and rinsed</li>
+                        <li>1 small onion, finely diced</li>
+                        <li>3 cloves garlic, minced</li>
+                        <li>1 tablespoon vegetable oil</li>
+                        <li>1 teaspoon cumin</li>
+                        <li>1 teaspoon smoked paprika</li>
+                        <li>½ teaspoon chili powder</li>
+                        <li>Salt and pepper to taste</li>
+                    </ul>
+                    <h4>For assembly:</h4>
+                    <ul>
+                        <li>8–10 flour tortillas (8-inch)</li>
+                        <li>1 can (28 oz) red enchilada sauce</li>
+                        <li>2 cups shredded Mexican cheese blend (or cheddar)</li>
+                    </ul>
+                    <h4>Optional toppings:</h4>
+                    <ul>
+                        <li>Sour cream</li>
+                        <li>Avocado or guacamole</li>
+                        <li>Fresh cilantro</li>
+                        <li>Lime wedges</li>
+                    </ul>
+
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>Preheat oven to 375°F.</li>
+                        <li>Heat oil in a skillet over medium heat. Add onion and cook 4–5 minutes until softened. Add garlic and cook 1 minute more.</li>
+                        <li>Add cumin, smoked paprika, and chili powder. Stir 30 seconds until fragrant. Add black beans and stir to coat. Roughly mash half the beans with the back of a spoon — this makes a sturdier filling. Cook 2–3 more minutes. Season with salt and pepper and remove from heat.</li>
+                        <li>Pour about ½ cup of enchilada sauce into the bottom of a 9×13-inch baking dish and spread to coat.</li>
+                        <li>Lay a tortilla flat. Spoon 3–4 tablespoons of filling down the center, add a pinch of cheese (reserve most for the top). Roll up tightly and place seam-side down in the dish. Repeat with remaining tortillas.</li>
+                        <li>Pour remaining enchilada sauce evenly over the top. Sprinkle remaining cheese generously over everything.</li>
+                        <li>Cover tightly with foil and bake 20 minutes. Remove foil and bake 5 more minutes until cheese is bubbly and browning at the edges.</li>
+                        <li>Let rest 5 minutes before serving. Top with sour cream, avocado, and cilantro as desired.</li>
+                    </ol>
+
+                    <div class="baby-note">
+                        <strong>🍼 For baby (12 months+):</strong> Cut a section of enchilada into small pieces — the tortilla softens beautifully in the sauce and is easy to eat. The beans are soft and high in iron. Sour cream and avocado are great additions. Skip any spicy toppings.
+                    </div>
+
+                    <div class="storage-tip">
+                        <strong>Storage &amp; Freezer:</strong> Leftovers keep 4 days in the fridge and get better as the tortillas absorb the sauce. To freeze unbaked: assemble, cover tightly with foil, and freeze up to 3 months. Bake from frozen at 375°F for 45–50 minutes covered, then 10 minutes uncovered.
+                    </div>
+
+                    <div class="storage-tip" style="background-color:#fff3e0;border-left-color:#ff9800;">
+                        <strong style="color:#e65100;">⚡ Speed tip:</strong> The bean filling takes 10 minutes. While it cools slightly, preheat the oven and set up your assembly line — sauce, beans, cheese, tortillas. Assembly goes fast once everything is laid out.
+                    </div>
+
+                    <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
+                </div>
+            </div>
+
     </div>
 
     <div id="grocery" class="page">
@@ -219,7 +285,7 @@
         <div style="background-color:#e8f5e9;padding:30px;border-radius:8px;text-align:center;">
             <h3 style="color:#2c5f2d;margin-bottom:15px;">&#128221; Your Shared Shopping List</h3>
             <p style="margin-bottom:25px;font-size:1.1em;line-height:1.6;">Add these ingredients to your Google Sheets shopping list!</p>
-            <a href="https://docs.google.com/spreadsheets/d/1O-Lo_iphmyHBstILjbDVWx28iY48xdBlaH_Gd9CFUgo/edit?usp=sharing" target="_blank" style="text-decoration:none;">
+            <a href="YOUR_GOOGLE_SHEET_URL_HERE" target="_blank" style="text-decoration:none;">
                 <button style="padding:15px 40px;background-color:#4caf50;color:white;border:none;border-radius:8px;cursor:pointer;font-size:1.2em;font-weight:bold;box-shadow:0 2px 4px rgba(0,0,0,0.2);">Open Shopping List in Google Sheets</button>
             </a>
         </div>
@@ -267,6 +333,19 @@ const recipes = {
             { ingredients: ["Par-cooked lentils","¾ cup basmati or long-grain rice, rinsed","1½ cups water or vegetable broth"], instruction: "Add lentils and rinsed rice to the pot. Pour in water or broth. Stir to combine. Bring to a boil, reduce to the lowest setting, cover tightly, and cook for 20 minutes. Do not lift the lid.", timer: { seconds: 1200, label: "Cook covered" } },
             { ingredients: ["1 cucumber, diced","2 tomatoes, diced","1 tbsp lemon juice","Drizzle of olive oil"], instruction: "Remove from heat. Keep covered and let steam for 10 minutes. While it rests, toss diced cucumber and tomatoes with lemon juice, a drizzle of olive oil, and a pinch of salt.", timer: { seconds: 600, label: "Steam & rest" } },
             { ingredients: ["Reserved crispy onions","Plain yogurt","Cucumber-tomato salad","Fresh parsley (optional)"], instruction: "Fluff gently with a fork. Taste and adjust salt. Pile into bowls, top with crispy onions and parsley if using. Serve alongside yogurt and the cucumber-tomato salad. Enjoy!" }
+        ]
+    },
+    meal3: {
+        title: "Smoky Black Bean & Cheese Enchiladas",
+        steps: [
+            { ingredients: [], instruction: "Preheat oven to 375°F." },
+            { ingredients: ["1 tbsp vegetable oil","1 small onion, finely diced"], instruction: "Heat oil in a skillet over medium heat. Add onion and cook 4–5 minutes until softened." },
+            { ingredients: ["3 cloves garlic, minced","1 tsp cumin","1 tsp smoked paprika","½ tsp chili powder","2 cans (15 oz each) black beans, drained"], instruction: "Add garlic and spices. Stir 30 seconds until fragrant. Add black beans and stir to coat. Roughly mash half the beans with the back of a spoon — this makes a sturdier filling. Cook 2–3 minutes. Season with salt and pepper, then remove from heat." },
+            { ingredients: ["1 can (28 oz) red enchilada sauce","9×13 baking dish"], instruction: "Pour about ½ cup of enchilada sauce into the bottom of the baking dish and spread to coat." },
+            { ingredients: ["8–10 flour tortillas","Bean filling","1 cup shredded cheese (reserve 1 cup for the top)"], instruction: "Lay a tortilla flat. Spoon 3–4 tablespoons of filling down the center, add a pinch of cheese. Roll up tightly and place seam-side down in the dish. Repeat with all remaining tortillas." },
+            { ingredients: ["Remaining enchilada sauce","1 cup shredded cheese"], instruction: "Pour remaining enchilada sauce evenly over all the enchiladas. Sprinkle the remaining cheese generously over the top." },
+            { ingredients: [], instruction: "Cover tightly with foil and bake 20 minutes.", timer: { seconds: 1200, label: "Bake covered" } },
+            { ingredients: [], instruction: "Remove foil and bake 5 more minutes until cheese is bubbly and browning at the edges. Let rest 5 minutes, then serve with sour cream, avocado, and cilantro.", timer: { seconds: 300, label: "Bake uncovered" } }
         ]
     }
 };
