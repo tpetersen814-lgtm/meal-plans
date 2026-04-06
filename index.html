@@ -3,25 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal Plan — Orzo, Baked Feta, Paneer Tikka & Baby Pancakes</title>
+    <title>Meal Plan — Fried Rice, Stroganoff & Baby Pancakes</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
-            padding: 20px;
+            line-height: 1.6; color: #333; background-color: #f5f5f5; padding: 20px;
         }
 
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 900px; margin: 0 auto; background: white;
+            padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         h1 { color: #2c5f2d; margin-bottom: 10px; font-size: 2em; }
@@ -29,11 +22,8 @@
 
         .nav-buttons { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .nav-button {
-            padding: 10px 20px;
-            background-color: #2c5f2d;
-            color: white; border: none;
-            border-radius: 5px; cursor: pointer;
-            font-size: 1em; transition: background-color 0.3s;
+            padding: 10px 20px; background-color: #2c5f2d; color: white;
+            border: none; border-radius: 5px; cursor: pointer; font-size: 1em; transition: background-color 0.3s;
         }
         .nav-button:hover, .nav-button.active { background-color: #1f4420; }
 
@@ -41,21 +31,15 @@
         .page.active { display: block; }
 
         .section-label {
-            font-size: 0.85em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #888;
-            margin: 25px 0 10px 0;
+            font-size: 0.85em; font-weight: bold; text-transform: uppercase;
+            letter-spacing: 0.08em; color: #888; margin: 25px 0 10px 0;
         }
 
         .meal-day { margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; overflow: hidden; }
 
         .meal-header {
-            background-color: #e8f5e9;
-            padding: 15px 20px; cursor: pointer;
-            display: flex; justify-content: space-between; align-items: center;
-            transition: background-color 0.3s;
+            background-color: #e8f5e9; padding: 15px 20px; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center; transition: background-color 0.3s;
         }
         .meal-header:hover { background-color: #c8e6c9; }
         .meal-header h2 { color: #2c5f2d; font-size: 1.3em; }
@@ -93,31 +77,26 @@
         .makeahead-note strong { color: #6a1b9a; }
 
         .cooking-mode-button {
-            margin-top: 15px; padding: 12px 24px;
-            background-color: #4caf50; color: white;
-            border: none; border-radius: 5px; cursor: pointer;
-            font-size: 1.1em; font-weight: bold;
-            transition: background-color 0.3s; width: 100%;
+            margin-top: 15px; padding: 12px 24px; background-color: #4caf50; color: white;
+            border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em;
+            font-weight: bold; transition: background-color 0.3s; width: 100%;
         }
         .cooking-mode-button:hover { background-color: #45a049; }
 
-        /* Cooking mode overlay */
+        /* Cooking mode */
         .cooking-mode-overlay {
-            display: none; position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: white; z-index: 1000; overflow: hidden;
         }
         .cooking-mode-overlay.active { display: flex; flex-direction: column; }
 
         .cooking-mode-header {
-            background-color: #2c5f2d; color: white;
-            padding: 15px 20px; display: flex;
-            justify-content: space-between; align-items: center; flex-shrink: 0;
+            background-color: #2c5f2d; color: white; padding: 15px 20px;
+            display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;
         }
         .cooking-mode-title { font-size: 1.2em; font-weight: bold; }
         .close-cooking-mode {
-            background: none; border: none; color: white;
-            font-size: 1.5em; cursor: pointer; padding: 5px 10px;
+            background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; padding: 5px 10px;
         }
 
         .cooking-mode-progress {
@@ -125,27 +104,19 @@
             text-align: center; color: #2c5f2d; font-weight: bold; flex-shrink: 0;
         }
 
-        /* Floating timer bar */
         .timer-float-bar {
-            display: none; align-items: center;
-            justify-content: space-between; gap: 12px;
-            background-color: #2c5f2d; color: white;
-            padding: 10px 18px; font-weight: bold; font-size: 1em; flex-shrink: 0;
+            display: none; align-items: center; justify-content: space-between; gap: 12px;
+            background-color: #2c5f2d; color: white; padding: 10px 18px;
+            font-weight: bold; font-size: 1em; flex-shrink: 0;
         }
         .timer-float-bar.visible { display: flex; }
         .timer-float-bar.urgent { background-color: #c62828; animation: pulse 1s infinite; }
         .timer-float-bar.finished { background-color: #c62828; animation: none; }
-
         .timer-float-label { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .timer-float-display {
-            font-size: 1.3em; font-variant-numeric: tabular-nums;
-            letter-spacing: 0.04em; white-space: nowrap;
-        }
+        .timer-float-display { font-size: 1.3em; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; white-space: nowrap; }
         .timer-float-btn {
-            padding: 5px 12px; font-size: 0.9em; font-weight: bold;
-            border: 2px solid white; border-radius: 5px;
-            background: transparent; color: white; cursor: pointer;
-            white-space: nowrap; transition: background-color 0.15s;
+            padding: 5px 12px; font-size: 0.9em; font-weight: bold; border: 2px solid white;
+            border-radius: 5px; background: transparent; color: white; cursor: pointer; white-space: nowrap; transition: background-color 0.15s;
         }
         .timer-float-btn:hover { background-color: rgba(255,255,255,0.2); }
 
@@ -157,14 +128,11 @@
         .cooking-step.active { display: block; }
 
         .step-ingredients {
-            background-color: #fff3e0; padding: 20px;
-            border-radius: 8px; margin-bottom: 25px;
+            background-color: #fff3e0; padding: 20px; border-radius: 8px; margin-bottom: 25px;
         }
         .step-ingredients h3 { color: #e65100; margin-bottom: 15px; font-size: 1.1em; }
         .step-ingredients ul { list-style: none; padding: 0; }
-        .step-ingredients li {
-            padding: 8px 0; font-size: 1.1em; border-bottom: 1px solid #ffe0b2;
-        }
+        .step-ingredients li { padding: 8px 0; font-size: 1.1em; border-bottom: 1px solid #ffe0b2; }
         .step-ingredients li:last-child { border-bottom: none; }
         .step-instruction { font-size: 1.3em; line-height: 1.8; color: #333; }
 
@@ -182,7 +150,6 @@
         .cooking-nav-button.next:hover:not(:disabled) { background-color: #45a049; }
         .cooking-nav-button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        /* In-step timer widget */
         .timer-container {
             margin-top: 28px; background-color: #e8f5e9;
             border: 2px solid #2c5f2d; border-radius: 12px; padding: 20px; text-align: center;
@@ -193,8 +160,7 @@
         }
         .timer-display {
             font-size: 3.2em; font-weight: bold; color: #2c5f2d;
-            font-variant-numeric: tabular-nums; letter-spacing: 0.04em;
-            line-height: 1.1; margin-bottom: 16px;
+            font-variant-numeric: tabular-nums; letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 16px;
         }
         .timer-display.timer-urgent { color: #c62828; animation: pulse 1s infinite; }
         .timer-display.timer-done { color: #c62828; }
@@ -204,9 +170,8 @@
         .timer-done-msg { font-size: 1.2em; font-weight: bold; color: #c62828; margin-bottom: 12px; }
         .timer-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
         .timer-btn {
-            padding: 10px 22px; font-size: 1em; font-weight: bold;
-            border: none; border-radius: 6px; cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
+            padding: 10px 22px; font-size: 1em; font-weight: bold; border: none;
+            border-radius: 6px; cursor: pointer; transition: background-color 0.2s, transform 0.1s;
         }
         .timer-btn:active { transform: scale(0.97); }
         .timer-btn-start { background-color: #2c5f2d; color: white; font-size: 1.1em; padding: 12px 28px; }
@@ -227,7 +192,7 @@
 <body>
 <div class="container">
     <h1>Meal Plan</h1>
-    <p class="subtitle">Lemon Orzo · Baked Feta · Paneer Tikka Masala · Baby Banana Pancakes | Dinners serve 4–5</p>
+    <p class="subtitle">Tofu Egg Fried Rice · Mushroom Stroganoff · Baby Banana Pancakes | Dinners serve 4–5</p>
 
     <div class="nav-buttons">
         <button class="nav-button active" onclick="showPage('meals', event)">Recipes</button>
@@ -238,204 +203,146 @@
 
         <p class="section-label">🍽️ Weeknight Dinners</p>
 
-        <!-- MEAL 1: LEMON ORZO -->
+        <!-- MEAL 1: TOFU EGG FRIED RICE -->
         <div class="meal-day" data-meal="meal1">
             <div class="meal-header" onclick="toggleMeal(this)">
                 <div>
-                    <h2>Meal 1: Lemon Orzo with White Beans & Spinach</h2>
-                    <div class="meal-meta">Serves 4–5 | Prep: 5 min | Total: ~25 min | One pot</div>
+                    <h2>Meal 1: Tofu Egg Fried Rice</h2>
+                    <div class="meal-meta">Serves 4–5 | Prep: 10 min | Total: ~25 min | Best with day-old rice</div>
                 </div>
                 <span class="expand-icon">▼</span>
             </div>
             <div class="meal-content">
-                <p>A bright, lemony one-pot pasta that comes together incredibly fast. Orzo cooks right in the broth, absorbing all the flavour, and the white beans and spinach make it hearty enough to be a complete meal. Almost no chopping required — just garlic and you're basically done.</p>
+                <p>The ultimate use-what-you-have weeknight dinner. Crispy tofu, scrambled egg, and vegetables tossed through savoury fried rice. The key to great fried rice is using cold, day-old rice — freshly cooked rice is too wet and steams instead of frying. Cook the rice the night before and this comes together in 20 minutes flat.</p>
 
                 <h3>Ingredients</h3>
+                <h4>For the rice and tofu:</h4>
                 <ul>
-                    <li>1½ cups (about 10 oz) orzo pasta</li>
-                    <li>1 can (15 oz) white beans (cannellini), drained and rinsed</li>
-                    <li>3 cups vegetable broth</li>
-                    <li>1 cup water</li>
+                    <li>4 cups cooked and cooled white rice (ideally day-old — about 1½ cups dry)</li>
+                    <li>1 block (14 oz) extra-firm tofu, pressed and cut into small cubes</li>
+                    <li>3 eggs, lightly beaten</li>
+                    <li>2 cups frozen peas and carrots (or any frozen veg mix)</li>
+                    <li>1 cup frozen corn kernels</li>
+                    <li>4 green onions, sliced (white and green parts separated)</li>
                     <li>4 cloves garlic, minced</li>
-                    <li>1 tablespoon olive oil</li>
-                    <li>3 cups baby spinach</li>
-                    <li>Zest and juice of 1 large lemon</li>
-                    <li>½ cup grated parmesan cheese</li>
-                    <li>2 tablespoons butter</li>
-                    <li>½ teaspoon dried oregano</li>
-                    <li>Salt and pepper to taste</li>
-                    <li>Red pepper flakes (optional)</li>
-                    <li>Extra parmesan and lemon wedges to serve</li>
+                    <li>1 teaspoon fresh ginger, minced</li>
+                    <li>3 tablespoons vegetable oil, divided</li>
+                </ul>
+                <h4>For the sauce:</h4>
+                <ul>
+                    <li>3 tablespoons soy sauce</li>
+                    <li>1 tablespoon sesame oil</li>
+                    <li>1 tablespoon rice vinegar</li>
+                    <li>1 teaspoon sriracha or chili garlic sauce (optional)</li>
+                </ul>
+                <h4>To finish:</h4>
+                <ul>
+                    <li>Extra soy sauce to taste</li>
+                    <li>Sesame seeds (optional)</li>
+                    <li>Extra green onion tops</li>
                 </ul>
 
                 <h3>Instructions</h3>
                 <ol>
-                    <li>Heat olive oil in a large pot or deep skillet over medium heat. Add garlic and cook 1–2 minutes, stirring, until fragrant and just starting to turn golden. Don't let it burn.</li>
-                    <li>Add orzo and stir to coat in the oil. Toast for 1 minute — this adds a little nuttiness.</li>
-                    <li>Pour in vegetable broth and water. Add oregano and a generous pinch of salt. Bring to a boil, then reduce heat to a lively simmer. Cook uncovered for 8–10 minutes, stirring frequently (every minute or so), until orzo is just tender and has absorbed most of the liquid. It should look saucy, not dry.</li>
-                    <li>Stir in white beans and spinach. Cook 1–2 minutes until spinach is wilted and beans are warmed through.</li>
-                    <li>Remove from heat. Stir in butter, lemon zest, lemon juice, and parmesan. Taste and adjust salt, pepper, and lemon — it should be bright and savoury. If it thickens too much as it sits, add a splash of water or broth.</li>
-                    <li>Serve immediately topped with extra parmesan, a crack of black pepper, and red pepper flakes if using.</li>
+                    <li>Mix the sauce: stir together soy sauce, sesame oil, rice vinegar, and sriracha if using. Set aside. Press tofu between paper towels for a few minutes to remove moisture, then cut into small ½-inch cubes.</li>
+                    <li>Heat 1 tablespoon oil in a large wok or wide skillet over high heat until very hot. Add tofu in a single layer and cook without stirring for 3–4 minutes until deeply golden on the bottom. Flip and cook another 2 minutes. Remove and set aside.</li>
+                    <li>Add another tablespoon of oil to the pan. Add the frozen veg and corn — they'll sizzle and steam. Stir-fry for 2–3 minutes until thawed and any water has evaporated. Add the white parts of the green onions, garlic, and ginger. Stir-fry 1 minute until fragrant.</li>
+                    <li>Push everything to the sides. Add the remaining oil to the centre of the pan. Pour in the beaten eggs and scramble, stirring quickly. Once just set but still a little soft, break them up and fold into the vegetables.</li>
+                    <li>Add the cold rice. Press it down and let it sit undisturbed for 1 minute to get a little crispy on the bottom. Then toss and stir-fry for 2–3 minutes, breaking up any clumps, until the rice is hot and slightly toasted.</li>
+                    <li>Return the crispy tofu to the pan. Pour the sauce over everything and toss well to coat. Taste and add more soy sauce if needed. Remove from heat and finish with sesame seeds and green onion tops. Serve immediately.</li>
                 </ol>
 
+                <div class="makeahead-note">
+                    <strong>🕐 Make-Ahead:</strong> Cook the rice the night before — this is actually essential for good fried rice. Spread it on a tray to cool, then refrigerate uncovered. Cold, dry rice fries beautifully; fresh warm rice turns mushy. You can also press and cube the tofu the night before.
+                </div>
+
                 <div class="baby-note">
-                    <strong>🍼 For baby (12 months+):</strong> Orzo is an ideal pasta shape for babies — small, soft, and easy to pick up. Scoop out a portion before adding the lemon and parmesan if you'd like a blander version, or serve as-is (the lemon is mild once cooked in). The white beans are soft and high in iron — offer them whole or lightly squished. Great self-feeding meal.
+                    <strong>🍼 For baby (12 months+):</strong> Set aside a small portion of rice, veg, and tofu before adding the soy sauce (which is high in sodium). Baby can have plain rice with the scrambled egg and soft veg mixed in — excellent self-feeding meal. Tofu cubes are a great texture for this age. If you do offer a small taste of the sauced version, it's fine occasionally — just go easy on the portions.
                 </div>
 
                 <div class="storage-tip">
-                    <strong>Storage:</strong> Keeps 3–4 days in the fridge. Orzo absorbs liquid as it sits — add a good splash of broth or water when reheating and stir over medium heat or microwave until loosened. Doesn't freeze well (pasta texture suffers), so best eaten fresh or within a few days.
+                    <strong>Storage:</strong> Keeps 4 days in the fridge. Reheat in a hot skillet with a tiny splash of water or oil for best results — the microwave works but the rice can go a bit soft. Freezes reasonably well for up to 1 month, though the texture is best fresh.
                 </div>
 
                 <div class="storage-tip" style="background-color:#fff3e0;border-left-color:#ff9800;">
-                    <strong style="color:#e65100;">⚡ Speed tip:</strong> Seriously minimal prep — just mince the garlic and zest the lemon. Everything else is canned or dried. This is a legitimate 25-minute dinner with under 5 minutes of knife work.
+                    <strong style="color:#e65100;">⚡ The real secret:</strong> Day-old rice is non-negotiable for good fried rice. If you forget, spread freshly cooked rice on a baking sheet and put it in the freezer for 20–30 minutes to dry it out fast. Works surprisingly well.
                 </div>
 
                 <button class="cooking-mode-button" onclick="startCookingMode('meal1')">Start Cooking Mode</button>
             </div>
         </div>
 
-        <!-- MEAL 2: BAKED FETA -->
+        <!-- MEAL 2: MUSHROOM STROGANOFF -->
         <div class="meal-day" data-meal="meal2">
             <div class="meal-header" onclick="toggleMeal(this)">
                 <div>
-                    <h2>Meal 2: Baked Feta with Tomatoes & Chickpeas</h2>
-                    <div class="meal-meta">Serves 4–5 | Prep: 5 min | Total: ~35 min | Hands-off oven dinner</div>
+                    <h2>Meal 2: Mushroom Stroganoff</h2>
+                    <div class="meal-meta">Serves 4–5 | Prep: 10 min | Total: ~35 min | Serve over egg noodles or rice</div>
                 </div>
                 <span class="expand-icon">▼</span>
             </div>
             <div class="meal-content">
-                <p>Inspired by the viral baked feta pasta trend but heartier — a block of feta roasts in a dish surrounded by burst cherry tomatoes, chickpeas, and olive oil until everything is jammy and rich. Scoop it all up with crusty bread or toss with pasta. Almost zero prep: open cans, add feta, put in oven.</p>
+                <p>Rich, creamy, deeply savoury mushroom sauce over wide egg noodles. This is proper comfort food — the mushrooms take about 10 minutes of prep (slicing) and then the sauce comes together quickly. Using a mix of mushrooms adds much more depth than just button mushrooms, but it works fine with whatever you have.</p>
 
                 <h3>Ingredients</h3>
-                <h4>For the bake:</h4>
+                <h4>For the stroganoff:</h4>
                 <ul>
-                    <li>1 block (7–8 oz) feta cheese</li>
-                    <li>2 pints (about 4 cups) cherry tomatoes</li>
-                    <li>1 can (15 oz) chickpeas, drained and rinsed</li>
-                    <li>5 cloves garlic, left whole or lightly smashed</li>
-                    <li>¼ cup olive oil</li>
-                    <li>1 teaspoon dried oregano</li>
-                    <li>½ teaspoon smoked paprika</li>
-                    <li>½ teaspoon red pepper flakes (optional)</li>
-                    <li>Black pepper to taste</li>
+                    <li>1½ lbs mixed mushrooms (cremini, shiitake, and/or portobello), sliced</li>
+                    <li>1 medium onion, finely diced</li>
+                    <li>4 cloves garlic, minced</li>
+                    <li>2 tablespoons butter</li>
+                    <li>1 tablespoon olive oil</li>
+                    <li>2 tablespoons all-purpose flour</li>
+                    <li>1 cup vegetable broth</li>
+                    <li>¾ cup sour cream</li>
+                    <li>1 tablespoon Dijon mustard</li>
+                    <li>1 tablespoon Worcestershire sauce (check label — most are vegetarian, some contain anchovies)</li>
+                    <li>1 teaspoon smoked paprika</li>
+                    <li>½ teaspoon dried thyme</li>
+                    <li>Salt and black pepper to taste</li>
+                    <li>Fresh parsley, chopped, to serve</li>
                 </ul>
-                <h4>To serve (pick one or both):</h4>
+                <h4>To serve:</h4>
                 <ul>
-                    <li>Crusty bread for scooping</li>
-                    <li>10 oz pasta (rigatoni or penne), cooked and reserved</li>
-                    <li>Fresh basil leaves</li>
+                    <li>12 oz wide egg noodles (or pappardelle, or serve over rice)</li>
                 </ul>
 
                 <h3>Instructions</h3>
                 <ol>
-                    <li>Preheat oven to 400°F.</li>
-                    <li>In a large baking dish (9×13 or similar), combine cherry tomatoes, chickpeas, and garlic cloves. Drizzle with olive oil and sprinkle with oregano, smoked paprika, red pepper flakes (if using), and black pepper. Toss to coat.</li>
-                    <li>Push the tomato and chickpea mixture to the sides to create a space in the centre. Place the block of feta in the middle. Drizzle a little extra olive oil over the feta.</li>
-                    <li>Bake for 25–30 minutes until the tomatoes have burst and are jammy, the chickpeas are slightly crispy at the edges, and the feta is soft and golden on top.</li>
-                    <li>Remove from oven. Use a spoon to mash the feta slightly and stir everything together into a chunky, saucy mixture. The tomato juices and olive oil will combine with the feta into a rich sauce.</li>
-                    <li>Serve immediately: either with crusty bread for scooping directly from the dish, or toss with cooked pasta and a splash of pasta water to loosen. Top with fresh basil.</li>
+                    <li>Bring a large pot of salted water to a boil for the noodles. Slice the mushrooms while it heats.</li>
+                    <li>Heat butter and olive oil in a large wide skillet over medium-high heat. Add onion and cook 4–5 minutes until softened. Add garlic and cook 1 minute more.</li>
+                    <li>Add the sliced mushrooms in one go — they'll look like too many but will shrink dramatically. Cook without stirring for 3–4 minutes to let them brown on the bottom, then stir and cook another 4–5 minutes until deeply golden and all the liquid they release has evaporated. This is the most important step — don't rush it. Season with salt and pepper.</li>
+                    <li>Sprinkle flour over the mushrooms and stir to coat. Cook 1 minute. Add smoked paprika and dried thyme and stir again.</li>
+                    <li>Pour in the vegetable broth, scraping any bits from the bottom of the pan. Add Dijon mustard and Worcestershire sauce. Stir everything together and bring to a gentle simmer. Cook 3–4 minutes until the sauce has thickened slightly.</li>
+                    <li>Cook the noodles according to package directions while the sauce simmers.</li>
+                    <li>Remove the pan from heat. Stir in the sour cream — don't add it over high heat or it may curdle. Taste and adjust seasoning. Add a splash of broth if the sauce is too thick.</li>
+                    <li>Serve immediately over drained noodles, topped generously with fresh parsley.</li>
                 </ol>
 
                 <div class="makeahead-note">
-                    <strong>🕐 Make-Ahead:</strong> The dish takes 5 minutes to assemble. You can do that in the morning and refrigerate the whole unbaked dish, then put it straight in the oven when you get home. By the time you've got baby sorted and set the table it'll be done.
+                    <strong>🕐 Make-Ahead:</strong> The stroganoff sauce keeps well in the fridge for 3 days — make it ahead and reheat gently over low heat, adding a splash of broth to loosen. Cook the noodles fresh when serving. The sauce also makes a great pasta topping or can be spooned over baked potatoes for quick lunches.
                 </div>
 
                 <div class="baby-note">
-                    <strong>🍼 For baby (12 months+):</strong> Scoop out some chickpeas and burst tomatoes before mixing in the salty feta — they're soft and perfect. Or offer a small amount of the full mixture; feta is fine for this age in moderate amounts. If serving with pasta, small pasta shapes are great for self-feeding. Avoid the red pepper flakes for baby.
+                    <strong>🍼 For baby (12 months+):</strong> Mushroom stroganoff is actually a great baby food — the mushrooms are soft and the sauce is mild and creamy. Set aside a small portion of mushrooms and sauce before adding the Worcestershire sauce (for lower sodium). Serve over small pasta or rice cut to appropriate size. The sour cream sauce is rich and good for baby's calorie needs. Chop mushrooms into small pieces for this age.
                 </div>
 
                 <div class="storage-tip">
-                    <strong>Storage:</strong> Leftovers keep 3–4 days in the fridge and are excellent reheated — the flavours deepen overnight. Reheat in a small saucepan over medium-low heat with a splash of water, or microwave. If you mixed it with pasta, add a little water or broth to loosen.
+                    <strong>Storage:</strong> Sauce keeps 3–4 days in the fridge. Store separately from the noodles — noodles absorb the sauce and go mushy. Reheat sauce gently over low heat with a splash of broth, then cook fresh noodles. The sauce freezes well for up to 2 months; add the sour cream fresh after reheating rather than freezing it in.
                 </div>
 
                 <div class="storage-tip" style="background-color:#fff3e0;border-left-color:#ff9800;">
-                    <strong style="color:#e65100;">⚡ Truly minimal prep:</strong> This is genuinely a 5-minute assembly job. Open cans, rinse chickpeas, tip in tomatoes, place feta, drizzle oil, season, bake. The oven does everything. Great night to give baby a bath while dinner cooks itself.
+                    <strong style="color:#e65100;">⚡ Mushroom tip:</strong> The prep time here is mostly slicing mushrooms — about 8–10 minutes for 1½ lbs. Don't wipe them with a wet cloth before slicing; a quick brush or dry paper towel is fine. Wet mushrooms steam instead of browning.
                 </div>
 
                 <button class="cooking-mode-button" onclick="startCookingMode('meal2')">Start Cooking Mode</button>
             </div>
         </div>
 
-        <!-- MEAL 3: PANEER TIKKA MASALA -->
-        <div class="meal-day" data-meal="meal3">
-            <div class="meal-header" onclick="toggleMeal(this)">
-                <div>
-                    <h2>Meal 3: Paneer Tikka Masala</h2>
-                    <div class="meal-meta">Serves 4–5 | Prep: 10 min | Total: ~40 min | Serve with rice or naan</div>
-                </div>
-                <span class="expand-icon">▼</span>
-            </div>
-            <div class="meal-content">
-                <p>Rich, fragrant tomato-cream sauce with golden pan-fried paneer. This is a genuine crowd-pleaser and one of the most satisfying vegetarian dinners you can make. The paneer takes 5 minutes to cube, and the sauce is mostly built from pantry spices and canned tomatoes — the simmering time does the heavy lifting.</p>
-
-                <h3>Ingredients</h3>
-                <h4>For the paneer:</h4>
-                <ul>
-                    <li>1 block (14–16 oz) paneer, cut into 1-inch cubes</li>
-                    <li>1 tablespoon vegetable oil</li>
-                    <li>½ teaspoon turmeric</li>
-                    <li>½ teaspoon smoked paprika</li>
-                </ul>
-                <h4>For the sauce:</h4>
-                <ul>
-                    <li>1 medium onion, finely diced</li>
-                    <li>4 cloves garlic, minced</li>
-                    <li>1 tablespoon fresh ginger, minced</li>
-                    <li>2 tablespoons vegetable oil</li>
-                    <li>1 can (14 oz) diced tomatoes</li>
-                    <li>½ cup heavy cream (or full-fat coconut milk for a dairy-free version)</li>
-                    <li>2 tablespoons tomato paste</li>
-                    <li>1½ teaspoons garam masala</li>
-                    <li>1 teaspoon cumin</li>
-                    <li>1 teaspoon coriander</li>
-                    <li>1 teaspoon smoked paprika</li>
-                    <li>½ teaspoon turmeric</li>
-                    <li>½ teaspoon sugar</li>
-                    <li>Salt to taste</li>
-                </ul>
-                <h4>To serve:</h4>
-                <ul>
-                    <li>2 cups dry basmati rice, cooked</li>
-                    <li>Naan bread (optional)</li>
-                    <li>Fresh cilantro</li>
-                </ul>
-
-                <h3>Instructions</h3>
-                <ol>
-                    <li>Start the rice cooking according to package directions — it'll be ready when the sauce is done.</li>
-                    <li>Toss paneer cubes with turmeric and smoked paprika. Heat 1 tablespoon oil in a large skillet over medium-high heat. Add paneer in a single layer and cook 2–3 minutes per side, turning occasionally, until golden on most sides. Remove and set aside — don't worry about cooking it through, it'll finish in the sauce.</li>
-                    <li>In the same pan, add remaining oil over medium heat. Add onion and cook 6–7 minutes, stirring occasionally, until soft and lightly golden.</li>
-                    <li>Add garlic and ginger. Cook 1–2 minutes until fragrant. Add tomato paste and stir, cooking 1 minute more.</li>
-                    <li>Add garam masala, cumin, coriander, smoked paprika, and turmeric. Stir and cook 1 minute — the spices will become very fragrant.</li>
-                    <li>Add diced tomatoes and sugar. Stir everything together, scraping any bits from the bottom of the pan. Bring to a simmer and cook 8–10 minutes, stirring occasionally, until the sauce has thickened and deepened in colour.</li>
-                    <li>Stir in heavy cream. Add the golden paneer back to the pan. Simmer gently for 5 minutes until the paneer is heated through and the sauce is rich and glossy. Taste and season with salt.</li>
-                    <li>Serve over basmati rice with naan if using. Top with fresh cilantro.</li>
-                </ol>
-
-                <div class="makeahead-note">
-                    <strong>🕐 Make-Ahead:</strong> The sauce (without paneer) can be made up to 3 days ahead and refrigerated, or frozen for up to 3 months. Reheat the sauce, then add freshly pan-fried paneer at the end. This is actually the best approach — the sauce develops even more flavour overnight.
-                </div>
-
-                <div class="baby-note">
-                    <strong>🍼 For baby (12 months+):</strong> Paneer is an excellent baby food — high in protein and calcium, and soft enough to eat easily. Set aside a piece or two of paneer before adding to the spiced sauce, or offer a small portion of the full dish (the spices are flavourful but not hot). Serve with soft rice. The sauce is rich and great for exposing baby to complex spice flavours early.
-                </div>
-
-                <div class="storage-tip">
-                    <strong>Storage &amp; Freezer:</strong> Leftovers keep 4 days in the fridge and taste even better the next day. Freeze the sauce (without paneer) for up to 3 months — paneer can turn rubbery after freezing, so add fresh paneer when reheating from frozen. Reheat gently over low heat with a splash of water.
-                </div>
-
-                <div class="storage-tip" style="background-color:#fff3e0;border-left-color:#ff9800;">
-                    <strong style="color:#e65100;">⚡ The main prep:</strong> Dicing one onion and mincing garlic and ginger is the bulk of the work — about 8–10 minutes. After that the sauce simmers mostly hands-off while you get baby ready for dinner.
-                </div>
-
-                <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
-            </div>
-        </div>
-
         <p class="section-label" style="margin-top:35px;">👶 Baby Breakfast</p>
 
-        <!-- MEAL 4: BANANA OAT PANCAKES -->
-        <div class="meal-day" data-meal="meal4">
+        <!-- MEAL 3: BANANA OAT PANCAKES -->
+        <div class="meal-day" data-meal="meal3">
             <div class="meal-header" onclick="toggleMeal(this)">
                 <div>
                     <h2>Banana Oat Pancakes</h2>
@@ -461,22 +368,22 @@
                     <li>Heat a non-stick skillet or griddle over medium-low heat. Add butter or oil and spread around. Medium-low is important — these brown faster than regular pancakes because of the banana sugars.</li>
                     <li>Pour about 1 tablespoon of batter per pancake (silver-dollar size). Cook until bubbles form on the surface and edges look set, about 2 minutes.</li>
                     <li>Gently flip each pancake and cook 1–2 more minutes until golden on the bottom. Use a thin spatula — these are delicate. Transfer to a plate or cooling rack.</li>
-                    <li>Let cool completely before storing. For daycare: pack 3–4 in a small container. Great cold or microwaved for 20–30 seconds.</li>
+                    <li>Cool completely before storing. For daycare: pack 3–4 in a small container. Great cold or microwaved for 20–30 seconds.</li>
                 </ol>
 
                 <div class="baby-note">
-                    <strong>🍼 For baby (12 months+):</strong> These were designed for baby! Serve at room temperature. Great for self-feeding — small enough to grab, soft enough to gum. Add 1 tbsp of peanut butter to the blender for extra protein and healthy fat. Also excellent with a small smear of yogurt on top.
+                    <strong>🍼 For baby (12 months+):</strong> These were designed for baby! Serve at room temperature — small enough to grab, soft enough to gum. Add 1 tbsp peanut butter to the blender for extra protein and healthy fat. Also great with a small smear of yogurt on top.
                 </div>
 
                 <div class="storage-tip">
-                    <strong>Freezer Instructions:</strong> Cool completely, lay in a single layer on a parchment-lined baking sheet and freeze 1–2 hours, then transfer to a freezer bag. Keeps up to 3 months. Microwave straight from frozen for 30–45 seconds, or pull out the night before.
+                    <strong>Freezer Instructions:</strong> Cool completely, lay in a single layer on a parchment-lined sheet and freeze 1–2 hours, then transfer to a freezer bag. Keeps up to 3 months. Microwave straight from frozen for 30–45 seconds, or pull out the night before.
                 </div>
 
                 <div class="storage-tip" style="background-color:#fff3e0;border-left-color:#ff9800;">
                     <strong style="color:#e65100;">💡 Variations:</strong> Toss a small handful of spinach into the blender — it disappears in the batter and adds iron. For adults: top with yogurt and fresh berries.
                 </div>
 
-                <button class="cooking-mode-button" onclick="startCookingMode('meal4')">Start Cooking Mode</button>
+                <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
             </div>
         </div>
 
@@ -488,7 +395,7 @@
         <div style="background-color:#e8f5e9;padding:30px;border-radius:8px;text-align:center;">
             <h3 style="color:#2c5f2d;margin-bottom:15px;">📝 Your Shared Shopping List</h3>
             <p style="margin-bottom:25px;font-size:1.1em;line-height:1.6;">Add these ingredients to your Google Sheets shopping list!</p>
-            <a href="https://docs.google.com/spreadsheets/d/1O-Lo_iphmyHBstILjbDVWx28iY48xdBlaH_Gd9CFUgo/edit?usp=sharing" target="_blank" style="text-decoration:none;">
+            <a href="YOUR_GOOGLE_SHEET_URL_HERE" target="_blank" style="text-decoration:none;">
                 <button style="padding:15px 40px;background-color:#4caf50;color:white;border:none;border-radius:8px;cursor:pointer;font-size:1.2em;font-weight:bold;box-shadow:0 2px 4px rgba(0,0,0,0.2);">
                     Open Shopping List in Google Sheets
                 </button>
@@ -521,98 +428,78 @@
 <script>
 const recipes = {
     meal1: {
-        title: "Lemon Orzo with White Beans & Spinach",
+        title: "Tofu Egg Fried Rice",
         steps: [
             {
-                ingredients: ["1 tbsp olive oil","4 cloves garlic, minced"],
-                instruction: "Heat olive oil in a large pot over medium heat. Add garlic and cook 1–2 minutes, stirring, until fragrant and just golden. Don't let it burn."
+                ingredients: ["3 tbsp soy sauce","1 tbsp sesame oil","1 tbsp rice vinegar","1 tsp sriracha (optional)"],
+                instruction: "Mix the sauce: stir all ingredients together in a small bowl and set aside. Press tofu between paper towels for a few minutes, then cut into small ½-inch cubes."
             },
             {
-                ingredients: ["1½ cups orzo"],
-                instruction: "Add orzo and stir to coat in the oil. Toast for 1 minute — this adds a little nuttiness."
+                ingredients: ["1 block (14 oz) extra-firm tofu, cubed","1 tbsp vegetable oil"],
+                instruction: "Heat 1 tbsp oil in a large wok or wide skillet over high heat until very hot. Add tofu in a single layer. Cook without stirring for 3–4 minutes until deeply golden on the bottom, then flip and cook another 2 minutes. Remove and set aside.",
+                timer: { seconds: 240, label: "Crisp tofu" }
             },
             {
-                ingredients: ["3 cups vegetable broth","1 cup water","½ tsp dried oregano","Salt"],
-                instruction: "Pour in vegetable broth and water. Add oregano and a generous pinch of salt. Bring to a boil, then reduce to a lively simmer. Cook uncovered for 8–10 minutes, stirring frequently, until orzo is just tender and has absorbed most of the liquid.",
-                timer: { seconds: 540, label: "Simmer orzo" }
+                ingredients: ["1 tbsp vegetable oil","2 cups frozen peas and carrots","1 cup frozen corn","4 green onions (white parts)","4 cloves garlic, minced","1 tsp fresh ginger, minced"],
+                instruction: "Add another tbsp oil to the pan. Add frozen veg and corn — they'll sizzle. Stir-fry 2–3 minutes until thawed and any water has evaporated. Add white parts of green onions, garlic, and ginger. Stir-fry 1 minute until fragrant.",
+                timer: { seconds: 180, label: "Stir-fry veg" }
             },
             {
-                ingredients: ["1 can (15 oz) white beans, drained","3 cups baby spinach"],
-                instruction: "Stir in white beans and spinach. Cook 1–2 minutes until spinach is wilted and beans are warmed through."
+                ingredients: ["3 eggs, lightly beaten","1 tbsp vegetable oil"],
+                instruction: "Push everything to the sides. Add remaining oil to the centre. Pour in beaten eggs and scramble quickly. Once just set but still slightly soft, break up and fold into the vegetables."
             },
             {
-                ingredients: ["2 tbsp butter","Zest and juice of 1 lemon","½ cup grated parmesan","Salt, pepper, red pepper flakes"],
-                instruction: "Remove from heat. Stir in butter, lemon zest, lemon juice, and parmesan. Taste and adjust salt, pepper, and lemon — it should be bright and savoury. Add a splash of water or broth if it thickens too much. Serve topped with extra parmesan."
+                ingredients: ["4 cups cold cooked rice"],
+                instruction: "Add the cold rice. Press it down and let it sit undisturbed for 1 minute to get a little crispy on the bottom. Then toss and stir-fry for 2–3 minutes, breaking up any clumps, until hot and slightly toasted.",
+                timer: { seconds: 180, label: "Fry rice" }
+            },
+            {
+                ingredients: ["Crispy tofu","Sauce","Sesame seeds (optional)","Green onion tops"],
+                instruction: "Return crispy tofu to the pan. Pour sauce over everything and toss well to coat. Taste and add more soy sauce if needed. Finish with sesame seeds and green onion tops. Serve immediately!"
             }
         ]
     },
     meal2: {
-        title: "Baked Feta with Tomatoes & Chickpeas",
+        title: "Mushroom Stroganoff",
         steps: [
             {
-                ingredients: [],
-                instruction: "Preheat oven to 400°F."
+                ingredients: ["Large pot of salted water","1½ lbs mixed mushrooms"],
+                instruction: "Bring a large pot of salted water to a boil for the noodles. Slice the mushrooms while it heats — this is the main prep work, about 8–10 minutes."
             },
             {
-                ingredients: ["2 pints cherry tomatoes","1 can (15 oz) chickpeas, drained","5 cloves garlic, smashed","¼ cup olive oil","1 tsp dried oregano","½ tsp smoked paprika","½ tsp red pepper flakes (optional)","Black pepper"],
-                instruction: "In a large baking dish, combine cherry tomatoes, chickpeas, and garlic. Drizzle with olive oil and sprinkle with oregano, smoked paprika, red pepper flakes, and black pepper. Toss to coat."
+                ingredients: ["2 tbsp butter","1 tbsp olive oil","1 medium onion, finely diced"],
+                instruction: "Heat butter and olive oil in a large wide skillet over medium-high heat. Add onion and cook 4–5 minutes until softened.",
+                timer: { seconds: 300, label: "Cook onion" }
             },
             {
-                ingredients: ["1 block (7–8 oz) feta cheese"],
-                instruction: "Push the tomato mixture to the sides to make space in the centre. Place the block of feta in the middle. Drizzle a little extra olive oil over the feta."
+                ingredients: ["4 cloves garlic, minced"],
+                instruction: "Add garlic and cook 1 minute more until fragrant."
             },
             {
-                ingredients: [],
-                instruction: "Bake for 25–30 minutes until tomatoes have burst and are jammy, chickpeas are slightly crispy at the edges, and the feta is soft and golden on top.",
-                timer: { seconds: 1680, label: "Bake" }
+                ingredients: ["Sliced mushrooms","Salt and pepper"],
+                instruction: "Add all the mushrooms — they'll look like too many but shrink dramatically. Cook without stirring for 3–4 minutes to brown on the bottom, then stir and cook another 4–5 minutes until deeply golden and all liquid has evaporated. Season with salt and pepper. Don't rush this step.",
+                timer: { seconds: 480, label: "Brown mushrooms" }
             },
             {
-                ingredients: ["Crusty bread or cooked pasta","Fresh basil"],
-                instruction: "Remove from oven. Use a spoon to mash the feta slightly and stir everything together into a chunky, saucy mixture. Serve straight from the dish with crusty bread, or toss with cooked pasta. Top with fresh basil."
+                ingredients: ["2 tbsp all-purpose flour","1 tsp smoked paprika","½ tsp dried thyme"],
+                instruction: "Sprinkle flour, smoked paprika, and thyme over the mushrooms. Stir to coat and cook 1 minute."
+            },
+            {
+                ingredients: ["1 cup vegetable broth","1 tbsp Dijon mustard","1 tbsp Worcestershire sauce"],
+                instruction: "Pour in vegetable broth, scraping any bits from the bottom of the pan. Add Dijon mustard and Worcestershire sauce. Stir and bring to a gentle simmer. Cook 3–4 minutes until sauce has thickened slightly.",
+                timer: { seconds: 240, label: "Simmer sauce" }
+            },
+            {
+                ingredients: ["12 oz wide egg noodles"],
+                instruction: "Cook noodles according to package directions while the sauce simmers. Drain and set aside."
+            },
+            {
+                ingredients: ["¾ cup sour cream","Fresh parsley, chopped"],
+                instruction: "Remove pan from heat. Stir in sour cream — don't add it over high heat or it may curdle. Taste and adjust seasoning. Add a splash of broth if too thick. Serve immediately over drained noodles, topped generously with fresh parsley."
             }
         ]
     },
     meal3: {
-        title: "Paneer Tikka Masala",
-        steps: [
-            {
-                ingredients: ["2 cups dry basmati rice"],
-                instruction: "Start the rice cooking according to package directions — it'll be ready when the sauce is done."
-            },
-            {
-                ingredients: ["1 block (14–16 oz) paneer, cubed","½ tsp turmeric","½ tsp smoked paprika","1 tbsp vegetable oil"],
-                instruction: "Toss paneer cubes with turmeric and smoked paprika. Heat oil in a large skillet over medium-high heat. Cook paneer 2–3 minutes per side until golden on most sides. Remove and set aside."
-            },
-            {
-                ingredients: ["2 tbsp vegetable oil","1 medium onion, finely diced"],
-                instruction: "In the same pan, add remaining oil over medium heat. Add onion and cook 6–7 minutes, stirring occasionally, until soft and lightly golden.",
-                timer: { seconds: 420, label: "Cook onion" }
-            },
-            {
-                ingredients: ["4 cloves garlic, minced","1 tbsp fresh ginger, minced","2 tbsp tomato paste"],
-                instruction: "Add garlic and ginger. Cook 1–2 minutes until fragrant. Add tomato paste and stir, cooking 1 minute more."
-            },
-            {
-                ingredients: ["1½ tsp garam masala","1 tsp cumin","1 tsp coriander","1 tsp smoked paprika","½ tsp turmeric"],
-                instruction: "Add all the spices. Stir and cook 1 minute — they'll become very fragrant."
-            },
-            {
-                ingredients: ["1 can (14 oz) diced tomatoes","½ tsp sugar"],
-                instruction: "Add diced tomatoes and sugar. Stir, scraping any bits from the bottom of the pan. Bring to a simmer and cook 8–10 minutes until the sauce has thickened and deepened in colour.",
-                timer: { seconds: 540, label: "Simmer sauce" }
-            },
-            {
-                ingredients: ["½ cup heavy cream","Golden paneer","Salt"],
-                instruction: "Stir in heavy cream. Add the paneer back to the pan. Simmer gently 5 minutes until paneer is heated through and sauce is rich and glossy. Taste and season with salt.",
-                timer: { seconds: 300, label: "Finish with paneer" }
-            },
-            {
-                ingredients: ["Cooked basmati rice","Naan (optional)","Fresh cilantro"],
-                instruction: "Serve over basmati rice with naan if using. Top with fresh cilantro. Enjoy!"
-            }
-        ]
-    },
-    meal4: {
         title: "Banana Oat Pancakes",
         steps: [
             {
@@ -685,10 +572,10 @@ function buildTimerWidget(def, displaySecs, isOwner) {
     const isUrgent = isOwner && timerRunning && timerSecondsLeft > 0 && timerSecondsLeft <= 30;
     const cls = isUrgent ? ' timer-urgent' : isDone ? ' timer-done' : '';
     let btns;
-    if (isDone)                                    btns = `<button class="timer-btn timer-btn-reset" onclick="resetTimer()">↺ Reset</button>`;
-    else if (isOwner && timerRunning)              btns = `<button class="timer-btn timer-btn-pause" onclick="pauseTimer()">⏸ Pause</button><button class="timer-btn timer-btn-reset" onclick="resetTimer()">↺ Reset</button>`;
+    if (isDone)                                              btns = `<button class="timer-btn timer-btn-reset" onclick="resetTimer()">↺ Reset</button>`;
+    else if (isOwner && timerRunning)                        btns = `<button class="timer-btn timer-btn-pause" onclick="pauseTimer()">⏸ Pause</button><button class="timer-btn timer-btn-reset" onclick="resetTimer()">↺ Reset</button>`;
     else if (isOwner && !timerRunning && timerSecondsLeft > 0) btns = `<button class="timer-btn timer-btn-start" onclick="resumeTimer()">▶ Resume</button><button class="timer-btn timer-btn-reset" onclick="resetTimer()">↺ Reset</button>`;
-    else                                           btns = `<button class="timer-btn timer-btn-start" onclick="startTimer(${def.seconds})">Start Timer</button>`;
+    else                                                     btns = `<button class="timer-btn timer-btn-start" onclick="startTimer(${def.seconds})">Start Timer</button>`;
     const doneMsg = isDone ? `<div class="timer-done-msg">⏰ Time's up!</div>` : '';
     return `<div class="timer-container" id="timerContainer"><div class="timer-label">⏱ ${def.label} — ${fmt(def.seconds)}</div><div class="timer-display${cls}" id="timerDisplay">${fmt(displaySecs)}</div>${doneMsg}<div class="timer-buttons">${btns}</div></div>`;
 }
