@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal Plan — Smash Burgers, Sesame Noodles & Baby Pancakes</title>
+    <title>Meal Plan — Quesadillas, Chana Masala, Hidden Veggie Pasta & Pancakes</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -83,7 +83,6 @@
         }
         .cooking-mode-button:hover { background-color: #45a049; }
 
-        /* Cooking mode */
         .cooking-mode-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: white; z-index: 1000; overflow: hidden;
@@ -116,7 +115,7 @@
         .timer-float-display { font-size: 1.3em; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; white-space: nowrap; }
         .timer-float-btn {
             padding: 5px 12px; font-size: 0.9em; font-weight: bold; border: 2px solid white;
-            border-radius: 5px; background: transparent; color: white; cursor: pointer; white-space: nowrap; transition: background-color 0.15s;
+            border-radius: 5px; background: transparent; color: white; cursor: pointer; white-space: nowrap;
         }
         .timer-float-btn:hover { background-color: rgba(255,255,255,0.2); }
 
@@ -192,7 +191,7 @@
 <body>
 <div class="container">
     <h1>Meal Plan</h1>
-    <p class="subtitle">Beyond Smash Burgers · Sesame Garlic Noodles · Baby Banana Pancakes | Dinners serve 4–5</p>
+    <p class="subtitle">Spinach &amp; Feta Quesadillas · Chana Masala · Hidden Veggie Pasta · Baby Banana Pancakes | Dinners serve 4–5</p>
 
     <div class="nav-buttons">
         <button class="nav-button active" onclick="showPage('meals', event)">Recipes</button>
@@ -203,152 +202,207 @@
 
         <p class="section-label">🍽️ Weeknight Dinners</p>
 
-        <!-- MEAL 1: BEYOND SMASH BURGERS -->
+        <!-- MEAL 1: SPINACH & FETA QUESADILLAS -->
         <div class="meal-day" data-meal="meal1">
             <div class="meal-header" onclick="toggleMeal(this)">
                 <div>
-                    <h2>Meal 1: Beyond Smash Burgers with Fries & Green Beans</h2>
-                    <div class="meal-meta">Serves 4–5 | Prep: 5 min | Total: ~30 min | Oven fries + stovetop burgers</div>
+                    <h2>Meal 1: Spinach &amp; Feta Quesadillas with Fried Egg</h2>
+                    <div class="meal-meta">Serves 4–5 | Prep: 5 min | Total: ~20 min | Great way to use up leftover feta</div>
                 </div>
                 <span class="expand-icon">▼</span>
             </div>
             <div class="meal-content">
-                <p>Crispy smashed plant-based burgers with melted cheese, all the classic toppings, frozen fries in the oven, and quick garlicky green beans on the side. The key to a great smash burger is a very hot, dry pan and pressing the patty down hard — you get a lacey, caramelised crust that's better than anything you'd get from a grill.</p>
+                <p>Crispy flour tortillas filled with wilted spinach, crumbled feta, and a fried egg — fast, satisfying, and a great use of leftover feta. Serve with sour cream, salsa, or a simple side salad. These come together one or two at a time in a skillet, so it's a quick assembly-line dinner.</p>
 
                 <h3>Ingredients</h3>
-                <h4>For the burgers:</h4>
+                <h4>For the quesadillas:</h4>
                 <ul>
-                    <li>4–5 Beyond Burger patties (or Impossible)</li>
-                    <li>4–5 burger buns, toasted</li>
-                    <li>4–5 slices American or cheddar cheese</li>
-                    <li>1 teaspoon vegetable oil (just enough to wipe the pan)</li>
-                    <li>Salt and black pepper</li>
-                </ul>
-                <h4>Toppings (set out and let everyone build their own):</h4>
-                <ul>
-                    <li>Lettuce</li>
-                    <li>Tomato, sliced</li>
-                    <li>Red onion, thinly sliced</li>
-                    <li>Pickles</li>
-                    <li>Ketchup, mustard, mayo</li>
-                    <li>Sriracha mayo (mix equal parts mayo and sriracha) — optional</li>
-                </ul>
-                <h4>For the fries:</h4>
-                <ul>
-                    <li>1 bag (28–32 oz) frozen French fries</li>
-                </ul>
-                <h4>For the green beans:</h4>
-                <ul>
-                    <li>1 lb fresh or frozen green beans, trimmed</li>
-                    <li>2 cloves garlic, minced</li>
-                    <li>1 tablespoon butter</li>
+                    <li>8–10 flour tortillas (8-inch)</li>
+                    <li>4–5 oz leftover feta cheese, crumbled</li>
+                    <li>4 cups baby spinach</li>
+                    <li>1 cup shredded mozzarella or Monterey Jack (helps the quesadilla hold together)</li>
+                    <li>4–5 eggs</li>
+                    <li>3 cloves garlic, minced</li>
                     <li>1 tablespoon olive oil</li>
-                    <li>Salt and pepper</li>
-                    <li>Squeeze of lemon (optional)</li>
+                    <li>1 tablespoon butter (for frying eggs and quesadillas)</li>
+                    <li>Salt, pepper, and red pepper flakes (optional)</li>
+                </ul>
+                <h4>To serve:</h4>
+                <ul>
+                    <li>Sour cream</li>
+                    <li>Salsa or hot sauce</li>
+                    <li>Avocado, sliced (optional)</li>
                 </ul>
 
                 <h3>Instructions</h3>
                 <ol>
-                    <li>Start the fries: preheat oven according to fries package directions (usually 425°F). Spread fries in a single layer on a baking sheet — don't overlap or they won't crisp. Put them in the oven. They'll cook while you make everything else.</li>
-                    <li>While fries cook, prep the burger toppings: slice tomato, red onion, and set out condiments. Toast buns in a dry skillet or toaster.</li>
-                    <li>Make the green beans: heat butter and olive oil in a wide skillet over medium-high heat. Add green beans and cook, tossing occasionally, for 5–6 minutes until blistered and just tender. Add garlic, toss, and cook 1 minute more. Season generously with salt and pepper. Finish with a squeeze of lemon if using. Set aside and keep warm.</li>
-                    <li>Cook the burgers: wipe the skillet with a tiny amount of vegetable oil on a paper towel and heat over the highest heat your stove allows until it just starts to smoke. Season each patty generously with salt and pepper. Working one or two at a time, place a patty in the pan and immediately press down hard with a spatula or burger press — really lean into it. Hold for 15–20 seconds.</li>
-                    <li>Cook for 2 minutes without moving. The edges will look lacy and deeply browned. Flip once, immediately place a cheese slice on top, and cook 1 more minute. The crust is the whole point — don't rush it.</li>
-                    <li>Build the burgers and serve immediately with fries and green beans.</li>
+                    <li>Wilt the spinach: heat olive oil in a wide skillet over medium heat. Add garlic and cook 30 seconds. Add spinach and toss for 1–2 minutes until just wilted. Season with salt, pepper, and red pepper flakes if using. Transfer to a bowl and squeeze out any excess liquid — wet spinach will make soggy quesadillas.</li>
+                    <li>Fry the eggs: in the same skillet over medium-low heat, add a small knob of butter and fry the eggs to your liking — sunny side up or over easy both work well. Season with salt and pepper. Set aside.</li>
+                    <li>Assemble quesadillas: lay a tortilla flat. On one half, scatter a small handful of shredded mozzarella, a spoonful of wilted spinach, a crumble of feta, and place a fried egg on top. Fold the empty half over to close.</li>
+                    <li>Cook quesadillas: heat the skillet over medium heat and add a small amount of butter. Cook each folded quesadilla for 2–3 minutes per side, pressing gently with a spatula, until golden and crispy and the cheese is melted. Work in batches.</li>
+                    <li>Cut each in half and serve immediately with sour cream, salsa, and avocado.</li>
                 </ol>
 
                 <div class="makeahead-note">
-                    <strong>🕐 Timing tip:</strong> Start fries first — they take the longest. While fries cook, do toppings, then green beans, then burgers last. Everything lands on the table at the same time with almost no stress. Total active cooking time is about 15 minutes.
+                    <strong>🕐 Timing tip:</strong> Wilt all the spinach first in one go, then fry the eggs all at once, then assemble and cook quesadillas in batches. The whole thing is genuinely 20 minutes. Spinach can also be wilted the night before and stored in the fridge.
                 </div>
 
                 <div class="baby-note">
-                    <strong>🍼 For baby (12 months+):</strong> The green beans are perfect for baby — soft enough to eat but with some texture for chewing practice. Offer a few plain beans on the tray. A small piece of burger patty cut into tiny pieces is fine — Beyond/Impossible is high in protein and iron. Skip the bun or offer a small piece of soft bread on the side. Fries are fine in small amounts; cut into shorter pieces and skip any seasoned/spicy varieties. Skip the sriracha mayo and pickles for baby.
+                    <strong>🍼 For baby (12 months+):</strong> Quesadillas are perfect for baby! Cut into small pieces or strips — the soft tortilla, melted cheese, and egg are all great textures at this age. Feta is fine in moderate amounts. Offer a few pieces of plain wilted spinach on the tray as well. Skip the salsa and hot sauce for baby; a small spoonful of plain sour cream or avocado is great on the side.
                 </div>
 
                 <div class="storage-tip">
-                    <strong>Storage:</strong> Cooked burger patties keep 3 days in the fridge — reheat in a hot skillet for best results. Green beans keep 3–4 days. Fries don't reheat well; make only what you'll eat. Beyond/Impossible patties can be refrozen if they were thawed in the fridge (not at room temperature).
+                    <strong>Storage:</strong> Best eaten fresh — quesadillas go soft in the fridge. Leftover wilted spinach filling keeps 3 days and can be used in eggs, pasta, or on toast. If you do refrigerate cooked quesadillas, reheat in a dry skillet to crisp them back up rather than microwaving.
                 </div>
 
                 <div class="storage-tip" style="background-color:#fff3e0;border-left-color:#ff9800;">
-                    <strong style="color:#e65100;">🔥 The smash technique:</strong> The pan needs to be genuinely very hot — almost smoking. A cast iron skillet is ideal but any heavy pan works. The hard press creates maximum surface contact and builds that deep caramelised crust. Don't be shy with it.
+                    <strong style="color:#e65100;">💡 Feta tip:</strong> Feta doesn't melt, so the mozzarella is what holds the quesadilla together — don't skip it. The feta just adds that salty, tangy hit of flavour. A little goes a long way, which makes this a great leftover-feta recipe.
                 </div>
 
                 <button class="cooking-mode-button" onclick="startCookingMode('meal1')">Start Cooking Mode</button>
             </div>
         </div>
 
-        <!-- MEAL 2: SESAME GARLIC NOODLES -->
+        <!-- MEAL 2: CHANA MASALA -->
         <div class="meal-day" data-meal="meal2">
             <div class="meal-header" onclick="toggleMeal(this)">
                 <div>
-                    <h2>Meal 2: Sesame Garlic Noodles with Plant-Based Chicken</h2>
-                    <div class="meal-meta">Serves 4–5 | Prep: 8 min | Total: ~25 min | One pan + one pot</div>
+                    <h2>Meal 2: Chana Masala</h2>
+                    <div class="meal-meta">Serves 4–5 | Prep: 10 min | Total: ~35 min | Serve with rice or naan</div>
                 </div>
                 <span class="expand-icon">▼</span>
             </div>
             <div class="meal-content">
-                <p>Silky noodles tossed in a rich, garlicky sesame sauce with crispy plant-based chicken strips and crunchy vegetables. The sauce comes together in a bowl while the noodles cook and the chicken crisps up in the same pan. Punchy, satisfying, and genuinely quick.</p>
+                <p>A deeply spiced, tangy chickpea curry that's one of the great weeknight pantry meals. One onion to chop is the main prep work — after that, canned chickpeas and tomatoes do all the heavy lifting while it simmers. Tastes like it took much longer than it did. Serve with basmati rice or naan, with yogurt on the side to cool things down.</p>
 
                 <h3>Ingredients</h3>
-                <h4>For the noodles and chicken:</h4>
+                <h4>For the chana masala:</h4>
                 <ul>
-                    <li>12 oz lo mein noodles, spaghetti, or linguine</li>
-                    <li>1 package (9–10 oz) plant-based chicken strips (Gardein, MorningStar, or similar)</li>
-                    <li>1 tablespoon vegetable oil</li>
-                    <li>2 cups shredded red cabbage</li>
-                    <li>2 medium carrots, julienned or shredded</li>
-                    <li>4 green onions, sliced (white and green parts separated)</li>
-                    <li>1 tablespoon sesame seeds, for garnish</li>
-                    <li>Fresh cilantro, for garnish (optional)</li>
-                    <li>Lime wedges, to serve</li>
+                    <li>2 cans (15 oz each) chickpeas, drained and rinsed</li>
+                    <li>1 can (14 oz) diced tomatoes</li>
+                    <li>1 medium onion, finely diced</li>
+                    <li>4 cloves garlic, minced</li>
+                    <li>1 tablespoon fresh ginger, minced</li>
+                    <li>2 tablespoons vegetable oil</li>
+                    <li>2 tablespoons tomato paste</li>
+                    <li>½ cup water</li>
+                    <li>1½ teaspoons garam masala</li>
+                    <li>1 teaspoon cumin</li>
+                    <li>1 teaspoon coriander</li>
+                    <li>1 teaspoon smoked paprika</li>
+                    <li>½ teaspoon turmeric</li>
+                    <li>½ teaspoon chili powder (reduce or omit for a milder version)</li>
+                    <li>1 teaspoon sugar</li>
+                    <li>1 tablespoon lemon juice</li>
+                    <li>Salt to taste</li>
+                    <li>Fresh cilantro, to serve</li>
                 </ul>
-                <h4>For the sesame garlic sauce:</h4>
+                <h4>To serve:</h4>
                 <ul>
-                    <li>⅓ cup soy sauce</li>
-                    <li>3 tablespoons sesame oil</li>
-                    <li>2 tablespoons rice vinegar</li>
-                    <li>2 tablespoons brown sugar or maple syrup</li>
-                    <li>1 tablespoon peanut butter (smooth)</li>
-                    <li>5 cloves garlic, minced or grated</li>
-                    <li>1 teaspoon fresh ginger, minced or grated</li>
-                    <li>2 tablespoons warm water (to loosen)</li>
-                    <li>1–2 teaspoons sriracha (optional)</li>
+                    <li>2 cups dry basmati rice, cooked</li>
+                    <li>Naan bread (optional)</li>
+                    <li>Plain yogurt</li>
                 </ul>
 
                 <h3>Instructions</h3>
                 <ol>
-                    <li>Make the sauce: whisk together soy sauce, sesame oil, rice vinegar, brown sugar, peanut butter, garlic, ginger, warm water, and sriracha if using until smooth. Set aside. This is the only real prep — just mince garlic and ginger.</li>
-                    <li>Cook noodles according to package directions until just al dente. Before draining, reserve ¼ cup of the pasta water. Drain and rinse noodles briefly with cold water to stop cooking. Set aside.</li>
-                    <li>While noodles cook, heat oil in a large skillet or wok over medium-high heat. Add plant-based chicken strips and cook according to package directions — usually 4–5 minutes, turning once, until golden and heated through. Remove and set aside.</li>
-                    <li>In the same pan over medium heat, add the white parts of the green onions and cook 1 minute. Add the shredded cabbage and carrots. Stir-fry for 2–3 minutes until just slightly softened but still with some crunch.</li>
-                    <li>Add the cooked noodles to the pan. Pour the sesame garlic sauce over everything. Toss well to coat, adding a splash of the reserved pasta water if the sauce is too thick. Cook 1–2 minutes until everything is hot and glossy.</li>
-                    <li>Return the crispy plant-based chicken to the pan and toss to combine. Serve in bowls topped with green onion tops, sesame seeds, and cilantro. Lime wedges on the side.</li>
+                    <li>Start the rice cooking according to package directions — it'll be ready when the curry is done.</li>
+                    <li>Heat oil in a large pot or skillet over medium heat. Add onion and cook 6–7 minutes, stirring occasionally, until soft and golden.</li>
+                    <li>Add garlic and ginger. Cook 1–2 minutes until fragrant.</li>
+                    <li>Add tomato paste and stir, cooking 1 minute. Add garam masala, cumin, coriander, smoked paprika, turmeric, and chili powder. Stir and cook 1 minute — the spices will bloom and become very fragrant.</li>
+                    <li>Add diced tomatoes (with their liquid), water, and sugar. Stir everything together, scraping any bits from the bottom of the pan. Bring to a simmer and cook 5 minutes until the sauce starts to thicken.</li>
+                    <li>Add chickpeas and stir to coat. Simmer uncovered for 12–15 minutes, stirring occasionally, until the sauce is thick and the chickpeas have absorbed the flavours. Use the back of a spoon to gently mash a few chickpeas against the side of the pot — this thickens the sauce nicely.</li>
+                    <li>Stir in lemon juice. Taste and season generously with salt. The flavour should be bold, tangy, and warming.</li>
+                    <li>Serve over rice or with naan, topped with fresh cilantro and a dollop of plain yogurt.</li>
                 </ol>
 
                 <div class="makeahead-note">
-                    <strong>🕐 Make-Ahead:</strong> The sauce can be made up to 5 days ahead and kept in a jar in the fridge — it actually gets better as the garlic mellows. Shred the cabbage and carrots the night before and store in a container. Day-of prep is then just cooking noodles and chicken, which is maybe 8 minutes of active work.
+                    <strong>🕐 Make-Ahead:</strong> Chana masala is one of those dishes that's noticeably better the next day as the spices deepen. Make the full batch ahead and reheat gently with a splash of water. The sauce keeps 5 days in the fridge and freezes beautifully for up to 3 months — freeze in individual portions for easy weeknight reheats.
                 </div>
 
                 <div class="baby-note">
-                    <strong>🍼 For baby (12 months+):</strong> Set aside some plain noodles and cooked cabbage/carrots before tossing with the soy-heavy sauce (high sodium). Baby can have the plain noodles with a tiny drizzle of sesame oil for flavour. The plant-based chicken is fine in small pieces — check the brand's sodium content and offer a small amount. Skip the sriracha entirely for baby.
+                    <strong>🍼 For baby (12 months+):</strong> Chickpeas are excellent for baby — high in iron, protein, and fibre. Scoop out some chickpeas before adding the chili powder for a milder portion, or serve the full dish if baby is used to spices (the spice level is warm but not hot). Lightly mash a few chickpeas to a texture baby can manage. Serve with soft rice. Plain yogurt on the side is a great cooling accompaniment and adds calcium.
                 </div>
 
                 <div class="storage-tip">
-                    <strong>Storage:</strong> Keeps 4 days in the fridge. Noodles absorb sauce as they sit — add a splash of water or extra soy sauce when reheating and toss in a hot skillet or microwave. The sauce alone keeps up to 1 week refrigerated and can be used on grain bowls, salads, or as a dipping sauce.
+                    <strong>Storage &amp; Freezer:</strong> Keeps 5 days in the fridge; gets better on days 2 and 3. Freezes well for up to 3 months. Reheat over low heat with a splash of water, stirring occasionally. Store rice separately.
                 </div>
 
                 <div class="storage-tip" style="background-color:#fff3e0;border-left-color:#ff9800;">
-                    <strong style="color:#e65100;">💡 Noodle tip:</strong> Lo mein noodles from the Asian aisle give the best result — they're thick and silky and hold the sauce beautifully. Spaghetti or linguine work perfectly well as substitutes if that's what you have. Don't overcook — pull them just before they're done as they'll finish in the pan.
+                    <strong style="color:#e65100;">⚡ The one prep job:</strong> Dicing the onion is the main active work here — about 3–4 minutes. After that the whole dish is stirring and simmering. Start the rice at the same time as the onion and everything is ready together.
                 </div>
 
                 <button class="cooking-mode-button" onclick="startCookingMode('meal2')">Start Cooking Mode</button>
             </div>
         </div>
 
+        <!-- MEAL 3: HIDDEN VEGGIE PASTA -->
+        <div class="meal-day" data-meal="meal3">
+            <div class="meal-header" onclick="toggleMeal(this)">
+                <div>
+                    <h2>Meal 3: Spaghetti with Hidden Veggie Sauce</h2>
+                    <div class="meal-meta">Serves 4–5 | Prep: 10 min | Total: ~35 min | Adapted from The Modern Nonna</div>
+                </div>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="meal-content">
+                <p>Your favourite jarred marinara sauce upgraded with diced carrots and zucchini — sautéed until completely soft, then blended right into the sauce so they disappear entirely. The vegetables add natural sweetness, body, and hidden nutrition. A great trick for getting extra veg into the whole family without anyone noticing. Adapted from The Modern Nonna's hidden veggie pasta sauce concept.</p>
+
+                <h3>Ingredients</h3>
+                <h4>For the sauce:</h4>
+                <ul>
+                    <li>1 jar (24–25 oz) favourite marinara or pasta sauce</li>
+                    <li>2 medium carrots, diced</li>
+                    <li>1 medium zucchini, diced</li>
+                    <li>1 small onion, finely diced</li>
+                    <li>3 cloves garlic, minced</li>
+                    <li>2 tablespoons olive oil</li>
+                    <li>1 teaspoon dried oregano</li>
+                    <li>½ teaspoon sugar (balances the acidity)</li>
+                    <li>Salt and pepper to taste</li>
+                    <li>Parmesan, grated, to serve</li>
+                </ul>
+                <h4>For the pasta:</h4>
+                <ul>
+                    <li>1 lb (16 oz) spaghetti</li>
+                    <li>Salt for pasta water</li>
+                </ul>
+
+                <h3>Instructions</h3>
+                <ol>
+                    <li>Dice the carrots and zucchini into roughly ½-inch pieces — they don't need to be precise since they're getting blended. This is the main prep, about 5 minutes.</li>
+                    <li>Heat olive oil in a large skillet or pot over medium heat. Add onion and cook 4–5 minutes until soft and translucent. Add garlic and cook 1 minute until fragrant.</li>
+                    <li>Add the diced carrots. Cook, stirring occasionally, for 5–6 minutes until starting to soften. Add the diced zucchini, oregano, salt, and pepper. Cook another 4–5 minutes until both vegetables are completely soft and tender — you want them fully cooked through so they blend smoothly.</li>
+                    <li>Transfer the sautéed vegetables to a blender. Add about ½ cup of the jarred marinara sauce to help it blend. Blend until completely smooth — hold the lid down with a folded tea towel in case of steam. Alternatively use an immersion blender directly in the pot.</li>
+                    <li>Return the blended veg mixture to the pan. Pour in the remaining jarred sauce and add sugar. Stir to combine — the sauce will be thick, smooth, and a beautiful deep orange-red. Bring to a gentle simmer and cook 8–10 minutes, stirring occasionally. Taste and adjust seasoning.</li>
+                    <li>While the sauce simmers, bring a large pot of well-salted water to a boil. Cook spaghetti according to package directions until al dente. Reserve ½ cup pasta water before draining.</li>
+                    <li>Add the drained spaghetti to the sauce. Toss well to coat, adding a splash of pasta water to loosen if needed. Serve topped with plenty of grated parmesan.</li>
+                </ol>
+
+                <div class="makeahead-note">
+                    <strong>🕐 Make-Ahead:</strong> The sauce (without pasta) is excellent made ahead — keeps 5 days in the fridge and freezes well for up to 3 months. Make a big batch and freeze half in a freezer bag for a future zero-effort dinner. Cook the pasta fresh when serving.
+                </div>
+
+                <div class="baby-note">
+                    <strong>🍼 For baby (12 months+):</strong> This sauce is genuinely ideal baby food — the vegetables are completely undetectable in texture and the sauce is mild and nutritious. Serve with pasta cut to an appropriate size, or offer short pasta shapes like penne or rigatoni which are easier for small hands to pick up. A little grated parmesan on top adds calcium. This is a great meal to batch and freeze in baby-sized portions.
+                </div>
+
+                <div class="storage-tip">
+                    <strong>Storage &amp; Freezer:</strong> Sauce keeps 5 days in the fridge, 3 months in the freezer. Store separately from cooked pasta. Reheat sauce in a pan with a splash of water, then cook fresh pasta. Dressed pasta keeps 3 days but sauce thickens — add water when reheating.
+                </div>
+
+                <div class="storage-tip" style="background-color:#fff3e0;border-left-color:#ff9800;">
+                    <strong style="color:#e65100;">💡 The prep:</strong> Dicing the carrots and zucchini is the main job — about 5 minutes. No grating, no squeezing. Make sure the veg is fully soft before blending or you'll get a gritty sauce. Hold the blender lid down with a folded tea towel when blending hot liquid.
+                </div>
+
+                <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
+            </div>
+        </div>
+
         <p class="section-label" style="margin-top:35px;">👶 Baby Breakfast</p>
 
-        <!-- MEAL 3: BANANA OAT PANCAKES -->
-        <div class="meal-day" data-meal="meal3">
+        <!-- MEAL 4: BANANA OAT PANCAKES -->
+        <div class="meal-day" data-meal="meal4">
             <div class="meal-header" onclick="toggleMeal(this)">
                 <div>
                     <h2>Banana Oat Pancakes</h2>
@@ -389,7 +443,7 @@
                     <strong style="color:#e65100;">💡 Variations:</strong> Toss a small handful of spinach into the blender — it disappears in the batter and adds iron. For adults: top with yogurt and fresh berries.
                 </div>
 
-                <button class="cooking-mode-button" onclick="startCookingMode('meal3')">Start Cooking Mode</button>
+                <button class="cooking-mode-button" onclick="startCookingMode('meal4')">Start Cooking Mode</button>
             </div>
         </div>
 
@@ -434,71 +488,111 @@
 <script>
 const recipes = {
     meal1: {
-        title: "Beyond Smash Burgers with Fries & Green Beans",
+        title: "Spinach & Feta Quesadillas",
         steps: [
             {
-                ingredients: ["1 bag (28–32 oz) frozen French fries"],
-                instruction: "Preheat oven according to fries package directions (usually 425°F). Spread fries in a single layer on a baking sheet — don't overlap or they won't crisp. Put them in the oven now. They'll cook while you make everything else.",
-                timer: { seconds: 1500, label: "Bake fries" }
+                ingredients: ["1 tbsp olive oil","3 cloves garlic, minced","4 cups baby spinach","Salt, pepper, red pepper flakes (optional)"],
+                instruction: "Heat olive oil in a wide skillet over medium heat. Add garlic and cook 30 seconds. Add spinach and toss for 1–2 minutes until wilted. Season with salt and pepper. Transfer to a bowl and squeeze out excess liquid — dry spinach is the key to crispy quesadillas.",
+                timer: { seconds: 120, label: "Wilt spinach" }
             },
             {
-                ingredients: ["Tomato, sliced","Red onion, thinly sliced","Lettuce","Pickles","Ketchup, mustard, mayo","4–5 burger buns"],
-                instruction: "While fries cook: slice tomato and red onion, set out all toppings and condiments. Toast buns in a dry skillet or toaster."
+                ingredients: ["4–5 eggs","Small knob of butter","Salt and pepper"],
+                instruction: "In the same skillet over medium-low heat, add butter and fry the eggs to your liking — sunny side up or over easy both work well. Season with salt and pepper. Set aside."
             },
             {
-                ingredients: ["1 lb green beans, trimmed","1 tbsp butter","1 tbsp olive oil","2 cloves garlic, minced","Salt and pepper","Lemon squeeze (optional)"],
-                instruction: "Heat butter and olive oil in a wide skillet over medium-high heat. Add green beans and cook, tossing occasionally, for 5–6 minutes until blistered and just tender. Add garlic, toss, and cook 1 minute more. Season generously. Finish with lemon if using. Set aside and keep warm.",
-                timer: { seconds: 360, label: "Cook green beans" }
+                ingredients: ["8–10 flour tortillas","1 cup shredded mozzarella","4–5 oz feta, crumbled","Wilted spinach","Fried eggs"],
+                instruction: "Lay a tortilla flat. On one half, scatter mozzarella, a spoonful of spinach, crumbled feta, and a fried egg. Fold the empty half over to close. Repeat for all quesadillas."
             },
             {
-                ingredients: ["4–5 Beyond Burger patties","A tiny amount of vegetable oil","Salt and black pepper","4–5 slices cheese"],
-                instruction: "Wipe the skillet with a tiny amount of oil on a paper towel and heat over the highest heat your stove allows until it just starts to smoke. Season each patty generously with salt and pepper. Working one or two at a time, place a patty in the pan and immediately press down hard with a spatula — really lean into it. Hold for 15–20 seconds."
+                ingredients: ["Small amount of butter"],
+                instruction: "Heat the skillet over medium heat with a little butter. Cook each folded quesadilla 2–3 minutes per side, pressing gently with a spatula, until golden and crispy. Work in batches.",
+                timer: { seconds: 180, label: "Cook quesadilla" }
             },
             {
-                ingredients: [],
-                instruction: "Cook for 2 minutes without moving. The edges will look lacy and deeply browned. Flip once, immediately place a cheese slice on top, and cook 1 more minute. Repeat with remaining patties.",
-                timer: { seconds: 120, label: "Smash & cook side 1" }
-            },
-            {
-                ingredients: [],
-                instruction: "Build the burgers: spread condiments on toasted buns, add patty with melted cheese, then pile on lettuce, tomato, onion, and pickles. Serve immediately with fries and green beans."
+                ingredients: ["Sour cream","Salsa or hot sauce","Avocado (optional)"],
+                instruction: "Cut each quesadilla in half and serve immediately with sour cream, salsa, and avocado."
             }
         ]
     },
     meal2: {
-        title: "Sesame Garlic Noodles with Plant-Based Chicken",
+        title: "Chana Masala",
         steps: [
             {
-                ingredients: ["⅓ cup soy sauce","3 tbsp sesame oil","2 tbsp rice vinegar","2 tbsp brown sugar or maple syrup","1 tbsp peanut butter","5 cloves garlic, minced","1 tsp fresh ginger, minced","2 tbsp warm water","1–2 tsp sriracha (optional)"],
-                instruction: "Make the sauce: whisk all ingredients together until smooth. The peanut butter will take a moment to incorporate — keep whisking. Set aside."
+                ingredients: ["2 cups dry basmati rice"],
+                instruction: "Start the rice cooking according to package directions — it'll be ready when the curry is done."
             },
             {
-                ingredients: ["12 oz lo mein noodles or spaghetti"],
-                instruction: "Cook noodles according to package directions until just al dente. Before draining, reserve ¼ cup of pasta water. Drain and rinse briefly with cold water. Set aside.",
-                timer: { seconds: 480, label: "Cook noodles" }
+                ingredients: ["2 tbsp vegetable oil","1 medium onion, finely diced"],
+                instruction: "Heat oil in a large pot over medium heat. Add onion and cook 6–7 minutes until soft and golden.",
+                timer: { seconds: 420, label: "Cook onion" }
             },
             {
-                ingredients: ["1 package plant-based chicken strips","1 tbsp vegetable oil"],
-                instruction: "While noodles cook: heat oil in a large skillet or wok over medium-high heat. Cook plant-based chicken strips according to package directions — usually 4–5 minutes, turning once, until golden and heated through. Remove and set aside.",
-                timer: { seconds: 300, label: "Cook plant-based chicken" }
+                ingredients: ["4 cloves garlic, minced","1 tbsp fresh ginger, minced","2 tbsp tomato paste"],
+                instruction: "Add garlic and ginger. Cook 1–2 minutes until fragrant. Add tomato paste and stir, cooking 1 minute."
             },
             {
-                ingredients: ["4 green onions (white parts)","2 cups shredded red cabbage","2 carrots, julienned or shredded"],
-                instruction: "In the same pan over medium heat, add the white parts of the green onions and cook 1 minute. Add cabbage and carrots. Stir-fry 2–3 minutes until slightly softened but still with some crunch.",
-                timer: { seconds: 180, label: "Stir-fry veg" }
+                ingredients: ["1½ tsp garam masala","1 tsp cumin","1 tsp coriander","1 tsp smoked paprika","½ tsp turmeric","½ tsp chili powder"],
+                instruction: "Add all spices. Stir and cook 1 minute — they'll bloom and become very fragrant."
             },
             {
-                ingredients: ["Cooked noodles","Sesame garlic sauce","Reserved pasta water"],
-                instruction: "Add noodles to the pan. Pour sauce over everything. Toss well to coat, adding a splash of reserved pasta water if the sauce is too thick. Cook 1–2 minutes until everything is hot and glossy.",
-                timer: { seconds: 90, label: "Toss everything" }
+                ingredients: ["1 can (14 oz) diced tomatoes","½ cup water","1 tsp sugar"],
+                instruction: "Add diced tomatoes (with liquid), water, and sugar. Stir and bring to a simmer. Cook 5 minutes until the sauce starts to thicken.",
+                timer: { seconds: 300, label: "Simmer sauce" }
             },
             {
-                ingredients: ["Plant-based chicken","Green onion tops","1 tbsp sesame seeds","Fresh cilantro (optional)","Lime wedges"],
-                instruction: "Return the crispy plant-based chicken and toss to combine. Serve in bowls topped with green onion tops, sesame seeds, and cilantro. Lime wedges on the side. Enjoy!"
+                ingredients: ["2 cans (15 oz each) chickpeas, drained"],
+                instruction: "Add chickpeas and stir to coat. Simmer uncovered 12–15 minutes, stirring occasionally. Gently mash a few chickpeas against the side of the pot to thicken the sauce.",
+                timer: { seconds: 840, label: "Simmer chickpeas" }
+            },
+            {
+                ingredients: ["1 tbsp lemon juice","Salt","Fresh cilantro","Plain yogurt"],
+                instruction: "Stir in lemon juice. Season generously with salt. Serve over rice topped with fresh cilantro and a dollop of yogurt."
             }
         ]
     },
     meal3: {
+        title: "Spaghetti with Hidden Veggie Sauce",
+        steps: [
+            {
+                ingredients: ["2 medium carrots, diced","1 medium zucchini, diced"],
+                instruction: "Dice the carrots and zucchini into roughly ½-inch pieces — no need to be precise since they're getting blended. About 5 minutes of knife work."
+            },
+            {
+                ingredients: ["2 tbsp olive oil","1 small onion, finely diced"],
+                instruction: "Heat olive oil in a large skillet or pot over medium heat. Add onion and cook 4–5 minutes until soft and translucent.",
+                timer: { seconds: 300, label: "Cook onion" }
+            },
+            {
+                ingredients: ["3 cloves garlic, minced","Diced carrots"],
+                instruction: "Add garlic and cook 1 minute. Add diced carrots and cook, stirring occasionally, for 5–6 minutes until starting to soften.",
+                timer: { seconds: 360, label: "Cook carrots" }
+            },
+            {
+                ingredients: ["Diced zucchini","1 tsp dried oregano","Salt and pepper"],
+                instruction: "Add zucchini, oregano, salt, and pepper. Cook another 4–5 minutes until both vegetables are completely soft and tender — fully cooked through so they blend smoothly.",
+                timer: { seconds: 300, label: "Cook zucchini" }
+            },
+            {
+                ingredients: ["~½ cup of the jarred marinara sauce","Blender or immersion blender"],
+                instruction: "Transfer the sautéed veg to a blender with about ½ cup of the jarred sauce to help it blend. Hold the lid down with a folded tea towel. Blend until completely smooth. Alternatively use an immersion blender directly in the pot."
+            },
+            {
+                ingredients: ["Remaining jarred marinara sauce","½ tsp sugar"],
+                instruction: "Return blended veg to the pan. Add remaining sauce and sugar. Stir to combine. Bring to a gentle simmer and cook 8–10 minutes, stirring occasionally.",
+                timer: { seconds: 540, label: "Simmer sauce" }
+            },
+            {
+                ingredients: ["1 lb spaghetti","Salt for pasta water"],
+                instruction: "While sauce simmers: cook spaghetti in a large pot of well-salted boiling water until al dente. Reserve ½ cup pasta water before draining.",
+                timer: { seconds: 600, label: "Cook pasta" }
+            },
+            {
+                ingredients: ["Cooked spaghetti","Reserved pasta water","Grated parmesan"],
+                instruction: "Add drained spaghetti to the sauce. Toss well to coat, adding pasta water to loosen if needed. Serve topped with plenty of grated parmesan."
+            }
+        ]
+    },
+    meal4: {
         title: "Banana Oat Pancakes",
         steps: [
             {
